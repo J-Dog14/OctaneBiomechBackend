@@ -1,0 +1,19 @@
+// This is your Prisma schema file.
+// After connecting to your Neon database, run: pnpm prisma db pull
+// This will populate the schema with your existing database structure.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// TODO: After running `pnpm prisma db pull`, this file will be populated
+// with your actual table models. The repo.ts file contains placeholders
+// that reference expected models like:
+// - BiomechSession (or similar)
+// - Fields: id, orgId, athleteId, createdAt, etc.
+
