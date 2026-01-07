@@ -199,14 +199,114 @@ The service supports multiple API keys via the `BIOMECH_API_KEYS` environment va
 
 ### Vercel
 
-1. Push your code to a Git repository
-2. Import the project in Vercel
-3. Set environment variables:
-   - `DATABASE_URL`
-   - `BIOMECH_API_KEYS`
-4. Deploy
+#### Prerequisites
 
-The Prisma client will be generated during the build process.
+1. **Git Repository**: Push your code to GitHub, GitLab, or Bitbucket
+2. **Vercel Account**: Sign up at [vercel.com](https://vercel.com) if you haven't already
+
+#### Step-by-Step Deployment
+
+1. **Push Code to Git**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin <your-repo-url>
+   git push -u origin main
+   ```
+
+2. **Import Project to Vercel**
+   - Go to [vercel.com/new](https://vercel.com/new)
+   - Click "Import Git Repository"
+   - Select your repository
+   - Vercel will auto-detect Next.js settings
+
+3. **Configure Build Settings**
+   - **Framework Preset**: Next.js (auto-detected)
+   - **Build Command**: `npm run build` (or `pnpm build` if using pnpm)
+   - **Output Directory**: `.next` (auto-detected)
+   - **Install Command**: `npm install` (or `pnpm install`)
+
+4. **Set Environment Variables**
+   In the Vercel project settings, add these environment variables:
+   
+   - `DATABASE_URL`
+     - Value: Your Neon Postgres connection string (read-only recommended)
+     - Example: `postgresql://user:password@host:5432/database?sslmode=require`
+   
+   - `BIOMECH_API_KEYS`
+     - Value: Comma-separated list of API keys
+     - Example: `prod-key-abc123,prod-key-xyz789`
+     - **Important**: No spaces after commas
+
+5. **Deploy**
+   - Click "Deploy"
+   - Vercel will:
+     - Install dependencies
+     - Run `prisma generate` (via postinstall script)
+     - Build the Next.js app
+     - Deploy to production
+
+6. **Verify Deployment**
+   - Check the deployment logs for any errors
+   - Test the health endpoint: `https://your-project.vercel.app/api/health`
+   - Test an authenticated endpoint with your API key
+
+#### Environment Variables in Vercel
+
+To add/update environment variables after deployment:
+
+1. Go to your project in Vercel dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add or edit variables
+4. Redeploy for changes to take effect
+
+#### Using Vercel CLI (Alternative)
+
+You can also deploy using the Vercel CLI:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login
+vercel login
+
+# Deploy
+vercel
+
+# Set environment variables
+vercel env add DATABASE_URL
+vercel env add BIOMECH_API_KEYS
+
+# Deploy to production
+vercel --prod
+```
+
+#### Build Configuration
+
+The project is configured to automatically generate the Prisma client:
+- `postinstall` script runs `prisma generate` after `npm install`
+- `build` script runs `prisma generate && next build`
+
+This ensures Prisma client is available during the Vercel build process.
+
+#### Troubleshooting
+
+**Prisma Client Not Found**
+- Ensure `prisma` is in `devDependencies` (it is)
+- Check that `prisma/schema.prisma` exists and is valid
+- Verify build logs show `prisma generate` running
+
+**Database Connection Issues**
+- Verify `DATABASE_URL` is set correctly in Vercel
+- Check that your Neon database allows connections from Vercel's IPs
+- Ensure SSL is enabled in the connection string (`?sslmode=require`)
+
+**API Key Authentication Failing**
+- Verify `BIOMECH_API_KEYS` is set in Vercel
+- Check for extra spaces in the comma-separated list
+- Ensure you're sending the header as `X-API-Key` (case-sensitive)
 
 ## Development
 
