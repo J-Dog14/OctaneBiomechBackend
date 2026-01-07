@@ -40,13 +40,16 @@ Set the following variables:
 
 ### 3. Set Up Prisma
 
+**Important**: Prisma 7+ requires the connection URL to be passed to the PrismaClient constructor (not in the schema). The `DATABASE_URL` environment variable is used automatically.
+
 If you have an existing database schema, pull it into Prisma:
 
 ```bash
+# Make sure DATABASE_URL is set in your .env.local
 pnpm prisma db pull
 ```
 
-This will populate `prisma/schema.prisma` with your database structure.
+This will populate `prisma/schema.prisma` with your database structure. Note that `prisma db pull` reads the connection string from the `DATABASE_URL` environment variable.
 
 ### 4. Generate Prisma Client
 
