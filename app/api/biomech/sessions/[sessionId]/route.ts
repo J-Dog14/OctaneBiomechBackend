@@ -7,12 +7,15 @@ import {
 import { badRequest, internalError, notFound, success } from "@/lib/responses";
 import { getSessionById } from "@/lib/biomech/repo";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { sessionId: string } }
-) {
+type RouteContext = {
+  params: Promise<{ sessionId: string }>;
+};
+
+export async function GET(request: NextRequest, context: RouteContext) {
   try {
     requireApiKey(request);
+
+    const { sessionId } = await context.params;
 
     const { searchParams } = new URL(request.url);
     const rawQuery = {
@@ -22,14 +25,14 @@ export async function GET(
     const queryValidation = sessionDetailQuerySchema.safeParse(rawQuery);
     if (!queryValidation.success) {
       return badRequest(
-        queryValidation.error.errors.map((e) => e.message).join(", ")
+        queryValidation.error.issues.map((e) => e.message).join(", ")
       );
     }
 
-    const paramsValidation = sessionParamsSchema.safeParse(params);
+    const paramsValidation = sessionParamsSchema.safeParse({ sessionId });
     if (!paramsValidation.success) {
       return badRequest(
-        paramsValidation.error.errors.map((e) => e.message).join(", ")
+        paramsValidation.error.issues.map((e) => e.message).join(", ")
       );
     }
 
@@ -52,4 +55,3 @@ export async function GET(
     return internalError("Failed to fetch session");
   }
 }
-

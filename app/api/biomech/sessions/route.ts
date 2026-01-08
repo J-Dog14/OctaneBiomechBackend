@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 
     if (!validationResult.success) {
       return badRequest(
-        validationResult.error.errors.map((e) => e.message).join(", ")
+        validationResult.error.issues.map((e) => e.message).join(", ")
       );
     }
 
