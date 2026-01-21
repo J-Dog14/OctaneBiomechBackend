@@ -42,7 +42,8 @@ function getAllowedKeys(): string[] {
  */
 function constantTimeCompare(provided: string, allowed: string[]): boolean {
   let match = false;
-
+console.log({allowed})
+console.log({provided})
   for (const allowedKey of allowed) {
     if (provided.length !== allowedKey.length) {
       continue;
