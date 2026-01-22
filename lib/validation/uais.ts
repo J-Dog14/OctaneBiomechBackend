@@ -42,3 +42,9 @@ export const uaisHittingQuerySchema = z.object({
 
 export type UaisHittingQuery = z.infer<typeof uaisHittingQuerySchema>;
 
+export const uaisMobilityQuerySchema = z.object({
+  athleteUuid: z.string().min(1, "athleteUuid is required"),
+});
+
+export type UaisMobilityQuery = z.infer<typeof uaisMobilityQuerySchema>;
+
