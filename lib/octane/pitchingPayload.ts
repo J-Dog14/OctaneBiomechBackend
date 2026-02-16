@@ -30,7 +30,7 @@ type MetricSpec = {
   name: string;
   valueUnit: ValueUnit;
   orientation: Orientation | null;
-  /** Metric names in `f_kinematics_pitching.metric_name` to try in order. */
+  /** Metric names (e.g. in `f_kinematics_pitching.metric_name` or `f_pitching_trials.metrics` keys) to try in order. */
   metricNameCandidates?: string[];
   /** If set, compute value from athlete record instead of kinematics table. */
   fromAthlete?: "weightLbs";
@@ -38,8 +38,11 @@ type MetricSpec = {
   compute?: (ctx: { velocityMph: number | null; weightLbs: number | null }) => number | null;
 };
 
+/** Parsed metrics from f_pitching_trials.metrics JSON (metric name -> value). */
+export type TrialMetricsMap = Map<string, number | null>;
+
 // This is the legacy payload shape you shared in output_payload.json.
-// We'll pull values from `f_kinematics_pitching` where possible.
+// We pull values from `f_pitching_trials.metrics` (JSON) or fallback to `f_kinematics_pitching`.
 const PITCHING_METRIC_SPECS: MetricSpec[] = [
   {
     category: "SUBJECT_METRICS",
@@ -288,10 +291,83 @@ function deriveLevelFromAthlete(athlete: { age_group: string | null }): string {
 }
 
 /**
- * Builds a legacy-style pitching payload for a single athlete, choosing the
- * "best" session by max ball release speed when available.
+ * Parses the `metrics` JSON column from f_pitching_trials into a map of metric name -> number.
+ * The trials JSON often uses vector keys with .X / .Y / .Z (e.g. PROCESSED.Pelvis_Angle@Footstrike.X).
+ * We store each key as-is and also register the base name for .X keys so lookups like
+ * PROCESSED.Pelvis_Angle@Footstrike (used by kinematics) resolve to the .X value.
  */
-export async function buildPitchingPayload(
+function parseTrialMetricsJson(metrics: unknown): Map<string, number | null> {
+  const out = new Map<string, number | null>();
+  if (metrics === null || metrics === undefined || typeof metrics !== "object" || Array.isArray(metrics)) {
+    return out;
+  }
+  const obj = metrics as Record<string, unknown>;
+  for (const [key, val] of Object.entries(obj)) {
+    const num = decimalToNumber(val);
+    out.set(key, num);
+    // So payload specs that expect "PROCESSED.Pelvis_Angle@Footstrike" (no suffix) find the value from ".X"
+    if (key.endsWith(".X")) {
+      const baseKey = key.slice(0, -2);
+      if (!out.has(baseKey)) out.set(baseKey, num);
+    }
+  }
+  return out;
+}
+
+/**
+ * Builds the metrics array and payload from a valueByMetricName map (shared by trials and kinematics).
+ */
+function buildMetricsFromValueMap(
+  valueByMetricName: Map<string, number | null>,
+  athlete: { athlete_uuid: string; age_group: string | null; weight: unknown }
+): PitchingPayload {
+  const velocityMph =
+    valueByMetricName.get("BALLSPEED.BALL_RELEASE_SPEED") ?? null;
+  const weightLbs = decimalToNumber(athlete.weight);
+
+  const metrics: PitchingPayloadMetric[] = PITCHING_METRIC_SPECS.map((spec) => {
+    let value: number | null = null;
+
+    if (spec.fromAthlete === "weightLbs") {
+      value = weightLbs;
+    } else if (spec.compute) {
+      value = spec.compute({ velocityMph, weightLbs });
+    } else if (spec.metricNameCandidates?.length) {
+      for (const candidate of spec.metricNameCandidates) {
+        const v = valueByMetricName.get(candidate);
+        if (v !== undefined) {
+          value = v;
+          break;
+        }
+      }
+    }
+
+    return {
+      category: spec.category,
+      name: spec.name,
+      value,
+      valueUnit: spec.valueUnit,
+      orientation: spec.orientation,
+    };
+  });
+
+  const scoreMetric = metrics.find(
+    (m) => m.category === "SUBJECT_METRICS" && m.name === "SCORE"
+  );
+
+  return {
+    athleteUuid: athlete.athlete_uuid,
+    level: deriveLevelFromAthlete({ age_group: athlete.age_group ?? null }),
+    score: scoreMetric?.value ?? null,
+    metrics,
+  };
+}
+
+/**
+ * Builds the pitching payload from f_pitching_trials (one row per trial, metrics in JSON).
+ * Picks the single best trial by velocity_mph, then parses metrics from that row.
+ */
+export async function buildPitchingPayloadFromTrials(
   athleteUuid: string
 ): Promise<PitchingPayload> {
   const athlete = await prisma.d_athletes.findUnique({
@@ -303,7 +379,50 @@ export async function buildPitchingPayload(
     throw notFound("Athlete not found");
   }
 
-  // Pick the "best" session: max velocity if present, else most recent session.
+  // Best trial by velocity (one row = one trial with all metrics in JSON).
+  const bestTrial = await prisma.f_pitching_trials.findFirst({
+    where: { athlete_uuid: athleteUuid },
+    orderBy: [{ velocity_mph: "desc" }, { session_date: "desc" }, { trial_index: "asc" }],
+    select: { metrics: true, velocity_mph: true, weight: true },
+  });
+
+  if (!bestTrial) {
+    throw notFound("No pitching trial data found for athlete");
+  }
+
+  const valueByMetricName = parseTrialMetricsJson(bestTrial.metrics);
+
+  // If velocity_mph is on the row but not in metrics JSON, use it so SCORE and VELOCITY match.
+  const velocityFromRow = decimalToNumber(bestTrial.velocity_mph);
+  if (velocityFromRow !== null && !valueByMetricName.has("BALLSPEED.BALL_RELEASE_SPEED")) {
+    valueByMetricName.set("BALLSPEED.BALL_RELEASE_SPEED", velocityFromRow);
+  }
+
+  // Prefer trial weight for WEIGHT metric if present.
+  const athleteForBuild =
+    bestTrial.weight != null && decimalToNumber(bestTrial.weight) !== null
+      ? { ...athlete, weight: bestTrial.weight }
+      : athlete;
+
+  return buildMetricsFromValueMap(valueByMetricName, athleteForBuild);
+}
+
+/**
+ * Builds the pitching payload from f_kinematics_pitching (one row per metric per frame).
+ * Used for comparison and as fallback when no trials data exists.
+ */
+export async function buildPitchingPayloadFromKinematics(
+  athleteUuid: string
+): Promise<PitchingPayload> {
+  const athlete = await prisma.d_athletes.findUnique({
+    where: { athlete_uuid: athleteUuid },
+    select: { athlete_uuid: true, age_group: true, weight: true },
+  });
+
+  if (!athlete) {
+    throw notFound("Athlete not found");
+  }
+
   const bestByVelocity = await prisma.f_kinematics_pitching.findFirst({
     where: { athlete_uuid: athleteUuid, metric_name: "BALLSPEED.BALL_RELEASE_SPEED" },
     orderBy: [{ value: "desc" }, { session_date: "desc" }],
@@ -350,45 +469,113 @@ export async function buildPitchingPayload(
     }
   }
 
-  const velocityMph =
-    valueByMetricName.get("BALLSPEED.BALL_RELEASE_SPEED") ?? null;
-  const weightLbs = decimalToNumber(athlete.weight);
+  return buildMetricsFromValueMap(valueByMetricName, athlete);
+}
 
-  const metrics: PitchingPayloadMetric[] = PITCHING_METRIC_SPECS.map((spec) => {
-    let value: number | null = null;
-
-    if (spec.fromAthlete === "weightLbs") {
-      value = weightLbs;
-    } else if (spec.compute) {
-      value = spec.compute({ velocityMph, weightLbs });
-    } else if (spec.metricNameCandidates?.length) {
-      for (const candidate of spec.metricNameCandidates) {
-        const v = valueByMetricName.get(candidate);
-        if (v !== undefined) {
-          value = v;
-          break;
-        }
-      }
-    }
-
-    return {
-      category: spec.category,
-      name: spec.name,
-      value,
-      valueUnit: spec.valueUnit,
-      orientation: spec.orientation,
-    };
+/**
+ * Builds the pitching payload for a single athlete.
+ * Uses f_pitching_trials (metrics JSON) when available; falls back to f_kinematics_pitching otherwise.
+ */
+export async function buildPitchingPayload(
+  athleteUuid: string
+): Promise<PitchingPayload> {
+  const athlete = await prisma.d_athletes.findUnique({
+    where: { athlete_uuid: athleteUuid },
+    select: { athlete_uuid: true, age_group: true, weight: true },
   });
 
-  const scoreMetric = metrics.find(
-    (m) => m.category === "SUBJECT_METRICS" && m.name === "SCORE"
-  );
+  if (!athlete) {
+    throw notFound("Athlete not found");
+  }
+
+  const hasTrials = await prisma.f_pitching_trials.findFirst({
+    where: { athlete_uuid: athleteUuid },
+    select: { id: true },
+  });
+
+  if (hasTrials) {
+    return buildPitchingPayloadFromTrials(athleteUuid);
+  }
+
+  return buildPitchingPayloadFromKinematics(athleteUuid);
+}
+
+/** Result of comparing payloads from trials vs kinematics for the same athlete. */
+export type PitchingPayloadComparison = {
+  athleteUuid: string;
+  fromTrials: PitchingPayload | null;
+  fromKinematics: PitchingPayload | null;
+  trialsError?: string;
+  kinematicsError?: string;
+  /** For each metric (category + name), values from both sources and whether they match. */
+  metricDiffs: Array<{
+    category: string;
+    name: string;
+    valueUnit: string;
+    valueTrials: number | null;
+    valueKinematics: number | null;
+    match: boolean;
+  }>;
+};
+
+/**
+ * Builds payloads from both f_pitching_trials and f_kinematics_pitching for the same athlete
+ * and returns a side-by-side comparison so you can verify the same numbers are pulled.
+ */
+export async function comparePitchingPayloads(
+  athleteUuid: string
+): Promise<PitchingPayloadComparison> {
+  const metricDiffs: PitchingPayloadComparison["metricDiffs"] = [];
+  let fromTrials: PitchingPayload | null = null;
+  let fromKinematics: PitchingPayload | null = null;
+  let trialsError: string | undefined;
+  let kinematicsError: string | undefined;
+
+  try {
+    fromTrials = await buildPitchingPayloadFromTrials(athleteUuid);
+  } catch (e) {
+    trialsError = e instanceof Error ? e.message : String(e);
+  }
+
+  try {
+    fromKinematics = await buildPitchingPayloadFromKinematics(athleteUuid);
+  } catch (e) {
+    kinematicsError = e instanceof Error ? e.message : String(e);
+  }
+
+  if (fromTrials?.metrics && fromKinematics?.metrics) {
+    const len = Math.max(fromTrials.metrics.length, fromKinematics.metrics.length);
+    for (let i = 0; i < len; i++) {
+      const t = fromTrials.metrics[i];
+      const k = fromKinematics.metrics[i];
+      if (!t || !k) continue;
+      const valueTrials = t.value;
+      const valueKinematics = k.value;
+      const match =
+        valueTrials === valueKinematics ||
+        (valueTrials != null &&
+          valueKinematics != null &&
+          Number.isFinite(valueTrials) &&
+          Number.isFinite(valueKinematics) &&
+          Math.abs(valueTrials - valueKinematics) < 1e-9);
+      metricDiffs.push({
+        category: t.category,
+        name: t.name,
+        valueUnit: t.valueUnit,
+        valueTrials,
+        valueKinematics,
+        match,
+      });
+    }
+  }
 
   return {
-    athleteUuid: athlete.athlete_uuid,
-    level: deriveLevelFromAthlete({ age_group: athlete.age_group ?? null }),
-    score: scoreMetric?.value ?? null,
-    metrics,
+    athleteUuid,
+    fromTrials,
+    fromKinematics,
+    trialsError,
+    kinematicsError,
+    metricDiffs,
   };
 }
 

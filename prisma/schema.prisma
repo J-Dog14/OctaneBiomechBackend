@@ -44,6 +44,8 @@ model d_athletes {
   arm_action_session_count       Int                       @default(0)
   has_curveball_test_data        Boolean                   @default(false)
   curveball_test_session_count   Int                       @default(0)
+  has_pitching_trial_data        Boolean?                  @default(false)
+  pitching_trial_count           Int?                      @default(0)
   source_athlete_map             source_athlete_map[]
   f_arm_action                   f_arm_action[]
   f_athletic_screen              f_athletic_screen[]
@@ -53,9 +55,11 @@ model d_athletes {
   f_athletic_screen_ppu          f_athletic_screen_ppu[]
   f_athletic_screen_slv          f_athletic_screen_slv[]
   f_curveball_test               f_curveball_test[]
+  f_hitting_trials               f_hitting_trials[]
   f_kinematics_hitting           f_kinematics_hitting[]
   f_kinematics_pitching          f_kinematics_pitching[]
   f_mobility                     f_mobility[]
+  f_pitching_trials              f_pitching_trials[]
   f_pro_sup                      f_pro_sup[]
   f_proteus                      f_proteus[]
   f_readiness_screen             f_readiness_screen[]
@@ -663,6 +667,8 @@ model f_kinematics_pitching {
   created_at        DateTime   @default(now()) @db.Timestamp(6)
   age_at_collection Decimal?   @db.Decimal
   age_group         String?
+  velocity_mph      Decimal?   @db.Decimal
+  score             Decimal?   @db.Decimal
   d_athletes        d_athletes @relation(fields: [athlete_uuid], references: [athlete_uuid], onDelete: Cascade)
 
   @@unique([athlete_uuid, session_date, metric_name, frame], map: "idx_f_pitching_unique")
@@ -1025,5 +1031,55 @@ model f_readiness_screen_y {
 
   @@index([session_date], map: "idx_f_readiness_screen_y_date")
   @@index([athlete_uuid], map: "idx_f_readiness_screen_y_uuid")
+  @@schema("public")
+}
+
+model f_hitting_trials {
+  id                    Int        @id @default(autoincrement())
+  athlete_uuid          String     @db.VarChar(36)
+  session_date          DateTime   @db.Date
+  source_system         String     @default("hitting") @db.VarChar(50)
+  source_athlete_id     String?    @db.VarChar(100)
+  owner_filename        String?
+  trial_index           Int
+  age_at_collection     Decimal?   @db.Decimal
+  age_group             String?
+  height                Decimal?   @db.Decimal
+  weight                Decimal?   @db.Decimal
+  metrics               Json
+  session_xml_path      String?
+  session_data_xml_path String?
+  created_at            DateTime   @default(now()) @db.Timestamptz(6)
+  d_athletes            d_athletes @relation(fields: [athlete_uuid], references: [athlete_uuid], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([athlete_uuid, session_date, trial_index], map: "idx_f_hitting_trials_unique")
+  @@index([session_date], map: "idx_f_hitting_trials_date")
+  @@index([owner_filename], map: "idx_f_hitting_trials_owner")
+  @@schema("public")
+}
+
+model f_pitching_trials {
+  id                    Int        @id @default(autoincrement())
+  athlete_uuid          String     @db.VarChar(36)
+  session_date          DateTime   @db.Date
+  source_system         String     @default("pitching") @db.VarChar(50)
+  source_athlete_id     String?    @db.VarChar(100)
+  owner_filename        String?
+  trial_index           Int
+  velocity_mph          Decimal?   @db.Decimal
+  score                 Decimal?   @db.Decimal
+  metrics               Json
+  session_xml_path      String?
+  session_data_xml_path String?
+  created_at            DateTime   @default(now()) @db.Timestamptz(6)
+  age_at_collection     Decimal?   @db.Decimal
+  age_group             String?
+  height                Decimal?   @db.Decimal
+  weight                Decimal?   @db.Decimal
+  d_athletes            d_athletes @relation(fields: [athlete_uuid], references: [athlete_uuid], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([athlete_uuid, session_date, trial_index], map: "idx_f_pitching_trials_unique")
+  @@index([session_date], map: "idx_f_pitching_trials_date")
+  @@index([owner_filename], map: "idx_f_pitching_trials_owner")
   @@schema("public")
 }
