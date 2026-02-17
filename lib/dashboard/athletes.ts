@@ -4,11 +4,14 @@ const athleteListSelect = {
   athlete_uuid: true,
   name: true,
   normalized_name: true,
+  email: true,
   date_of_birth: true,
   gender: true,
   age_group: true,
   created_at: true,
   updated_at: true,
+  app_db_uuid: true,
+  app_db_synced_at: true,
   has_pitching_data: true,
   has_hitting_data: true,
   has_athletic_screen_data: true,
@@ -33,9 +36,11 @@ export async function getAthletesList(opts: {
   q?: string;
   limit?: number;
   cursor?: string;
+  /** When true, only return athletes with no email (non-app athletes). */
+  filterNonApp?: boolean;
 }) {
-  const { q, limit = 50, cursor } = opts;
-  const where =
+  const { q, limit = 50, cursor, filterNonApp } = opts;
+  const nameWhere =
     q && q.trim().length > 0
       ? {
           OR: [
@@ -48,6 +53,13 @@ export async function getAthletesList(opts: {
           ],
         }
       : undefined;
+  const nonAppWhere = filterNonApp
+    ? { OR: [{ email: null }, { email: "" }] }
+    : undefined;
+  const where =
+    nameWhere && nonAppWhere
+      ? { AND: [nameWhere, nonAppWhere] }
+      : nameWhere ?? nonAppWhere ?? undefined;
 
   // Cursor for alphabetical (name) pagination: need name + athlete_uuid
   let cursorPayload: { name: string; athlete_uuid: string } | undefined;

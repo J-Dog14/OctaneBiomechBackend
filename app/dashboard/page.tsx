@@ -54,18 +54,18 @@ export default async function DashboardPage() {
           </div>
         </Link>
         <Link
-          href="/dashboard/data-roots"
+          href="/dashboard/athlete-tracking"
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <div className="card" style={{ height: "100%" }}>
             <div className="text-muted" style={{ fontSize: "12px", marginBottom: "4px" }}>
-              Data Roots
+              Athlete Tracking
             </div>
             <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--accent)" }}>
               Tracker
             </div>
             <p className="text-muted" style={{ margin: "0.5rem 0 0", fontSize: "13px" }}>
-              Monitor new files in Athletic Screen, Pitching, and other roots.
+              Monitor new data files that have not yet been inserted into the database.
             </p>
           </div>
         </Link>

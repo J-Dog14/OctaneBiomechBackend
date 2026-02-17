@@ -14,6 +14,7 @@ export async function GET(request: NextRequest) {
     const rawQuery = {
       athleteUuid: searchParams.get("athleteUuid") ?? undefined,
       limit: searchParams.get("limit") ?? undefined,
+      latestOnly: searchParams.get("latestOnly") ?? undefined,
     };
     const queryValidation = octaneReportPayloadQuerySchema.safeParse(rawQuery);
     if (!queryValidation.success) {

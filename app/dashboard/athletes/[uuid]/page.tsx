@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { buildAthleteReportPayload } from "@/lib/octane/reportPayload";
+import { AthleteUpdateEmailButton } from "../AthleteUpdateEmailButton";
 
 const COUNT_LABELS: Record<string, string> = {
   armAction: "Arm action",
@@ -56,11 +57,18 @@ export default async function AthleteDetailPage({
           <dd>{athlete.dateOfBirth ? new Date(athlete.dateOfBirth).toLocaleDateString() : "—"}</dd>
           <dt className="text-muted">Gender</dt>
           <dd>{athlete.gender ?? "—"}</dd>
+          <dt className="text-muted">Email</dt>
+          <dd>{athlete.email ?? <span className="text-muted">no email</span>}</dd>
           <dt className="text-muted">Height</dt>
           <dd>{athlete.height ?? "—"}</dd>
           <dt className="text-muted">Weight</dt>
           <dd>{athlete.weight ?? "—"}</dd>
         </dl>
+        {(!athlete.email || athlete.email === "") && (
+          <div style={{ marginTop: "0.75rem" }}>
+            <AthleteUpdateEmailButton athleteUuid={athlete.athleteUuid} name={athlete.name} />
+          </div>
+        )}
       </div>
 
       <div className="card" style={{ marginBottom: "1.5rem" }}>

@@ -28,6 +28,9 @@ yarn-error.log*
 .env*.local
 .env
 
+# UAIS runners config (machine-specific paths)
+config/uais-runners.json
+
 # vercel
 .vercel
 

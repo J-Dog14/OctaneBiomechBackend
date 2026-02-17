@@ -15,6 +15,11 @@ export const octaneReportPayloadQuerySchema = z.object({
       if (isNaN(num) || num < 1) return 25;
       return Math.min(num, 200);
     }),
+  /** When true, restrict to latest session per table (for future first vs second comparison). */
+  latestOnly: z
+    .string()
+    .optional()
+    .transform((v) => v === "true" || v === "1"),
 });
 
 export type OctaneReportPayloadQuery = z.infer<
@@ -27,6 +32,11 @@ export type OctaneReportPayloadQuery = z.infer<
  */
 export const octanePitchingPayloadQuerySchema = z.object({
   athleteUuid: z.string().min(1, "athleteUuid is required"),
+  /** Pitching already uses a single session (best/latest); accepted for API consistency. */
+  latestOnly: z
+    .string()
+    .optional()
+    .transform((v) => v === "true" || v === "1"),
 });
 
 export type OctanePitchingPayloadQuery = z.infer<

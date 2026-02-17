@@ -1,0 +1,9 @@
+[
+  { "id": "athletic-screen", "label": "Athletic Screen", "cwd": "D:\\Athletic Screen 2.0", "command": "python main.py" },
+  { "id": "readiness-screen", "label": "Readiness Screen", "cwd": "D:\\ReadinessScreen", "command": "python main.py" },
+  { "id": "pro-sup", "label": "Pro Sup", "cwd": "D:\\ProSup", "command": "python main.py" },
+  { "id": "pitching", "label": "Pitching", "cwd": "H:\\Pitching", "command": "python main.py" },
+  { "id": "hitting", "label": "Hitting", "cwd": "H:\\Hitting", "command": "python main.py" },
+  { "id": "arm-action", "label": "Arm Action", "cwd": "D:\\ArmAction", "command": "python main.py" },
+  { "id": "curveball", "label": "Curveball", "cwd": "D:\\Curveball", "command": "python main.py" }
+]

@@ -14,6 +14,7 @@ export async function GET(request: NextRequest) {
       q: searchParams.get("q") ?? undefined,
       limit: searchParams.get("limit") ?? undefined,
       cursor: searchParams.get("cursor") ?? undefined,
+      filterNonApp: searchParams.get("filterNonApp") ?? searchParams.get("nonApp") ?? undefined,
     };
 
     const queryValidation = uaisAthletesQuerySchema.safeParse(rawQuery);
@@ -23,11 +24,12 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { q, limit, cursor } = queryValidation.data;
+    const { q, limit, cursor, filterNonApp } = queryValidation.data;
     const { items, nextCursor } = await getAthletesList({
       q,
       limit: limit ?? 50,
       cursor,
+      filterNonApp: filterNonApp ?? false,
     });
 
     return success({

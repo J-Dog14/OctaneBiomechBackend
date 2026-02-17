@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DashboardNav } from "./DashboardNav";
 
 export default function DashboardLayout({
   children,
@@ -28,43 +29,7 @@ export default function DashboardLayout({
         >
           Octane Biomech
         </Link>
-        <nav style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-          <Link
-            href="/dashboard"
-            className="nav-link"
-            style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          >
-            Dashboard
-          </Link>
-          <Link
-            href="/dashboard/athletes"
-            className="nav-link"
-            style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          >
-            Athletes
-          </Link>
-          <Link
-            href="/dashboard/send-payload"
-            className="nav-link"
-            style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          >
-            Send Payload
-          </Link>
-          <Link
-            href="/dashboard/data-roots"
-            className="nav-link"
-            style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          >
-            Data Roots
-          </Link>
-          <Link
-            href="/dashboard/uais-maintenance"
-            className="nav-link"
-            style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          >
-            UAIS Maintenance
-          </Link>
-        </nav>
+        <DashboardNav />
       </header>
       <main style={{ flex: 1, padding: "1.5rem" }}>{children}</main>
     </div>

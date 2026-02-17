@@ -12,6 +12,10 @@ export const uaisAthletesQuerySchema = z.object({
     }),
   cursor: z.string().optional(),
   q: z.string().optional(),
+  filterNonApp: z
+    .string()
+    .optional()
+    .transform((val) => val === "1" || val?.toLowerCase() === "true"),
 });
 
 export type UaisAthletesQuery = z.infer<typeof uaisAthletesQuerySchema>;

@@ -130,6 +130,7 @@ function SendPayloadContent() {
       </h1>
       <p className="text-muted" style={{ marginBottom: "1.5rem" }}>
         Select athletes and payload type, then generate. You can run multiple report payloads at once; pitching is one athlete at a time.
+        Each payload uses the <strong>most recent session</strong> (or best by velocity for pitching) per test type—Run All sends only that.
       </p>
 
       <div className="card" style={{ marginBottom: "1.5rem" }}>
@@ -204,15 +205,20 @@ function SendPayloadContent() {
         </p>
       </div>
 
-      <div style={{ marginBottom: "1.5rem" }}>
+      <div style={{ marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
         <button
           type="button"
           className="btn-primary"
           onClick={runPayloads}
           disabled={running || selectedIds.size === 0}
         >
-          {running ? "Generating…" : "Generate payload(s)"}
+          {running ? "Generating…" : selectedIds.size > 1 ? "Run All" : "Generate payload(s)"}
         </button>
+        {selectedIds.size > 1 && (
+          <span className="text-muted" style={{ fontSize: "13px" }}>
+            Run All uses the most recent instance per test for each selected athlete.
+          </span>
+        )}
       </div>
 
       {result && (

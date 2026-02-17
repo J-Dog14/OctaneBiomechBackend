@@ -1,5 +1,32 @@
 import { spawn, type ChildProcess } from "node:child_process";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
 import type { UaisRunner } from "./runners";
+
+/** Prepend R's bin to PATH so spawned jobs can find Rscript when the Next.js process didn't inherit it (e.g. Cursor/VS Code). */
+function getEnvWithROnPath(env: NodeJS.ProcessEnv): NodeJS.ProcessEnv {
+  let rBin: string | null = null;
+  if (process.env.R_HOME) {
+    const candidate = path.join(process.env.R_HOME, "bin");
+    if (existsSync(candidate)) rBin = candidate;
+  }
+  if (!rBin && process.platform === "win32") {
+    const programFiles = process.env.PROGRAMFILES || "C:\\Program Files";
+    const rRoot = path.join(programFiles, "R");
+    if (existsSync(rRoot)) {
+      const dirs = readdirSync(rRoot).filter((d) => d.startsWith("R-"));
+      if (dirs.length > 0) {
+        dirs.sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+        const bin = path.join(rRoot, dirs[0], "bin");
+        if (existsSync(bin)) rBin = bin;
+      }
+    }
+  }
+  if (!rBin) return env;
+  const pathSep = process.platform === "win32" ? ";" : ":";
+  const current = env.PATH ?? env.Path ?? "";
+  return { ...env, PATH: rBin + pathSep + current, Path: rBin + pathSep + current };
+}
 
 type Job = {
   runner: UaisRunner;
@@ -39,13 +66,22 @@ function onExit(jobId: string) {
   jobs.delete(jobId);
 }
 
-export function createJob(runner: UaisRunner): string {
+export type CreateJobOptions = {
+  /** When set (Existing Athlete flow), passed as ATHLETE_UUID to the process. */
+  athleteUuid?: string | null;
+};
+
+export function createJob(runner: UaisRunner, options?: CreateJobOptions): string {
   const jobId = crypto.randomUUID();
-  const isWindows = process.platform === "win32";
+  const env: NodeJS.ProcessEnv = { ...process.env };
+  if (options?.athleteUuid?.trim()) {
+    env.ATHLETE_UUID = options.athleteUuid.trim();
+  }
+  const envWithPath = getEnvWithROnPath(env);
   const proc = spawn(runner.command, [], {
     shell: true,
     cwd: runner.cwd,
-    env: { ...process.env },
+    env: envWithPath,
   });
 
   const job: Job = {

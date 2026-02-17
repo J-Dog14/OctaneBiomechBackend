@@ -10,6 +10,7 @@ export type AthleteReportPayload = {
     gender?: string | null;
     height?: string | null;
     weight?: string | null;
+    email?: string | null;
   };
   counts: {
     armAction: number;
@@ -36,6 +37,7 @@ export async function buildAthleteReportPayload(
       gender: true,
       height: true,
       weight: true,
+      email: true,
     },
   });
 
@@ -72,9 +74,9 @@ export async function buildAthleteReportPayload(
       name: athlete.name,
       dateOfBirth: athlete.date_of_birth?.toISOString() ?? null,
       gender: athlete.gender ?? null,
-      // Prisma Decimal serializes to string via toJSON; we explicitly cast to string/null.
       height: athlete.height ? String(athlete.height) : null,
       weight: athlete.weight ? String(athlete.weight) : null,
+      email: athlete.email ?? null,
     },
     counts: {
       armAction,

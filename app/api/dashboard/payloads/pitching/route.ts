@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const rawQuery = {
       athleteUuid: searchParams.get("athleteUuid") ?? undefined,
+      latestOnly: searchParams.get("latestOnly") ?? undefined,
     };
     const queryValidation = octanePitchingPayloadQuerySchema.safeParse(rawQuery);
     if (!queryValidation.success) {
