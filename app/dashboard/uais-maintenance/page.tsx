@@ -235,9 +235,11 @@ export default function UaisMaintenancePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ jobId: activeJob.jobId, input: inputValue }),
       });
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
         setOutput((prev) => prev + `\n[Send error] ${data.error ?? res.statusText}\n`);
+      } else if (data.ok === false && data.error) {
+        setOutput((prev) => prev + `\n[Note] ${data.error}\n`);
       }
       setInputValue("");
     } catch (e) {
@@ -278,9 +280,11 @@ export default function UaisMaintenancePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ jobId, input: response }),
       });
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
         setOutput((prev) => prev + `\n[Send error] ${data.error ?? res.statusText}\n`);
+      } else if (data.ok === false && data.error) {
+        setOutput((prev) => prev + `\n[Note] ${data.error}\n`);
       }
     } catch (e) {
       setOutput((prev) => prev + `\n[Send error] ${e instanceof Error ? e.message : "Failed"}\n`);

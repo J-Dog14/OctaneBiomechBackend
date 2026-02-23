@@ -17,6 +17,14 @@ const PAYLOAD_TYPES = [
   { id: "pitching", label: "Pitching", api: "/api/dashboard/payloads/pitching" },
 ] as const;
 
+type OctaneLookupUser = {
+  uuid: string;
+  name: string | null;
+  email: string;
+  emailVerified: boolean;
+  image: string | null;
+};
+
 function SendPayloadContent() {
   const searchParams = useSearchParams();
   const preselectedUuid = searchParams.get("athlete") ?? "";
@@ -27,6 +35,12 @@ function SendPayloadContent() {
   const [payloadType, setPayloadType] = useState<"report" | "pitching">("report");
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string; data?: unknown } | null>(null);
+
+  const [octaneLookupEmail, setOctaneLookupEmail] = useState("");
+  const [octaneLookupLoading, setOctaneLookupLoading] = useState(false);
+  const [octaneLookupResult, setOctaneLookupResult] = useState<
+    { ok: true; user: OctaneLookupUser } | { ok: false; error: string } | null
+  >(null);
 
   const loadAthletes = useCallback(async () => {
     setLoading(true);
@@ -64,6 +78,37 @@ function SendPayloadContent() {
 
   const clearSelection = () => {
     setSelectedIds(new Set());
+  };
+
+  const runOctaneLookup = async () => {
+    const email = octaneLookupEmail.trim();
+    if (!email) return;
+    setOctaneLookupLoading(true);
+    setOctaneLookupResult(null);
+    try {
+      const res = await fetch(
+        `/api/dashboard/octane/users/by-email?email=${encodeURIComponent(email)}`
+      );
+      const data = await res.json();
+      if (res.ok) {
+        setOctaneLookupResult({
+          ok: true,
+          user: data as OctaneLookupUser,
+        });
+      } else {
+        setOctaneLookupResult({
+          ok: false,
+          error: data.error ?? "Lookup failed",
+        });
+      }
+    } catch (e) {
+      setOctaneLookupResult({
+        ok: false,
+        error: e instanceof Error ? e.message : "Request failed",
+      });
+    } finally {
+      setOctaneLookupLoading(false);
+    }
   };
 
   const runPayloads = async () => {
@@ -132,6 +177,69 @@ function SendPayloadContent() {
         Select athletes and payload type, then generate. You can run multiple report payloads at once; pitching is one athlete at a time.
         Each payload uses the <strong>most recent session</strong> (or best by velocity for pitching) per test type—Run All sends only that.
       </p>
+
+      <div className="card" style={{ marginBottom: "1.5rem" }}>
+        <h2 style={{ margin: "0 0 0.75rem", fontSize: "1rem" }}>
+          Octane user lookup
+        </h2>
+        <p className="text-muted" style={{ margin: "0 0 0.75rem", fontSize: "13px" }}>
+          Look up a user in the Octane app by email to verify they exist or get their Octane UUID.
+        </p>
+        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
+          <input
+            type="email"
+            value={octaneLookupEmail}
+            onChange={(e) => setOctaneLookupEmail(e.target.value)}
+            placeholder="athlete@example.com"
+            style={{ padding: "0.5rem 0.75rem", minWidth: "220px" }}
+            onKeyDown={(e) => e.key === "Enter" && runOctaneLookup()}
+          />
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={runOctaneLookup}
+            disabled={octaneLookupLoading || !octaneLookupEmail.trim()}
+          >
+            {octaneLookupLoading ? "Looking up…" : "Look up"}
+          </button>
+        </div>
+        {octaneLookupResult && (
+          <div
+            className="card"
+            style={{
+              marginTop: "1rem",
+              borderWidth: "1px",
+              borderStyle: "solid",
+              borderColor: octaneLookupResult.ok ? "var(--accent)" : "var(--accent-secondary)",
+            }}
+          >
+            {octaneLookupResult.ok ? (
+              <>
+                <p style={{ margin: "0 0 0.5rem", color: "var(--accent)" }}>
+                  User found
+                </p>
+                <pre
+                  style={{
+                    margin: 0,
+                    padding: "0.75rem",
+                    background: "var(--bg-primary)",
+                    borderRadius: "6px",
+                    fontSize: "12px",
+                    overflow: "auto",
+                    maxHeight: "200px",
+                  }}
+                >
+                  {JSON.stringify(octaneLookupResult.user, null, 2)}
+                </pre>
+              </>
+            ) : (
+              <p style={{ margin: 0, color: "var(--accent-secondary)" }}>
+                {octaneLookupResult.error}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
 
       <div className="card" style={{ marginBottom: "1.5rem" }}>
         <h2 style={{ margin: "0 0 0.75rem", fontSize: "1rem" }}>

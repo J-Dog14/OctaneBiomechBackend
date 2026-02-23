@@ -41,7 +41,8 @@ const jobs = new Map<string, Job>();
 function pushChunk(jobId: string, chunk: Uint8Array) {
   const job = jobs.get(jobId);
   if (!job) return;
-  job.chunks.push(chunk);
+  // Only buffer until first client attaches; then stream directly to avoid unbounded memory growth (OOM).
+  if (!job.controller) job.chunks.push(chunk);
   if (job.controller) {
     try {
       job.controller.enqueue(chunk);
@@ -125,6 +126,7 @@ export function attachStreamController(jobId: string, controller: ReadableStream
       break;
     }
   }
+  job.chunks = []; // Free buffer; new output streams directly via pushChunk
 }
 
 export function writeInput(jobId: string, input: string): boolean {

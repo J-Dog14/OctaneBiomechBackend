@@ -1,11 +1,12 @@
 import { NextRequest } from "next/server";
-import { badRequest, notFound, success } from "@/lib/responses";
+import { badRequest, success } from "@/lib/responses";
 import { writeInput } from "@/lib/uais/runJob";
 
 /**
  * POST /api/dashboard/uais/input
  * Body: { jobId: string, input: string }
  * Sends input to the running process's stdin (e.g. for conflict prompts).
+ * Returns 200 with { ok: false, error } when job not found or already finished (so UI can show a friendly message).
  */
 export async function POST(request: NextRequest) {
   try {
@@ -24,7 +25,10 @@ export async function POST(request: NextRequest) {
     }
     const ok = writeInput(jobId, input.endsWith("\n") ? input : input + "\n");
     if (!ok) {
-      return notFound("Job not found or process finished");
+      return success({
+        ok: false,
+        error: "Job not found or already finished. The process may have completed before your response was sent.",
+      });
     }
     return success({ ok: true });
   } catch {

@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { badRequest, internalError, success } from "@/lib/responses";
 import { prisma } from "@/lib/db/prisma";
+import type { Prisma } from "@prisma/client";
 
 function normalizeEmail(raw: string): string {
   return raw.trim().toLowerCase();
@@ -22,12 +23,12 @@ export async function GET(request: NextRequest) {
       return badRequest("Provide at least one of name or email.");
     }
 
-    const conditions: { OR?: unknown[]; AND?: unknown[] }[] = [];
+    const conditions: Prisma.d_athletesWhereInput[] = [];
 
     if (name && name.length > 0) {
       conditions.push({
         OR: [
-          { name: { contains: name, mode: "insensitive" as const } },
+          { name: { contains: name, mode: "insensitive" } },
           { normalized_name: { contains: name.toLowerCase() } },
         ],
       });
@@ -37,7 +38,8 @@ export async function GET(request: NextRequest) {
       conditions.push({ email: { equals: email } });
     }
 
-    const where = conditions.length === 1 ? conditions[0] : { AND: conditions };
+    const where: Prisma.d_athletesWhereInput =
+      conditions.length === 1 ? conditions[0]! : { AND: conditions };
 
     const items = await prisma.d_athletes.findMany({
       where,

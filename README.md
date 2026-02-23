@@ -38,6 +38,8 @@ Set the following variables:
 - `DATABASE_URL`: Your Neon Postgres connection string (preferably read-only)
 - `BIOMECH_API_KEYS`: Comma-separated list of valid API keys (e.g., `"key1,key2"`)
 
+**Optional — Octane user lookup:** To look up users in the Octane app by email (dashboard "Send payload" page and athlete email → `app_db_uuid` resolution), set `OCTANE_APP_API_URL` (Octane app base URL, HTTPS) and `OCTANE_API_KEY` (Bearer token). Treat the API key like a password: do not commit it or use it in client-side code; keep it in server-side env only.
+
 ### 3. Set Up Prisma
 
 **Important**: Prisma 7+ requires the connection URL to be passed to the PrismaClient constructor (not in the schema). The `DATABASE_URL` environment variable is used automatically.
