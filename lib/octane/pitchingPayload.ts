@@ -23,6 +23,8 @@ export type PitchingPayload = {
   level: string;
   score: number | null;
   metrics: PitchingPayloadMetric[];
+  /** ISO date (YYYY-MM-DD) of session used. */
+  sessionDate?: string | null;
 };
 
 type MetricSpec = {
@@ -404,7 +406,9 @@ export async function buildPitchingPayloadFromTrials(
       ? { ...athlete, weight: bestTrial.weight }
       : athlete;
 
-  return buildMetricsFromValueMap(valueByMetricName, athleteForBuild);
+  const payload = buildMetricsFromValueMap(valueByMetricName, athleteForBuild);
+  const sessionDate = bestTrial.session_date.toISOString().split("T")[0];
+  return { ...payload, sessionDate };
 }
 
 /**
@@ -469,7 +473,9 @@ export async function buildPitchingPayloadFromKinematics(
     }
   }
 
-  return buildMetricsFromValueMap(valueByMetricName, athlete);
+  const payload = buildMetricsFromValueMap(valueByMetricName, athlete);
+  const sessionDate = bestSessionDate.toISOString().split("T")[0];
+  return { ...payload, sessionDate };
 }
 
 /**

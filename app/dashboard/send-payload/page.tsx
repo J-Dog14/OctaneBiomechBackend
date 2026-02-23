@@ -15,7 +15,24 @@ type AthleteItem = {
 const PAYLOAD_TYPES = [
   { id: "report", label: "Report (all tables)", api: "/api/dashboard/payloads/report" },
   { id: "pitching", label: "Pitching", api: "/api/dashboard/payloads/pitching" },
+  { id: "hitting", label: "Hitting", api: "/api/dashboard/payloads/hitting" },
+  { id: "mobility", label: "Mobility", api: "/api/dashboard/payloads/mobility" },
+  { id: "athletic-screen", label: "Athletic Screen", api: "/api/dashboard/payloads/athletic-screen" },
+  { id: "arm-action", label: "Arm Action", api: "/api/dashboard/payloads/arm-action" },
+  { id: "proteus-hitters", label: "Proteus (Hitters)", api: "/api/dashboard/payloads/proteus-hitters" },
+  { id: "proteus-pitchers", label: "Proteus (Pitchers)", api: "/api/dashboard/payloads/proteus-pitchers" },
 ] as const;
+
+type PayloadTypeId = (typeof PAYLOAD_TYPES)[number]["id"];
+const SINGLE_ATHLETE_PAYLOAD_IDS: PayloadTypeId[] = [
+  "pitching",
+  "hitting",
+  "mobility",
+  "athletic-screen",
+  "arm-action",
+  "proteus-hitters",
+  "proteus-pitchers",
+];
 
 type OctaneLookupUser = {
   uuid: string;
@@ -32,7 +49,7 @@ function SendPayloadContent() {
   const [athletes, setAthletes] = useState<AthleteItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [payloadType, setPayloadType] = useState<"report" | "pitching">("report");
+  const [payloadType, setPayloadType] = useState<PayloadTypeId>("report");
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string; data?: unknown } | null>(null);
 
@@ -117,26 +134,27 @@ function SendPayloadContent() {
       setResult({ ok: false, message: "Select at least one athlete." });
       return;
     }
-    if (payloadType === "pitching" && ids.length > 1) {
-      setResult({ ok: false, message: "Pitching payload supports one athlete at a time." });
+    if (SINGLE_ATHLETE_PAYLOAD_IDS.includes(payloadType) && ids.length > 1) {
+      setResult({ ok: false, message: "This payload type supports one athlete at a time." });
       return;
     }
 
     setRunning(true);
     setResult(null);
     try {
-      if (payloadType === "pitching") {
+      if (SINGLE_ATHLETE_PAYLOAD_IDS.includes(payloadType)) {
+        const apiPath = PAYLOAD_TYPES.find((t) => t.id === payloadType)?.api ?? "";
         const res = await fetch(
-          `/api/dashboard/payloads/pitching?athleteUuid=${encodeURIComponent(ids[0])}`
+          `${apiPath}?athleteUuid=${encodeURIComponent(ids[0])}`
         );
         const data = await res.json();
         if (!res.ok) {
-          setResult({ ok: false, message: data.error ?? "Failed to generate pitching payload.", data });
+          setResult({ ok: false, message: data.error ?? `Failed to generate ${payloadType} payload.`, data });
           return;
         }
         setResult({
           ok: true,
-          message: "Pitching payload generated.",
+          message: `${PAYLOAD_TYPES.find((t) => t.id === payloadType)?.label ?? payloadType} payload generated.`,
           data,
         });
       } else {
@@ -174,7 +192,7 @@ function SendPayloadContent() {
         Send payload
       </h1>
       <p className="text-muted" style={{ marginBottom: "1.5rem" }}>
-        Select athletes and payload type, then generate. You can run multiple report payloads at once; pitching is one athlete at a time.
+        Select athletes and payload type, then generate. You can run multiple report payloads at once; all other types are one athlete at a time.
         Each payload uses the <strong>most recent session</strong> (or best by velocity for pitching) per test type—Run All sends only that.
       </p>
 
@@ -252,7 +270,7 @@ function SendPayloadContent() {
                 type="radio"
                 name="payloadType"
                 checked={payloadType === t.id}
-                onChange={() => setPayloadType(t.id as "report" | "pitching")}
+                onChange={() => setPayloadType(t.id)}
               />
               {t.label}
             </label>
@@ -341,6 +359,32 @@ function SendPayloadContent() {
           <p style={{ margin: "0 0 0.5rem", color: result.ok ? "var(--accent)" : "var(--accent-secondary)" }}>
             {result.message}
           </p>
+          {result.ok && result.data !== undefined && payloadType === "report" && (() => {
+            const data = result.data as { athlete?: { name?: string; email?: string | null; octaneAppUuid?: string | null }; payloads?: { athlete?: { name?: string; email?: string | null; octaneAppUuid?: string | null } }[] };
+            const athletes = data.payloads
+              ? data.payloads.map((p) => p.athlete).filter(Boolean)
+              : data.athlete
+                ? [data.athlete]
+                : [];
+            return athletes.length > 0 ? (
+              <div style={{ marginBottom: "0.75rem", fontSize: "13px" }}>
+                {athletes.map((a, i) => {
+                  const name = a?.name ?? "Unknown";
+                  const email = a?.email ?? null;
+                  const matched = a?.octaneAppUuid != null && a.octaneAppUuid !== "";
+                  return (
+                    <p key={i} style={{ margin: "0.25rem 0" }}>
+                      {matched && email
+                        ? `Athlete ${name} matched with Octane via email: ${email}`
+                        : email
+                          ? `${name} — Octane not linked yet (update athlete email to resolve)`
+                          : `${name} — No email on profile (add email to link with Octane)`}
+                    </p>
+                  );
+                })}
+              </div>
+            ) : null;
+          })()}
           {result.data !== undefined && (
             <pre
               style={{

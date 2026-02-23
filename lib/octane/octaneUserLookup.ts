@@ -34,17 +34,37 @@ function isOctaneUser(data: unknown): data is OctaneUser {
   );
 }
 
+/** True when base URL is localhost (for dev: optional API key). */
+function isLocalhostUrl(url: string): boolean {
+  try {
+    const u = new URL(url);
+    return u.hostname === "localhost" || u.hostname === "127.0.0.1";
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Look up a user in the Octane app by email.
  * Returns a result object so callers can map to HTTP status (401, 400, 404, 503, 502/500).
+ * In development, when OCTANE_APP_API_URL is localhost, OCTANE_API_KEY is optional (no auth sent).
  */
 export async function lookupOctaneUserByEmail(
   email: string
 ): Promise<OctaneUserLookupResult> {
   const baseUrl = process.env.OCTANE_APP_API_URL?.trim();
   const apiKey = process.env.OCTANE_API_KEY?.trim();
+  const isLocal = baseUrl ? isLocalhostUrl(baseUrl) : false;
+  const allowNoKey = process.env.NODE_ENV === "development" && isLocal;
 
-  if (!baseUrl || !apiKey) {
+  if (!baseUrl) {
+    return {
+      ok: false,
+      status: 503,
+      error: "Octane integration not configured (OCTANE_APP_API_URL or OCTANE_API_KEY missing)",
+    };
+  }
+  if (!allowNoKey && !apiKey) {
     return {
       ok: false,
       status: 503,
@@ -53,13 +73,15 @@ export async function lookupOctaneUserByEmail(
   }
 
   const url = `${baseUrl.replace(/\/$/, "")}/api/external/users/by-email?email=${encodeURIComponent(email)}`;
+  const headers: Record<string, string> = {};
+  if (apiKey) {
+    headers.Authorization = `Bearer ${apiKey}`;
+  }
 
   try {
     const res = await fetch(url, {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
+      headers,
       cache: "no-store",
     });
 
@@ -70,13 +92,18 @@ export async function lookupOctaneUserByEmail(
         return {
           ok: false,
           status: 502,
-          error: "Invalid response from Octane API",
+          error:
+            "Invalid response from Octane API. Expected JSON with uuid, name, email, emailVerified, image. Check that the Octane app exposes GET /api/external/users/by-email.",
         };
       }
       return { ok: true, user: body };
     }
 
-    const errorMessage = typeof body.error === "string" ? body.error : "Request failed";
+    let errorMessage = typeof body.error === "string" ? body.error : "Request failed";
+    if (res.status === 401 && process.env.NODE_ENV === "development") {
+      const sentLength = apiKey ? apiKey.length : 0;
+      errorMessage += ` [Dev: we sent Authorization header with length ${sentLength}. If 0, OCTANE_API_KEY is empty or not loaded. If >0, Octane may require a server API key, not a session token.]`;
+    }
 
     if (res.status === 401) {
       return { ok: false, status: 401, error: errorMessage };
@@ -95,10 +122,14 @@ export async function lookupOctaneUserByEmail(
     };
   } catch (e) {
     const message = e instanceof Error ? e.message : "Network error";
+    const hint =
+      baseUrl && isLocalhostUrl(baseUrl)
+        ? " Is the Octane app running on that port?"
+        : "";
     return {
       ok: false,
       status: 502,
-      error: message,
+      error: `Could not reach Octane app.${hint} Details: ${message}`,
     };
   }
 }

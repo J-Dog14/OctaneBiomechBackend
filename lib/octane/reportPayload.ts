@@ -11,6 +11,8 @@ export type AthleteReportPayload = {
     height?: string | null;
     weight?: string | null;
     email?: string | null;
+    /** Octane app user UUID when resolved (matched via email). */
+    octaneAppUuid?: string | null;
   };
   counts: {
     armAction: number;
@@ -38,6 +40,7 @@ export async function buildAthleteReportPayload(
       height: true,
       weight: true,
       email: true,
+      app_db_uuid: true,
     },
   });
 
@@ -77,6 +80,7 @@ export async function buildAthleteReportPayload(
       height: athlete.height ? String(athlete.height) : null,
       weight: athlete.weight ? String(athlete.weight) : null,
       email: athlete.email ?? null,
+      octaneAppUuid: athlete.app_db_uuid ?? null,
     },
     counts: {
       armAction,

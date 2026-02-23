@@ -43,3 +43,14 @@ export type OctanePitchingPayloadQuery = z.infer<
   typeof octanePitchingPayloadQuerySchema
 >;
 
+/**
+ * Query params for single-athlete payload endpoints (hitting, mobility, arm action, etc.).
+ */
+export const octaneSingleAthletePayloadQuerySchema = z.object({
+  athleteUuid: z.string().min(1, "athleteUuid is required"),
+});
+
+export type OctaneSingleAthletePayloadQuery = z.infer<
+  typeof octaneSingleAthletePayloadQuerySchema
+>;
+

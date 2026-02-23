@@ -8,7 +8,7 @@ export const uaisAthletesQuerySchema = z.object({
       if (!val) return 50;
       const num = parseInt(val, 10);
       if (isNaN(num) || num < 1) return 50;
-      return Math.min(num, 200);
+      return Math.min(num, 10000);
     }),
   cursor: z.string().optional(),
   q: z.string().optional(),
