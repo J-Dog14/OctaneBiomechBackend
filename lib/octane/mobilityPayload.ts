@@ -11,6 +11,10 @@ export type MobilityPayloadMetric = {
   value: number | null;
   valueUnit: ValueUnit | string;
   orientation: Orientation | string | null;
+  mobilityMetricKind?: "GROUP" | "COMPONENT";
+  mobilityGroup?: string;
+  mobilityDisplayLabel?: string;
+  mobilityOutOf?: number | null;
 };
 
 export type MobilityPayload = {
@@ -40,22 +44,22 @@ const MOBILITY_GROUPS: Array<{
   {
     groupName: "Hip Mobility",
     columns: [
-      { key: "r_prone_hip_ir", label: "R Prone Hip IR" },
-      { key: "l_prone_hip_ir", label: "L Prone Hip IR" },
-      { key: "r_prone_hip_er", label: "R Prone Hip ER" },
-      { key: "l_prone_hip_er", label: "L Prone Hip ER" },
-      { key: "thomas_test_hip_flexor_r", label: "Thomas Test (Hip Flexor) R" },
-      { key: "thomas_test_hip_flexor_l", label: "Thomas Test (Hip Flexor) L" },
-      { key: "hamstring_stretch", label: "Hamstring Stretch" },
+      { key: "l_prone_hip_ir", label: "L IR" },
+      { key: "l_prone_hip_er", label: "L ER" },
+      { key: "r_prone_hip_ir", label: "R IR" },
+      { key: "r_prone_hip_er", label: "R ER" },
+      { key: "thomas_test_hip_flexor_l", label: "Thomas Test L" },
+      { key: "thomas_test_hip_flexor_r", label: "Thomas Test R" },
+      { key: "hamstring_stretch", label: "Hamstring" },
     ],
   },
   {
     groupName: "Hip Stability",
     columns: [
       { key: "hip_pinch", label: "Hip Pinch" },
-      { key: "pelvic_tilt_against_wall", label: "Pelvic Tilt Against Wall" },
-      { key: "glute_strength_test_prone_hammy_push", label: "Glute Strength Test (Prone Hammy Push)" },
-      { key: "prone_hamstring_raise", label: "Prone Hamstring Raise" },
+      { key: "pelvic_tilt_against_wall", label: "Pelvic Tilt Wall" },
+      { key: "glute_strength_test_prone_hammy_push", label: "Glute Strength" },
+      { key: "prone_hamstring_raise", label: "Prone Ham Raise" },
     ],
   },
   {
@@ -234,7 +238,26 @@ export async function buildMobilityPayload(athleteUuid: string): Promise<Mobilit
       value: groupSum > 0 ? value : null,
       valueUnit,
       orientation,
+      mobilityMetricKind: "GROUP",
+      mobilityGroup: groupName,
+      mobilityDisplayLabel: groupName,
+      mobilityOutOf: max !== Number.POSITIVE_INFINITY ? max : null,
     });
+
+    for (const { key, label } of columns) {
+      const componentValue = decimalToNumber((row as MobilityRow)[key]);
+      metrics.push({
+        category: groupName,
+        name: String(key),
+        value: componentValue,
+        valueUnit,
+        orientation,
+        mobilityMetricKind: "COMPONENT",
+        mobilityGroup: groupName,
+        mobilityDisplayLabel: label,
+        mobilityOutOf: groupName === "Grip Strength" ? null : 3,
+      });
+    }
   }
 
   const sessionDate = row && "session_date" in row && row.session_date

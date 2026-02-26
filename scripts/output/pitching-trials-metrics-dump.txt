@@ -1,0 +1,3023 @@
+# Pitching trials metrics investigation
+# Generated: 2026-02-24T21:43:41.679Z
+# Row id: 1992 (compare with f_pitching_trials.id in your DB client)
+# Athlete: ac5e8fb4-cdf7-4f60-812d-51899a5d83f5 (row with .X/.Y/.Z keys in metrics (same format as DB client), then by session_date desc)
+
+## Trial
+id: 1992
+session_date: 2026-02-19
+trial_index: 4
+velocity_mph: 90.299999999999997
+score: 465.75569872162498
+created_at: 2026-02-24T21:34:18.731Z
+
+## All metric keys (sorted, with values) — 994 keys (flattened, .X/.Y/.Z preserved)
+BALLSPEED.SPIN_AXIS.X => 0
+BALLSPEED.SPIN_RATE.X => 0
+INCREMENT.Hip Shoulders Sep@Footstrike_100ms.X => 20.84031
+INCREMENT.Hip Shoulders Sep@Footstrike_100ms.Y => 24.76468
+INCREMENT.Hip Shoulders Sep@Footstrike_100ms.Z => 6.207935
+INCREMENT.Hip Shoulders Sep@Footstrike_10ms.X => -7.554595
+INCREMENT.Hip Shoulders Sep@Footstrike_10ms.Y => -3.668946
+INCREMENT.Hip Shoulders Sep@Footstrike_10ms.Z => 38.73084
+INCREMENT.Hip Shoulders Sep@Footstrike_110ms.X => 23.04755
+INCREMENT.Hip Shoulders Sep@Footstrike_110ms.Y => 28.34167
+INCREMENT.Hip Shoulders Sep@Footstrike_110ms.Z => 3.184481
+INCREMENT.Hip Shoulders Sep@Footstrike_20ms.X => -7.667787
+INCREMENT.Hip Shoulders Sep@Footstrike_20ms.Y => -0.7873843
+INCREMENT.Hip Shoulders Sep@Footstrike_20ms.Z => 38.73501
+INCREMENT.Hip Shoulders Sep@Footstrike_30ms.X => -7.736829
+INCREMENT.Hip Shoulders Sep@Footstrike_30ms.Y => 1.681736
+INCREMENT.Hip Shoulders Sep@Footstrike_30ms.Z => 38.00403
+INCREMENT.Hip Shoulders Sep@Footstrike_40ms.X => -6.823308
+INCREMENT.Hip Shoulders Sep@Footstrike_40ms.Y => 3.545001
+INCREMENT.Hip Shoulders Sep@Footstrike_40ms.Z => 36.97202
+INCREMENT.Hip Shoulders Sep@Footstrike_50ms.X => -5.085047
+INCREMENT.Hip Shoulders Sep@Footstrike_50ms.Y => 4.724707
+INCREMENT.Hip Shoulders Sep@Footstrike_50ms.Z => 34.80187
+INCREMENT.Hip Shoulders Sep@Footstrike_60ms.X => -0.9102361
+INCREMENT.Hip Shoulders Sep@Footstrike_60ms.Y => 8.549239
+INCREMENT.Hip Shoulders Sep@Footstrike_60ms.Z => 30.81278
+INCREMENT.Hip Shoulders Sep@Footstrike_70ms.X => 5.700648
+INCREMENT.Hip Shoulders Sep@Footstrike_70ms.Y => 13.49097
+INCREMENT.Hip Shoulders Sep@Footstrike_70ms.Z => 25.36739
+INCREMENT.Hip Shoulders Sep@Footstrike_80ms.X => 10.46172
+INCREMENT.Hip Shoulders Sep@Footstrike_80ms.Y => 17.86925
+INCREMENT.Hip Shoulders Sep@Footstrike_80ms.Z => 18.11355
+INCREMENT.Hip Shoulders Sep@Footstrike_90ms.X => 16.41395
+INCREMENT.Hip Shoulders Sep@Footstrike_90ms.Y => 21.69082
+INCREMENT.Hip Shoulders Sep@Footstrike_90ms.Z => 10.56396
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.X => 35.60515
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.Y => 4.781894
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.Z => -5.993963
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.X => 32.58015
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.Y => 6.04328
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.Z => -3.032141
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.X => 29.64269
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.Y => 4.618991
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.Z => 0.6965289
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.X => 29.83122
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.Y => 2.459606
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.Z => 3.900806
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.X => 30.7485
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.Y => -1.39863
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.Z => 8.323931
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.X => 30.62256
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.Y => -2.695011
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.Z => 11.88032
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.X => 29.1917
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.Y => -2.833582
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.Z => 19.40648
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.X => 16.6387
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.Y => -2.104543
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.Z => 31.09071
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.X => -2.960518
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.Y => -5.8745
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.Z => 40.89763
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.X => 417.7752
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.Y => -109.7453
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.Z => -331.0016
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.X => -408.3475
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.Y => -555.5558
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.Z => -136.0459
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.X => 66.80164
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.Y => 297.8528
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.Z => -890.3646
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.X => -841.8845
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.Y => -139.6489
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.Z => -193.6034
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.X => -190.434
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.Y => -100.2076
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.Z => -723.5725
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.X => -2009.823
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.Y => -622.0182
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.Z => -5324.679
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.X => 854.9564
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.Y => -642.7081
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.Z => -203.9437
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.X => 106.2322
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.Y => -9.993753
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.Z => 2.773077
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.X => 143.5337
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.Y => 16.85027
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.Z => 71.38173
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.X => 94.00117
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.Y => 22.52538
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.Z => 103.4342
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.X => 74.48506
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.Y => 27.28712
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.Z => 79.04251
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.X => 73.74406
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.Y => 40.64507
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.Z => 90.17546
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.X => 17.99406
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.Y => 146.3831
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.Z => 263.444
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.X => 28.48372
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.Y => 86.8487
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.Z => 726.7341
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.X => 4.038682
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.Y => 35.55517
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.Z => 131.5168
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.X => -2.143975
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.Y => 29.32941
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.Z => 127.0075
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.X => -6.911767
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.Y => 20.22492
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.Z => 119.7113
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.X => -8.405026
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.Y => 13.74811
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.Z => 113.4958
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.X => -7.460098
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.Y => 6.679615
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.Z => 106.3554
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.X => -6.698444
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.Y => 1.267751
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.Z => 100.6732
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.X => -4.280077
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.Y => -4.899446
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.Z => 94.00687
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.X => 2.704558
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.Y => -10.44796
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.Z => 80.68691
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.X => 12.90989
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.Y => -10.25093
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.Z => 39.85893
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.X => -149.4733
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.Y => -724.4697
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.Z => -207.5963
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.X => 443.8397
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.Y => -1026.603
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.Z => 514.6825
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.X => 854.1993
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.Y => -902.5034
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.Z => 1005.172
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.X => -2129.704
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.Y => -388.689
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.Z => -1400.132
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.X => -1918.63
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.Y => -1312.37
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.Z => 1428.702
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.X => -428.2905
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.Y => 2479.694
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.Z => -10735.2
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.X => -4493.525
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.Y => 30967.88
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.Z => 9651.073
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.X => -916.082
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.Y => 62.25444
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.Z => 968.0625
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.X => 355.6851
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.Y => 1133.853
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.Z => -1544.855
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.X => -355.4384
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.Y => -47.65289
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.Z => 2806.566
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.X => 291.8724
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.Y => 1463.747
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.Z => -1370.111
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.X => 157.0475
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.Y => 1734.654
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.Z => -1352.581
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.X => -81.22494
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.Y => 2005.311
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.Z => -1359.269
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.X => -480.7992
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.Y => 2064.149
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.Z => -1387.262
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.X => -775.359
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.Y => 1573.643
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.Z => -1378.392
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.X => -1003.914
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.Y => 1331.191
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.Z => -1104.922
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.X => -1194.212
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.Y => 1058.53
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.Z => -664.411
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.X => -1279.979
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.Y => 518.3636
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.Z => -77.02775
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.X => -138.6581
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.Y => 82.74287
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.Z => -24.77743
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.X => -148.1916
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.Y => 59.2251
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.Z => 28.28082
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.X => -83.57414
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.Y => -5.936111
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.Z => 105.5547
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.X => -90.76438
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.Y => -39.62099
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.Z => 115.4858
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.X => -338.2293
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.Y => -141.7612
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.Z => 44.81747
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.X => -433.4812
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.Y => -42.69482
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.Z => -441.074
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.X => 345.4423
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.Y => 1272.693
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.Z => -1480.265
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.X => 15.4043
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.Y => 107.247
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.Z => 184.2034
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.X => -49.59297
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.Y => 74.57233
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.Z => 60.56269
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.X => 19.55138
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.Y => 103.7294
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.Z => 168.8149
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.X => -43.43804
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.Y => 71.20409
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.Z => 77.03835
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.X => -35.47277
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.Y => 71.28139
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.Z => 94.46728
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.X => -24.60067
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.Y => 73.28365
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.Z => 113.8075
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.X => -13.42786
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.Y => 79.38912
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.Z => 132.4534
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.X => -5.31992
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.Y => 84.20154
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.Z => 152.0368
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.X => 0.3280364
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.Y => 90.52911
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.Z => 170.5521
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.X => 4.303792
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.Y => 98.30844
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.Z => 181.0483
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.X => 8.805252
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.Y => 104.3768
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.Z => 186.7592
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.X => -110.1368
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.Y => -135.8742
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.Z => 185.9942
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.X => -187.0803
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.Y => -51.46902
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.Z => 90.20909
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.X => -317.7089
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.Y => 198.0134
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.Z => -27.67578
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.X => -327.2017
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.Y => -52.98688
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.Z => 658.5141
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.X => -761.354
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.Y => 694.6463
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.Z => 2205.228
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.X => -1124.742
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.Y => -2371.09
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.Z => -6289.378
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.X => 8148.216
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.Y => 2939.564
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.Z => -2165.619
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.X => 51.2397
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.Y => 4.831919
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.Z => 6.475632
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.X => 90.04517
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.Y => 18.82154
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.Z => 4.079521
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.X => 94.80694
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.Y => 14.72868
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.Z => 42.83235
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.X => 64.6761
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.Y => 39.01722
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.Z => 13.18789
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.X => 42.34519
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.Y => 51.46434
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.Z => -57.42302
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.X => -145.2755
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.Y => 34.81546
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.Z => 148.4806
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.X => -77.92257
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.Y => 237.6371
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.Z => 819.1819
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.X => -12.43149
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.Y => 3.07237
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.Z => 121.3507
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.X => -15.2886
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.Y => -1.264858
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.Z => 122.4251
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.X => -17.96401
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.Y => -7.701401
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.Z => 120.3847
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.X => -20.04288
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.Y => -13.86691
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.Z => 118.0644
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.X => -21.84974
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.Y => -20.65757
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.Z => 116.1061
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.X => -21.6844
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.Y => -25.83464
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.Z => 115.113
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.X => -19.95143
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.Y => -30.22
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.Z => 117.5487
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.X => -6.110163
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.Y => -24.97901
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.Z => 114.1783
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.X => 6.576572
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.Y => -8.208837
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.Z => 81.92551
+KINEMATIC_SEQUENCE.Pelvis_Ang_Vel_max.X => 738.7017
+KINEMATIC_SEQUENCE.Pitching_Elbow_Ang_Vel_max.X => 2265.402
+KINEMATIC_SEQUENCE.Pitching_Hand_Ang_Vel_max.X => 5726.495
+KINEMATIC_SEQUENCE.Pitching_Humerus_Ang_Vel_max.X => 5717.681
+KINEMATIC_SEQUENCE.Pitching_Shoulder_Ang_Vel_max.X => 5534.607
+KINEMATIC_SEQUENCE.Thorax_Ang_Vel_max.X => 833.4365
+MODEL.LAR_Seg_Length.X => 0.310695
+MODEL.LTH_Seg_Length.X => 0.427083
+MODEL.RAR_Seg_Length.X => 0.310793
+MODEL.RTA_Seg_Length.X => 0.529939
+MODEL.RTH_Seg_Length.X => 0.415332
+PROCESSED.Back_Knee_Angle@Footstrike.X => 33.89327
+PROCESSED.Back_Knee_Angle@Footstrike.Y => -5.372871
+PROCESSED.Back_Knee_Angle@Footstrike.Z => -15.05447
+PROCESSED.Back_Knee_Angle@MaxKneeHeight.X => 34.21253
+PROCESSED.Back_Knee_Angle@MaxKneeHeight.Y => -2.982644
+PROCESSED.Back_Knee_Angle@MaxKneeHeight.Z => -3.983786
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 56.4933
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 10.35685
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -19.29952
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.X => 53.18678
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.Y => 6.103922
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.Z => -16.19251
+PROCESSED.Back_Knee_Angle@PelvisRot_Stop.X => 50.57127
+PROCESSED.Back_Knee_Angle@PelvisRot_Stop.Y => 5.387918
+PROCESSED.Back_Knee_Angle@PelvisRot_Stop.Z => -15.87554
+PROCESSED.Back_Knee_Angle@Release.X => 57.42156
+PROCESSED.Back_Knee_Angle@Release.Y => 8.069256
+PROCESSED.Back_Knee_Angle@Release.Z => -17.7336
+PROCESSED.Back_Knee_Angle@Release100msAfter.X => 56.23873
+PROCESSED.Back_Knee_Angle@Release100msAfter.Y => 12.60908
+PROCESSED.Back_Knee_Angle@Release100msAfter.Z => -21.69085
+PROCESSED.Back_Knee_Angle@Setup.X => 24.27526
+PROCESSED.Back_Knee_Angle@Setup.Y => 0.5544897
+PROCESSED.Back_Knee_Angle@Setup.Z => -10.51771
+PROCESSED.Back_Leg_GRF_mag_max.X => 1.792192
+PROCESSED.Back_Leg_GRF_max.X => 0.2759618
+PROCESSED.Back_Leg_GRF_max.Y => 0.9871535
+PROCESSED.Back_Leg_GRF_max.Z => 1.537683
+PROCESSED.Back_Leg_GRF_min.X => -0.09632472
+PROCESSED.Back_Leg_GRF_min.Y => -0.2152697
+PROCESSED.Back_Leg_GRF_min.Z => 0
+PROCESSED.Cropped Measurement End Frame.X => 2262
+PROCESSED.Cropped Measurement Start Frame.X => 1747
+PROCESSED.Elbow_Torque@Footstrike.X => 0.0096792
+PROCESSED.Elbow_Torque@Max_Shoulder_Int_Rot_FollowThru.X => -0.01934164
+PROCESSED.Elbow_Torque@Max_Shoulder_Rot.X => 0.0733775
+PROCESSED.Elbow_Torque@Release.X => 0.00173199
+PROCESSED.Elbow_Torque_Nm@Footstrike.X => 17.23008
+PROCESSED.Elbow_Torque_Nm@Max_Shoulder_Int_Rot_FollowThru.X => -34.43032
+PROCESSED.Elbow_Torque_Nm@Max_Shoulder_Rot.X => 130.6203
+PROCESSED.Elbow_Torque_Nm@Release.X => 3.083144
+PROCESSED.Force_Ball@Release.X => 0.2380857
+PROCESSED.Frame_rate.X => 300
+PROCESSED.Head_Angle@Footstrike.X => -24.95697
+PROCESSED.Head_Angle@Footstrike.Y => -16.31635
+PROCESSED.Head_Angle@Footstrike.Z => 14.36887
+PROCESSED.Head_Angle@MaxKneeHeight.X => -13.18947
+PROCESSED.Head_Angle@MaxKneeHeight.Y => -5.051676
+PROCESSED.Head_Angle@MaxKneeHeight.Z => 28.43976
+PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.X => -7.573365
+PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => -9.150467
+PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -31.4609
+PROCESSED.Head_Angle@Max_Shoulder_Rot.X => -32.67936
+PROCESSED.Head_Angle@Max_Shoulder_Rot.Y => -6.606501
+PROCESSED.Head_Angle@Max_Shoulder_Rot.Z => -21.76914
+PROCESSED.Head_Angle@PelvisRot_Stop.X => -32.72725
+PROCESSED.Head_Angle@PelvisRot_Stop.Y => -8.969769
+PROCESSED.Head_Angle@PelvisRot_Stop.Z => -21.18522
+PROCESSED.Head_Angle@Release.X => -29.94296
+PROCESSED.Head_Angle@Release.Y => 2.813235
+PROCESSED.Head_Angle@Release.Z => -23.33189
+PROCESSED.Head_Angle@Release100msAfter.X => 2.656705
+PROCESSED.Head_Angle@Release100msAfter.Y => -5.878666
+PROCESSED.Head_Angle@Release100msAfter.Z => -26.11569
+PROCESSED.Head_Angle@Setup.X => -9.797229
+PROCESSED.Head_Angle@Setup.Y => -7.610807
+PROCESSED.Head_Angle@Setup.Z => 28.10272
+PROCESSED.Hip Shoulders Sep@Footstrike.X => -5.053811
+PROCESSED.Hip Shoulders Sep@Footstrike.Y => -5.341989
+PROCESSED.Hip Shoulders Sep@Footstrike.Z => 40.26875
+PROCESSED.Hip Shoulders Sep@MaxKneeHeight.X => 36.97134
+PROCESSED.Hip Shoulders Sep@MaxKneeHeight.Y => 5.149544
+PROCESSED.Hip Shoulders Sep@MaxKneeHeight.Z => -7.867407
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.X => 36.22323
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.Y => 19.69577
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.Z => -17.31511
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.X => 18.14464
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.Y => 22.68446
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.Z => 9.160884
+PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.X => 14.90604
+PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.Y => 20.57058
+PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.Z => 13.03875
+PROCESSED.Hip Shoulders Sep@Release.X => 25.47994
+PROCESSED.Hip Shoulders Sep@Release.Y => 28.31246
+PROCESSED.Hip Shoulders Sep@Release.Z => -1.052552
+PROCESSED.Hip Shoulders Sep@Release100msAfter.X => 40.296
+PROCESSED.Hip Shoulders Sep@Release100msAfter.Y => 11.40794
+PROCESSED.Hip Shoulders Sep@Release100msAfter.Z => -30.20834
+PROCESSED.Hip Shoulders Sep@Setup.X => 3.005245
+PROCESSED.Hip Shoulders Sep@Setup.Y => 0.8921533
+PROCESSED.Hip Shoulders Sep@Setup.Z => -5.989619
+PROCESSED.Hip Shoulders Sep@Shoulder_ExtRot90.X => 38.00403
+PROCESSED.Lead_Knee_Ang_Vel@Footstrike.X => -347.4967
+PROCESSED.Lead_Knee_Ang_Vel@Footstrike.Y => 218.8874
+PROCESSED.Lead_Knee_Ang_Vel@Footstrike.Z => 93.8612
+PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.X => 297.3248
+PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.Y => -79.18297
+PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.Z => -53.73346
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X => -331.7995
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => -34.37046
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 282.3694
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.X => -317.1834
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.Y => 8.779467
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.Z => 110.8008
+PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.X => -309.057
+PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.Y => 1.321411
+PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.Z => 94.72198
+PROCESSED.Lead_Knee_Ang_Vel@Release.X => -433.7067
+PROCESSED.Lead_Knee_Ang_Vel@Release.Y => 179.8127
+PROCESSED.Lead_Knee_Ang_Vel@Release.Z => 147.2451
+PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.X => 329.2133
+PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.Y => -7.806796
+PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.Z => -215.903
+PROCESSED.Lead_Knee_Ang_Vel@Setup.X => 349.8555
+PROCESSED.Lead_Knee_Ang_Vel@Setup.Y => -77.90946
+PROCESSED.Lead_Knee_Ang_Vel@Setup.Z => -111.2645
+PROCESSED.Lead_Knee_Angle@Footstrike.X => 37.83092
+PROCESSED.Lead_Knee_Angle@Footstrike.Y => 12.81226
+PROCESSED.Lead_Knee_Angle@Footstrike.Z => -25.62925
+PROCESSED.Lead_Knee_Angle@MaxKneeHeight.X => 128.683
+PROCESSED.Lead_Knee_Angle@MaxKneeHeight.Y => 21.96385
+PROCESSED.Lead_Knee_Angle@MaxKneeHeight.Z => -9.841182
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.X => -6.760872
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 3.218101
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -11.11444
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.X => 23.21549
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.Y => 6.907117
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.Z => -20.90316
+PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.X => 25.01491
+PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.Y => 7.715475
+PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.Z => -21.25372
+PROCESSED.Lead_Knee_Angle@Release.X => 12.52805
+PROCESSED.Lead_Knee_Angle@Release.Y => 6.4724
+PROCESSED.Lead_Knee_Angle@Release.Z => -18.10336
+PROCESSED.Lead_Knee_Angle@Release100msAfter.X => 1.938016
+PROCESSED.Lead_Knee_Angle@Release100msAfter.Y => -1.163566
+PROCESSED.Lead_Knee_Angle@Release100msAfter.Z => -8.371697
+PROCESSED.Lead_Knee_Angle@Setup.X => 9.023769
+PROCESSED.Lead_Knee_Angle@Setup.Y => 1.02361
+PROCESSED.Lead_Knee_Angle@Setup.Z => -12.69274
+PROCESSED.Lead_Leg_GRF_mag_Midpoint_FS_Release.X => 2.537678
+PROCESSED.Lead_Leg_GRF_mag_impulse.X => 0.2099402
+PROCESSED.Lead_Leg_GRF_mag_impulse_Midpoint_FS_Release.X => 0.1287293
+PROCESSED.Lead_Leg_GRF_mag_max.X => 2.537678
+PROCESSED.Lead_Leg_GRF_max.X => 0.3179297
+PROCESSED.Lead_Leg_GRF_max.Y => 0.0161076
+PROCESSED.Lead_Leg_GRF_max.Z => 2.053384
+PROCESSED.Lead_Leg_GRF_min.X => -0.36746
+PROCESSED.Lead_Leg_GRF_min.Y => -1.488742
+PROCESSED.Lead_Leg_GRF_min.Z => 0
+PROCESSED.MaxPelvisLinearVel.X => 1.178125
+PROCESSED.MaxPelvisLinearVel.Y => 2.491772
+PROCESSED.MaxPelvisLinearVel.Z => -0.5518636
+PROCESSED.MaxPelvisLinearVel_MPH.X => 2.635347
+PROCESSED.MaxPelvisLinearVel_MPH.Y => 5.573846
+PROCESSED.MaxPelvisLinearVel_MPH.Z => -1.234464
+PROCESSED.MaxTrunkLinearVel.X => 0.5876653
+PROCESSED.MaxTrunkLinearVel.Y => 3.497454
+PROCESSED.MaxTrunkLinearVel.Z => -0.4920835
+PROCESSED.MaxTrunkLinearVel_MPH.X => 1.314549
+PROCESSED.MaxTrunkLinearVel_MPH.Y => 7.823456
+PROCESSED.MaxTrunkLinearVel_MPH.Z => -1.100742
+PROCESSED.Max_Elbow_Flex_Torque.X => -0.01260877
+PROCESSED.Max_Elbow_Flex_Torque_Nm.X => -22.44504
+PROCESSED.Max_Elbow_Force.X => 1.647996
+PROCESSED.Max_Elbow_Varus_Torque.X => 0.07469608
+PROCESSED.Max_Elbow_Varus_Torque_Nm.X => 132.9675
+PROCESSED.Max_Shoulder_Abd_Torque.X => -0.03736999
+PROCESSED.Max_Shoulder_Dist_Force.X => 1.58406
+PROCESSED.Max_Shoulder_Dist_Force_Per.X => 158.406
+PROCESSED.Max_Shoulder_Hor_Add_Torque.X => -0.08910128
+PROCESSED.Max_Shoulder_IntRot_Torque.X => 0.07762341
+PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.X => 2107.783
+PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.Y => 807.5387
+PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.Z => -748.0814
+PROCESSED.Pelvis_Ang_Acc@Release.X => 944.5664
+PROCESSED.Pelvis_Ang_Acc@Release.Y => 4576.828
+PROCESSED.Pelvis_Ang_Acc@Release.Z => 3726.835
+PROCESSED.Pelvis_Ang_Acc@Release100msAfter.X => 764.239
+PROCESSED.Pelvis_Ang_Acc@Release100msAfter.Y => 2416.296
+PROCESSED.Pelvis_Ang_Acc@Release100msAfter.Z => -1733.475
+PROCESSED.Pelvis_Ang_Vel@Footstrike.X => 67.24118
+PROCESSED.Pelvis_Ang_Vel@Footstrike.Y => 132.907
+PROCESSED.Pelvis_Ang_Vel@Footstrike.Z => 679.7135
+PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.X => 20.8091
+PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.Y => -163.2023
+PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.Z => 16.06492
+PROCESSED.Pelvis_Ang_Vel@Release.X => 148.1488
+PROCESSED.Pelvis_Ang_Vel@Release.Y => 244.7429
+PROCESSED.Pelvis_Ang_Vel@Release.Z => 68.57408
+PROCESSED.Pelvis_Ang_Vel@Release100msAfter.X => 221.5592
+PROCESSED.Pelvis_Ang_Vel@Release100msAfter.Y => 199.5576
+PROCESSED.Pelvis_Ang_Vel@Release100msAfter.Z => 114.3007
+PROCESSED.Pelvis_Angle@Footstrike.X => 14.61735
+PROCESSED.Pelvis_Angle@Footstrike.Y => -9.672633
+PROCESSED.Pelvis_Angle@Footstrike.Z => 32.95232
+PROCESSED.Pelvis_Angle@MaxKneeHeight.X => 7.334626
+PROCESSED.Pelvis_Angle@MaxKneeHeight.Y => 38.59848
+PROCESSED.Pelvis_Angle@MaxKneeHeight.Z => 131.8854
+PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 26.88606
+PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => -1.788693
+PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -7.397463
+PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.X => 22.02306
+PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.Y => -8.520534
+PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.Z => -9.639462
+PROCESSED.Pelvis_Angle@PelvisRot_Stop.X => 21.8359
+PROCESSED.Pelvis_Angle@PelvisRot_Stop.Y => -7.196072
+PROCESSED.Pelvis_Angle@PelvisRot_Stop.Z => -9.659715
+PROCESSED.Pelvis_Angle@Release.X => 24.61414
+PROCESSED.Pelvis_Angle@Release.Y => -6.74714
+PROCESSED.Pelvis_Angle@Release.Z => -11.7634
+PROCESSED.Pelvis_Angle@Release100msAfter.X => 33.69753
+PROCESSED.Pelvis_Angle@Release100msAfter.Y => 2.660104
+PROCESSED.Pelvis_Angle@Release100msAfter.Z => -7.205355
+PROCESSED.Pelvis_Angle@Setup.X => 0.3808321
+PROCESSED.Pelvis_Angle@Setup.Y => 4.820614
+PROCESSED.Pelvis_Angle@Setup.Z => 117.4932
+PROCESSED.Pelvis_COG@Footstrike.X => 0.3178359
+PROCESSED.Pelvis_COG@Footstrike.Y => 1.483878
+PROCESSED.Pelvis_COG@Footstrike.Z => 0.4687074
+PROCESSED.Pelvis_COG@Footstrike_in.X => 12.5132
+PROCESSED.Pelvis_COG@Footstrike_in.Y => 58.42026
+PROCESSED.Pelvis_COG@Footstrike_in.Z => 18.45301
+PROCESSED.Pelvis_COG@MaxKneeHeight.X => 0.2962269
+PROCESSED.Pelvis_COG@MaxKneeHeight.Y => 0.673573
+PROCESSED.Pelvis_COG@MaxKneeHeight.Z => 0.8257079
+PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.X => 0.4343585
+PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.Y => 1.609744
+PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.Z => 0.5910967
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot.X => 0.3591498
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot.Y => 1.578044
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot.Z => 0.5117667
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.X => 14.13973
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.Y => 62.12761
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.Z => 20.14825
+PROCESSED.Pelvis_COG@PelvisRot_Stop.X => 0.3555446
+PROCESSED.Pelvis_COG@PelvisRot_Stop.Y => 1.578783
+PROCESSED.Pelvis_COG@PelvisRot_Stop.Z => 0.5061436
+PROCESSED.Pelvis_COG@PelvisRot_Stop_in.X => 13.99779
+PROCESSED.Pelvis_COG@PelvisRot_Stop_in.Y => 62.15667
+PROCESSED.Pelvis_COG@PelvisRot_Stop_in.Z => 19.92687
+PROCESSED.Pelvis_COG@Release.X => 0.3914956
+PROCESSED.Pelvis_COG@Release.Y => 1.577053
+PROCESSED.Pelvis_COG@Release.Z => 0.5366877
+PROCESSED.Pelvis_COG@Release100msAfter.X => 0.4775677
+PROCESSED.Pelvis_COG@Release100msAfter.Y => 1.684287
+PROCESSED.Pelvis_COG@Release100msAfter.Z => 0.639036
+PROCESSED.Pelvis_COG@Release100msAfter_in.X => 18.80184
+PROCESSED.Pelvis_COG@Release100msAfter_in.Y => 66.31038
+PROCESSED.Pelvis_COG@Release100msAfter_in.Z => 25.15885
+PROCESSED.Pelvis_COG@Release_in.X => 15.41318
+PROCESSED.Pelvis_COG@Release_in.Y => 62.08857
+PROCESSED.Pelvis_COG@Release_in.Z => 21.12939
+PROCESSED.Pelvis_COG@Setup.X => 0.2628048
+PROCESSED.Pelvis_COG@Setup.Y => 0.583001
+PROCESSED.Pelvis_COG@Setup.Z => 0.8228984
+PROCESSED.Pelvis_COG_Vel@Footstrike.X => 0.8456558
+PROCESSED.Pelvis_COG_Vel@Footstrike.Y => 2.322078
+PROCESSED.Pelvis_COG_Vel@Footstrike.Z => -0.4078291
+PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.X => 1.891647
+PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.Y => 5.194256
+PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.Z => -0.9122729
+PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.X => 0.2103344
+PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.Y => 0.4093409
+PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.Z => -0.1303284
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.X => 0.438872
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => 1.545095
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 1.280943
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.X => 0.6924123
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.Y => -0.1458588
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.Z => 0.8330315
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.X => 1.548857
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.Y => -0.3262716
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.Z => 1.863408
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.X => 0.3745347
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.Y => -0.05158812
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.Z => 0.8634031
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.X => 0.8377967
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.Y => -0.1153975
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.Z => 1.931346
+PROCESSED.Pelvis_COG_Vel@Release.X => 1.52252
+PROCESSED.Pelvis_COG_Vel@Release.Y => 0.1986798
+PROCESSED.Pelvis_COG_Vel@Release.Z => 1.084918
+PROCESSED.Pelvis_COG_Vel@Release100msAfter.X => 1.206069
+PROCESSED.Pelvis_COG_Vel@Release100msAfter.Y => 1.160127
+PROCESSED.Pelvis_COG_Vel@Release100msAfter.Z => 0.3873114
+PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.X => 2.697855
+PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.Y => 2.595088
+PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.Z => 0.8663769
+PROCESSED.Pelvis_COG_Vel@Release_MPH.X => 3.405725
+PROCESSED.Pelvis_COG_Vel@Release_MPH.Y => 0.4444268
+PROCESSED.Pelvis_COG_Vel@Release_MPH.Z => 2.426853
+PROCESSED.Pelvis_COG_Vel@Setup.X => -0.1443923
+PROCESSED.Pelvis_COG_Vel@Setup.Y => -0.1451969
+PROCESSED.Pelvis_COG_Vel@Setup.Z => 0.02716179
+PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.X => -40.24202
+PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.Y => -259.3819
+PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.Z => 865.9023
+PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.X => 4.429583
+PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.Y => -10.22592
+PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.Z => 9.033489
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X => 541.308
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => -631.4426
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => -80.25646
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.X => 470.24
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.Y => -1857.929
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.Z => -926.4387
+PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.X => 216.1692
+PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.Y => -1433.106
+PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.Z => -726.3455
+PROCESSED.Pitching_Elbow_Ang_Vel@Release.X => 383.7051
+PROCESSED.Pitching_Elbow_Ang_Vel@Release.Y => -726.6949
+PROCESSED.Pitching_Elbow_Ang_Vel@Release.Z => -25.3486
+PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.X => -108.9379
+PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.Y => 131.1147
+PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.Z => -93.10086
+PROCESSED.Pitching_Elbow_Ang_Vel@Setup.X => -25.07645
+PROCESSED.Pitching_Elbow_Ang_Vel@Setup.Y => 65.21733
+PROCESSED.Pitching_Elbow_Ang_Vel@Setup.Z => -36.35239
+PROCESSED.Pitching_Elbow_Ang_Vel_min.X => 383.7051
+PROCESSED.Pitching_Elbow_Ang_Vel_min.Y => -2265.402
+PROCESSED.Pitching_Elbow_Ang_Vel_min.Z => -950.278
+PROCESSED.Pitching_Elbow_Angle@Footstrike.X => 137.1239
+PROCESSED.Pitching_Elbow_Angle@Footstrike.Y => 0
+PROCESSED.Pitching_Elbow_Angle@Footstrike.Z => -82.78842
+PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.X => 130.5175
+PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.Y => -0.000003415095
+PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.Z => -113.3908
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 31.98258
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => -0.000001707547
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -129.6187
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.X => 83.16364
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.Y => -0.000003415094
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.Z => -103.1618
+PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.X => 93.96554
+PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.Y => -0.000003415095
+PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.Z => -95.58414
+PROCESSED.Pitching_Elbow_Angle@Release.X => 24.56435
+PROCESSED.Pitching_Elbow_Angle@Release.Y => -8.537739e-7
+PROCESSED.Pitching_Elbow_Angle@Release.Z => -119.5467
+PROCESSED.Pitching_Elbow_Angle@Release100msAfter.X => 30.17782
+PROCESSED.Pitching_Elbow_Angle@Release100msAfter.Y => 8.537735e-7
+PROCESSED.Pitching_Elbow_Angle@Release100msAfter.Z => -130.8722
+PROCESSED.Pitching_Elbow_Angle@Setup.X => 114.8858
+PROCESSED.Pitching_Elbow_Angle@Setup.Y => 0.000001494104
+PROCESSED.Pitching_Elbow_Angle@Setup.Z => -111.1342
+PROCESSED.Pitching_Elbow_Angle_max.X => 137.1239
+PROCESSED.Pitching_Elbow_Angle_max.Y => 0.000005122643
+PROCESSED.Pitching_Elbow_Angle_max.Z => -74.11418
+PROCESSED.Pitching_Elbow_Angle_max_MEAN.X => 137.1239
+PROCESSED.Pitching_Elbow_Angle_max_MEAN.Y => 0.000005122643
+PROCESSED.Pitching_Elbow_Angle_max_MEAN.Z => -74.11418
+PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.X => -1833.613
+PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.Y => -141.6927
+PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.Z => 115.7841
+PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.X => 2489.699
+PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.Y => -1375.873
+PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.Z => 2004.128
+PROCESSED.Pitching_Hand_Ang_Vel@Release.X => 5232.322
+PROCESSED.Pitching_Hand_Ang_Vel@Release.Y => 1708.734
+PROCESSED.Pitching_Hand_Ang_Vel@Release.Z => 3684.09
+PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.X => 498.8018
+PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.Y => 1094.314
+PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.Z => -349.0649
+PROCESSED.Pitching_Hand_Angle@Footstrike.X => -46.94702
+PROCESSED.Pitching_Hand_Angle@Footstrike.Y => 14.17578
+PROCESSED.Pitching_Hand_Angle@Footstrike.Z => 0.4703509
+PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.X => -36.71484
+PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.Y => 18.75791
+PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.Z => 4.541799
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.X => -34.18515
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 16.35647
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => 9.505259
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.X => -51.20575
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.Y => 12.81137
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.Z => 3.515893
+PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.X => -54.94944
+PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.Y => 15.61773
+PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.Z => 4.938995
+PROCESSED.Pitching_Hand_Angle@Release.X => -7.049747
+PROCESSED.Pitching_Hand_Angle@Release.Y => 12.33898
+PROCESSED.Pitching_Hand_Angle@Release.Z => 1.115868
+PROCESSED.Pitching_Hand_Angle@Release100msAfter.X => -27.77627
+PROCESSED.Pitching_Hand_Angle@Release100msAfter.Y => 7.954373
+PROCESSED.Pitching_Hand_Angle@Release100msAfter.Z => 8.583178
+PROCESSED.Pitching_Hand_Angle@Setup.X => -17.11326
+PROCESSED.Pitching_Hand_Angle@Setup.Y => 9.906862
+PROCESSED.Pitching_Hand_Angle@Setup.Z => 6.580195
+PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.X => -1840.903
+PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.Y => 227.0824
+PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.Z => -1702.243
+PROCESSED.Pitching_Humerus_Ang_Acc@Release.X => 54337.95
+PROCESSED.Pitching_Humerus_Ang_Acc@Release.Y => -17483.16
+PROCESSED.Pitching_Humerus_Ang_Acc@Release.Z => 47282.34
+PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.X => -2093.239
+PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.Y => -6783.319
+PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.Z => 31166.59
+PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.X => 278.1985
+PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.Y => 833.024
+PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.Z => -1731.837
+PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.X => -9.251244
+PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.Y => 44.79779
+PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.Z => 10.94939
+PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.X => -1170.456
+PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.Y => 442.3925
+PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.Z => 156.3659
+PROCESSED.Pitching_Humerus_Ang_Vel@Release.X => 183.4831
+PROCESSED.Pitching_Humerus_Ang_Vel@Release.Y => 295.8049
+PROCESSED.Pitching_Humerus_Ang_Vel@Release.Z => 5451.14
+PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.X => 243.8446
+PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.Y => 907.3371
+PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.Z => 772.6808
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.X => -48.34686
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.Y => -365.7515
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.Z => 1644.565
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.X => 590.5845
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.Y => 290.5459
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.Z => -94.26894
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.X => 37.65448
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.Y => 134.9671
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.Z => -5265.086
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.X => 347.0616
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.Y => -555.4663
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.Z => -820.3788
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.X => -592.8123
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.Y => 375.0466
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.Z => 352.8312
+PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.X => 271.5565
+PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.Y => -342.6452
+PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.Z => 1646.453
+PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.X => 10.43926
+PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.Y => -32.16261
+PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.Z => -43.84258
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X => 1556.393
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => -173.2858
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 1468.928
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.X => 653.9985
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.Y => 45.54129
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.Z => 71.02299
+PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.X => 814.7366
+PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.Y => 321.037
+PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.Z => 647.2909
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release.X => -683.3712
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release.Y => 116.4041
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release.Z => -5271.816
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.X => 518.9696
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.Y => -457.6072
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.Z => -764.8467
+PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.X => -54.02033
+PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.Y => 24.36644
+PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.Z => 64.50147
+PROCESSED.Pitching_Shoulder_Angle@Footstrike.X => -50.24118
+PROCESSED.Pitching_Shoulder_Angle@Footstrike.Y => 77.26105
+PROCESSED.Pitching_Shoulder_Angle@Footstrike.Z => 44.7258
+PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.X => 50.82059
+PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.Y => 43.33567
+PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.Z => 5.233728
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 52.88169
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 130.4292
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -18.88634
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.X => 11.29721
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.Y => 106.3078
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.Z => 186.9973
+PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.X => 6.851888
+PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.Y => 103.28
+PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.Z => 186.2052
+PROCESSED.Pitching_Shoulder_Angle@Release.X => 17.85311
+PROCESSED.Pitching_Shoulder_Angle@Release.Y => 100.7675
+PROCESSED.Pitching_Shoulder_Angle@Release.Z => 123.757
+PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.X => 102.4733
+PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.Y => 98.98298
+PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.Z => 29.3844
+PROCESSED.Pitching_Shoulder_Angle@Setup.X => -0.2403676
+PROCESSED.Pitching_Shoulder_Angle@Setup.Y => 27.37735
+PROCESSED.Pitching_Shoulder_Angle@Setup.Z => -40.89217
+PROCESSED.Pitching_Shoulder_Angle_Max.X => 50.82059
+PROCESSED.Pitching_Shoulder_Angle_Max.Y => 108.5205
+PROCESSED.Pitching_Shoulder_Angle_Max.Z => 186.9973
+PROCESSED.Pitching_Shoulder_Angle_Min.X => -50.82933
+PROCESSED.Pitching_Shoulder_Angle_Min.Y => 39.08631
+PROCESSED.Pitching_Shoulder_Angle_Min.Z => -39.5788
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.X => -73.6123
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.Y => 38.59523
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.Z => 124.3303
+PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.X => 36.18161
+PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.Y => 25.69322
+PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.Z => -54.10794
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.X => -43.10555
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.Y => 27.34588
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.Z => 44.9724
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.X => -33.80551
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Y => 70.24911
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Z => 222.4267
+PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.X => -26.81544
+PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.Y => 75.0848
+PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.Z => 213.8192
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.X => -58.18848
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.Y => 69.24221
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.Z => 183.6416
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.X => -80.80353
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.Y => -12.31789
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.Z => 121.3626
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.X => -0.1244736
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.Y => 27.3771
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.Z => -40.62149
+PROCESSED.Shoulder_Ang_Vel@Release.X => -683.3712
+PROCESSED.Shoulder_Ang_Vel@Release.Y => 116.4041
+PROCESSED.Shoulder_Ang_Vel@Release.Z => -5271.816
+PROCESSED.Shoulder_Ang_Vel@Release_Abs.X => 683.3712
+PROCESSED.Shoulder_Ang_Vel@Release_Abs.Y => 116.4041
+PROCESSED.Shoulder_Ang_Vel@Release_Abs.Z => 5271.816
+PROCESSED.Shoulder_Dist_Force@Footstrike.X => 0.2890939
+PROCESSED.Shoulder_Dist_Force@Max_Shoulder_Int_Rot_FollowThru.X => 0.8850203
+PROCESSED.Shoulder_Dist_Force@Max_Shoulder_Rot.X => 0.6109506
+PROCESSED.Shoulder_Dist_Force@Release.X => 1.578567
+PROCESSED.Shoulder_Force_Abd@Max_Shoulder_Abd_Force.X => 0.517251
+PROCESSED.Shoulder_Force_Abd_N@Max_Shoulder_Abd_Force_N.X => 517.866
+PROCESSED.Shoulder_Rotation_Cummulative_Range_FStoRelease.X => 205.5119
+PROCESSED.Shoulder_Torque@Footstrike.X => 0.00764342
+PROCESSED.Shoulder_Torque@Max_Shoulder_Int_Rot_FollowThru.X => -0.03007249
+PROCESSED.Shoulder_Torque@Max_Shoulder_Rot.X => 0.07741417
+PROCESSED.Shoulder_Torque@Release.X => 0.01280152
+PROCESSED.Shoulder_Vel_Min.X => -691.4431
+PROCESSED.Shoulder_Vel_Min.Y => -528.6721
+PROCESSED.Shoulder_Vel_Min.Z => -5534.607
+PROCESSED.Shoulder_Vel_Min_Abs.X => 691.4431
+PROCESSED.Shoulder_Vel_Min_Abs.Y => 528.6721
+PROCESSED.Shoulder_Vel_Min_Abs.Z => 5534.607
+PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.X => 535.6052
+PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.Y => 715.8717
+PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.Z => -545.3489
+PROCESSED.Thorax_Ang_Acc@Release.X => -131.5391
+PROCESSED.Thorax_Ang_Acc@Release.Y => -7726.151
+PROCESSED.Thorax_Ang_Acc@Release.Z => 969.225
+PROCESSED.Thorax_Ang_Acc@Release100msAfter.X => -1824.76
+PROCESSED.Thorax_Ang_Acc@Release100msAfter.Y => -200.3998
+PROCESSED.Thorax_Ang_Acc@Release100msAfter.Z => -717.5507
+PROCESSED.Thorax_Ang_Vel@Footstrike.X => -180.0537
+PROCESSED.Thorax_Ang_Vel@Footstrike.Y => 189.6042
+PROCESSED.Thorax_Ang_Vel@Footstrike.Z => 799.3165
+PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.X => 282.6443
+PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.Y => 332.8771
+PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.Z => 422.2104
+PROCESSED.Thorax_Ang_Vel@Release.X => 157.3283
+PROCESSED.Thorax_Ang_Vel@Release.Y => 270.0594
+PROCESSED.Thorax_Ang_Vel@Release.Z => 235.3079
+PROCESSED.Thorax_Ang_Vel@Release100msAfter.X => 89.79282
+PROCESSED.Thorax_Ang_Vel@Release100msAfter.Y => 79.82567
+PROCESSED.Thorax_Ang_Vel@Release100msAfter.Z => 321.34
+PROCESSED.Trunk Rot wrt Pelvis Rot@Footstrike.X => 41.42339
+PROCESSED.Trunk Rot wrt Pelvis Rot@Max_Shoulder_Int_Rot_FollowThru.X => -3.948003
+PROCESSED.Trunk Rot wrt Pelvis Rot@Max_Shoulder_Rot.X => 13.67181
+PROCESSED.Trunk Rot wrt Pelvis Rot@Release.X => 8.877613
+PROCESSED.Trunk_Angle@Footstrike.X => 8.018558
+PROCESSED.Trunk_Angle@Footstrike.Y => -6.308837
+PROCESSED.Trunk_Angle@Footstrike.Z => 74.37571
+PROCESSED.Trunk_Angle@MaxKneeHeight.X => -8.79544
+PROCESSED.Trunk_Angle@MaxKneeHeight.Y => 4.328192
+PROCESSED.Trunk_Angle@MaxKneeHeight.Z => 119.5293
+PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 55.53366
+PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 28.03991
+PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -11.34547
+PROCESSED.Trunk_Angle@Max_Shoulder_Rot.X => 40.51889
+PROCESSED.Trunk_Angle@Max_Shoulder_Rot.Y => 13.59686
+PROCESSED.Trunk_Angle@Max_Shoulder_Rot.Z => 4.032349
+PROCESSED.Trunk_Angle@PelvisRot_Stop.X => 38.27425
+PROCESSED.Trunk_Angle@PelvisRot_Stop.Y => 11.99949
+PROCESSED.Trunk_Angle@PelvisRot_Stop.Z => 6.802277
+PROCESSED.Trunk_Angle@Release.X => 45.52077
+PROCESSED.Trunk_Angle@Release.Y => 24.58129
+PROCESSED.Trunk_Angle@Release.Z => -2.885785
+PROCESSED.Trunk_Angle@Release100msAfter.X => 63.96883
+PROCESSED.Trunk_Angle@Release100msAfter.Y => 33.1549
+PROCESSED.Trunk_Angle@Release100msAfter.Z => -23.36218
+PROCESSED.Trunk_Angle@Setup.X => 0.1085251
+PROCESSED.Trunk_Angle@Setup.Y => 1.69769
+PROCESSED.Trunk_Angle@Setup.Z => 111.511
+PROCESSED.Trunk_Angle@Shoulder_ExtRot90.X => 49.13084
+PROCESSED.Trunk_COG@Footstrike.X => 0.3750979
+PROCESSED.Trunk_COG@Footstrike.Y => 1.477402
+PROCESSED.Trunk_COG@Footstrike.Z => 0.7790854
+PROCESSED.Trunk_COG@MaxKneeHeight.X => 0.2018656
+PROCESSED.Trunk_COG@MaxKneeHeight.Y => 0.6630929
+PROCESSED.Trunk_COG@MaxKneeHeight.Z => 1.041584
+PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.X => 0.4094161
+PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.Y => 1.806895
+PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.Z => 0.7827097
+PROCESSED.Trunk_COG@Max_Shoulder_Rot.X => 0.4105187
+PROCESSED.Trunk_COG@Max_Shoulder_Rot.Y => 1.700296
+PROCESSED.Trunk_COG@Max_Shoulder_Rot.Z => 0.7441593
+PROCESSED.Trunk_COG@PelvisRot_Stop.X => 0.4117851
+PROCESSED.Trunk_COG@PelvisRot_Stop.Y => 1.687028
+PROCESSED.Trunk_COG@PelvisRot_Stop.Z => 0.7385128
+PROCESSED.Trunk_COG@Release.X => 0.4219187
+PROCESSED.Trunk_COG@Release.Y => 1.752045
+PROCESSED.Trunk_COG@Release.Z => 0.7662802
+PROCESSED.Trunk_COG@Release100msAfter.X => 0.3887517
+PROCESSED.Trunk_COG@Release100msAfter.Y => 1.86261
+PROCESSED.Trunk_COG@Release100msAfter.Z => 0.7891054
+PROCESSED.Trunk_COG@Setup.X => 0.224311
+PROCESSED.Trunk_COG@Setup.Y => 0.5858902
+PROCESSED.Trunk_COG@Setup.Z => 1.090906
+PROCESSED.Trunk_COG_Vel@Footstrike.X => 0.8020976
+PROCESSED.Trunk_COG_Vel@Footstrike.Y => 3.460532
+PROCESSED.Trunk_COG_Vel@Footstrike.Z => -0.3520957
+PROCESSED.Trunk_COG_Vel@Footstrike_MPH.X => 1.794212
+PROCESSED.Trunk_COG_Vel@Footstrike_MPH.Y => 7.740864
+PROCESSED.Trunk_COG_Vel@Footstrike_MPH.Z => -0.7876028
+PROCESSED.Trunk_COG_Vel@MaxKneeHeight.X => 0.05003913
+PROCESSED.Trunk_COG_Vel@MaxKneeHeight.Y => 0.3346989
+PROCESSED.Trunk_COG_Vel@MaxKneeHeight.Z => -0.1679486
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.X => -0.7451137
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => 0.8435754
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 0.1609742
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.X => 0.2205628
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.Y => 1.980156
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.Z => 0.7766382
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.X => 0.493377
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.Y => 4.42941
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.Z => 1.737262
+PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.X => 0.3166391
+PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.Y => 2.118881
+PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.Z => 0.5850394
+PROCESSED.Trunk_COG_Vel@Release.X => 0.3856902
+PROCESSED.Trunk_COG_Vel@Release.Y => 1.653869
+PROCESSED.Trunk_COG_Vel@Release.Z => 0.7475837
+PROCESSED.Trunk_COG_Vel@Release100msAfter.X => 0.02660202
+PROCESSED.Trunk_COG_Vel@Release100msAfter.Y => 1.241963
+PROCESSED.Trunk_COG_Vel@Release100msAfter.Z => -0.01119927
+PROCESSED.Trunk_COG_Vel@Release_MPH.X => 0.8627505
+PROCESSED.Trunk_COG_Vel@Release_MPH.Y => 3.699539
+PROCESSED.Trunk_COG_Vel@Release_MPH.Z => 1.67227
+PROCESSED.Trunk_COG_Vel@Setup.X => -0.1142814
+PROCESSED.Trunk_COG_Vel@Setup.Y => -0.02802613
+PROCESSED.Trunk_COG_Vel@Setup.Z => -0.06095134
+PROCESSED.Trunk_Rotation_Cummulative_Range_FStoRelease.X => 77.2615
+PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.X => -7.306167
+PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.Y => -0.7918886
+PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.Z => 40.55522
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.X => 32.46579
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.Y => 25.8134
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.Z => -3.181899
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.X => 22.6462
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.Y => 18.19332
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.Z => 16.5026
+PROCESSED.Trunk_wrt_Pelvis_FE@Release.X => 27.98224
+PROCESSED.Trunk_wrt_Pelvis_FE@Release.Y => 25.84763
+PROCESSED.Trunk_wrt_Pelvis_FE@Release.Z => 12.01979
+PROCESSED.Uncropped Measurement Frames.X => 2403
+PROCESSED.Uncropped Measurement Length.X => 8.01
+PROCESSED.time_MaxPelvisVel_MaxThoraxVel.X => 0.00666666
+STRIDE_LENGTH.STRIDE_LENGTH.X => 1.505565
+STRIDE_LENGTH.STRIDE_LENGTH_MEAN_PERCENT.X => 84.67744
+TIMING.FootstrikeTime.X => 1.133333
+TIMING.MaxElbowVelTime.X => 1.236667
+TIMING.MaxHandVelTime.X => 1.246667
+TIMING.MaxHumerusVelTime.X => 1.256667
+TIMING.MaxKneeHeightTime.X => 0.4466667
+TIMING.MaxPelvisLinearVelTime.X => 1.083333
+TIMING.MaxPelvisVelTime.X => 1.153333
+TIMING.MaxShoulderHorAngleTime.X => 1.353333
+TIMING.MaxShoulderVelTime.X => 1.256667
+TIMING.MaxThoraxVelTime.X => 1.16
+TIMING.MaxTrunkLinearVelTime.X => 1.14
+TIMING.Max_Elbow_FlexTime.X => 1.133333
+TIMING.Max_Elbow_Flex_Ang_VelTime.X => 1.24
+TIMING.Max_Elbow_ForceTime.X => 0.8033333
+TIMING.Max_Forearm_PronSupTime.X => 1.156667
+TIMING.Max_Forearm_PronSup_Ang_VelTime.X => 1.133333
+TIMING.Max_Shoulder_Int_RotTime.X => 5.215406e-8
+TIMING.Max_Shoulder_RotTime.X => 1.226667
+TIMING.PeakShoulder_AngVel_HzShldAbdTime.X => 0.6133333
+TIMING.PelvisRot_StopTime.X => 1.22
+TIMING.ReleaseTime.X => 1.253333
+TIMING.SetupTime.X => 0
+
+## By prefix
+
+### BALLSPEED
+BALLSPEED.SPIN_AXIS.X => 0
+BALLSPEED.SPIN_RATE.X => 0
+
+### INCREMENT
+INCREMENT.Hip Shoulders Sep@Footstrike_100ms.X => 20.84031
+INCREMENT.Hip Shoulders Sep@Footstrike_100ms.Y => 24.76468
+INCREMENT.Hip Shoulders Sep@Footstrike_100ms.Z => 6.207935
+INCREMENT.Hip Shoulders Sep@Footstrike_10ms.X => -7.554595
+INCREMENT.Hip Shoulders Sep@Footstrike_10ms.Y => -3.668946
+INCREMENT.Hip Shoulders Sep@Footstrike_10ms.Z => 38.73084
+INCREMENT.Hip Shoulders Sep@Footstrike_110ms.X => 23.04755
+INCREMENT.Hip Shoulders Sep@Footstrike_110ms.Y => 28.34167
+INCREMENT.Hip Shoulders Sep@Footstrike_110ms.Z => 3.184481
+INCREMENT.Hip Shoulders Sep@Footstrike_20ms.X => -7.667787
+INCREMENT.Hip Shoulders Sep@Footstrike_20ms.Y => -0.7873843
+INCREMENT.Hip Shoulders Sep@Footstrike_20ms.Z => 38.73501
+INCREMENT.Hip Shoulders Sep@Footstrike_30ms.X => -7.736829
+INCREMENT.Hip Shoulders Sep@Footstrike_30ms.Y => 1.681736
+INCREMENT.Hip Shoulders Sep@Footstrike_30ms.Z => 38.00403
+INCREMENT.Hip Shoulders Sep@Footstrike_40ms.X => -6.823308
+INCREMENT.Hip Shoulders Sep@Footstrike_40ms.Y => 3.545001
+INCREMENT.Hip Shoulders Sep@Footstrike_40ms.Z => 36.97202
+INCREMENT.Hip Shoulders Sep@Footstrike_50ms.X => -5.085047
+INCREMENT.Hip Shoulders Sep@Footstrike_50ms.Y => 4.724707
+INCREMENT.Hip Shoulders Sep@Footstrike_50ms.Z => 34.80187
+INCREMENT.Hip Shoulders Sep@Footstrike_60ms.X => -0.9102361
+INCREMENT.Hip Shoulders Sep@Footstrike_60ms.Y => 8.549239
+INCREMENT.Hip Shoulders Sep@Footstrike_60ms.Z => 30.81278
+INCREMENT.Hip Shoulders Sep@Footstrike_70ms.X => 5.700648
+INCREMENT.Hip Shoulders Sep@Footstrike_70ms.Y => 13.49097
+INCREMENT.Hip Shoulders Sep@Footstrike_70ms.Z => 25.36739
+INCREMENT.Hip Shoulders Sep@Footstrike_80ms.X => 10.46172
+INCREMENT.Hip Shoulders Sep@Footstrike_80ms.Y => 17.86925
+INCREMENT.Hip Shoulders Sep@Footstrike_80ms.Z => 18.11355
+INCREMENT.Hip Shoulders Sep@Footstrike_90ms.X => 16.41395
+INCREMENT.Hip Shoulders Sep@Footstrike_90ms.Y => 21.69082
+INCREMENT.Hip Shoulders Sep@Footstrike_90ms.Z => 10.56396
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.X => 35.60515
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.Y => 4.781894
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.Z => -5.993963
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.X => 32.58015
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.Y => 6.04328
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.Z => -3.032141
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.X => 29.64269
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.Y => 4.618991
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.Z => 0.6965289
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.X => 29.83122
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.Y => 2.459606
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.Z => 3.900806
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.X => 30.7485
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.Y => -1.39863
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.Z => 8.323931
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.X => 30.62256
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.Y => -2.695011
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.Z => 11.88032
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.X => 29.1917
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.Y => -2.833582
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.Z => 19.40648
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.X => 16.6387
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.Y => -2.104543
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.Z => 31.09071
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.X => -2.960518
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.Y => -5.8745
+INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.Z => 40.89763
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.X => 417.7752
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.Y => -109.7453
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.Z => -331.0016
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.X => -408.3475
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.Y => -555.5558
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.Z => -136.0459
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.X => 66.80164
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.Y => 297.8528
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.Z => -890.3646
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.X => -841.8845
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.Y => -139.6489
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.Z => -193.6034
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.X => -190.434
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.Y => -100.2076
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.Z => -723.5725
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.X => -2009.823
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.Y => -622.0182
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.Z => -5324.679
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.X => 854.9564
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.Y => -642.7081
+INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.Z => -203.9437
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.X => 106.2322
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.Y => -9.993753
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.Z => 2.773077
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.X => 143.5337
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.Y => 16.85027
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.Z => 71.38173
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.X => 94.00117
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.Y => 22.52538
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.Z => 103.4342
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.X => 74.48506
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.Y => 27.28712
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.Z => 79.04251
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.X => 73.74406
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.Y => 40.64507
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.Z => 90.17546
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.X => 17.99406
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.Y => 146.3831
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.Z => 263.444
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.X => 28.48372
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.Y => 86.8487
+INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.Z => 726.7341
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.X => 4.038682
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.Y => 35.55517
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.Z => 131.5168
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.X => -2.143975
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.Y => 29.32941
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.Z => 127.0075
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.X => -6.911767
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.Y => 20.22492
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.Z => 119.7113
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.X => -8.405026
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.Y => 13.74811
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.Z => 113.4958
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.X => -7.460098
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.Y => 6.679615
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.Z => 106.3554
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.X => -6.698444
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.Y => 1.267751
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.Z => 100.6732
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.X => -4.280077
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.Y => -4.899446
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.Z => 94.00687
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.X => 2.704558
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.Y => -10.44796
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.Z => 80.68691
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.X => 12.90989
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.Y => -10.25093
+INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.Z => 39.85893
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.X => -149.4733
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.Y => -724.4697
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.Z => -207.5963
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.X => 443.8397
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.Y => -1026.603
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.Z => 514.6825
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.X => 854.1993
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.Y => -902.5034
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.Z => 1005.172
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.X => -2129.704
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.Y => -388.689
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.Z => -1400.132
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.X => -1918.63
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.Y => -1312.37
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.Z => 1428.702
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.X => -428.2905
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.Y => 2479.694
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.Z => -10735.2
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.X => -4493.525
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.Y => 30967.88
+INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.Z => 9651.073
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.X => -916.082
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.Y => 62.25444
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.Z => 968.0625
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.X => 355.6851
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.Y => 1133.853
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.Z => -1544.855
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.X => -355.4384
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.Y => -47.65289
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.Z => 2806.566
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.X => 291.8724
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.Y => 1463.747
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.Z => -1370.111
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.X => 157.0475
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.Y => 1734.654
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.Z => -1352.581
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.X => -81.22494
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.Y => 2005.311
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.Z => -1359.269
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.X => -480.7992
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.Y => 2064.149
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.Z => -1387.262
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.X => -775.359
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.Y => 1573.643
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.Z => -1378.392
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.X => -1003.914
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.Y => 1331.191
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.Z => -1104.922
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.X => -1194.212
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.Y => 1058.53
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.Z => -664.411
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.X => -1279.979
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.Y => 518.3636
+INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.Z => -77.02775
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.X => -138.6581
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.Y => 82.74287
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.Z => -24.77743
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.X => -148.1916
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.Y => 59.2251
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.Z => 28.28082
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.X => -83.57414
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.Y => -5.936111
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.Z => 105.5547
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.X => -90.76438
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.Y => -39.62099
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.Z => 115.4858
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.X => -338.2293
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.Y => -141.7612
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.Z => 44.81747
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.X => -433.4812
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.Y => -42.69482
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.Z => -441.074
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.X => 345.4423
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.Y => 1272.693
+INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.Z => -1480.265
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.X => 15.4043
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.Y => 107.247
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.Z => 184.2034
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.X => -49.59297
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.Y => 74.57233
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.Z => 60.56269
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.X => 19.55138
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.Y => 103.7294
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.Z => 168.8149
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.X => -43.43804
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.Y => 71.20409
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.Z => 77.03835
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.X => -35.47277
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.Y => 71.28139
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.Z => 94.46728
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.X => -24.60067
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.Y => 73.28365
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.Z => 113.8075
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.X => -13.42786
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.Y => 79.38912
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.Z => 132.4534
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.X => -5.31992
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.Y => 84.20154
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.Z => 152.0368
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.X => 0.3280364
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.Y => 90.52911
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.Z => 170.5521
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.X => 4.303792
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.Y => 98.30844
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.Z => 181.0483
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.X => 8.805252
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.Y => 104.3768
+INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.Z => 186.7592
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.X => -110.1368
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.Y => -135.8742
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.Z => 185.9942
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.X => -187.0803
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.Y => -51.46902
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.Z => 90.20909
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.X => -317.7089
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.Y => 198.0134
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.Z => -27.67578
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.X => -327.2017
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.Y => -52.98688
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.Z => 658.5141
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.X => -761.354
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.Y => 694.6463
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.Z => 2205.228
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.X => -1124.742
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.Y => -2371.09
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.Z => -6289.378
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.X => 8148.216
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.Y => 2939.564
+INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.Z => -2165.619
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.X => 51.2397
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.Y => 4.831919
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.Z => 6.475632
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.X => 90.04517
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.Y => 18.82154
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.Z => 4.079521
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.X => 94.80694
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.Y => 14.72868
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.Z => 42.83235
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.X => 64.6761
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.Y => 39.01722
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.Z => 13.18789
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.X => 42.34519
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.Y => 51.46434
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.Z => -57.42302
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.X => -145.2755
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.Y => 34.81546
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.Z => 148.4806
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.X => -77.92257
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.Y => 237.6371
+INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.Z => 819.1819
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.X => -12.43149
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.Y => 3.07237
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.Z => 121.3507
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.X => -15.2886
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.Y => -1.264858
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.Z => 122.4251
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.X => -17.96401
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.Y => -7.701401
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.Z => 120.3847
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.X => -20.04288
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.Y => -13.86691
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.Z => 118.0644
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.X => -21.84974
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.Y => -20.65757
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.Z => 116.1061
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.X => -21.6844
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.Y => -25.83464
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.Z => 115.113
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.X => -19.95143
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.Y => -30.22
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.Z => 117.5487
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.X => -6.110163
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.Y => -24.97901
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.Z => 114.1783
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.X => 6.576572
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.Y => -8.208837
+INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.Z => 81.92551
+
+### KINEMATIC_SEQUENCE
+KINEMATIC_SEQUENCE.Pelvis_Ang_Vel_max.X => 738.7017
+KINEMATIC_SEQUENCE.Pitching_Elbow_Ang_Vel_max.X => 2265.402
+KINEMATIC_SEQUENCE.Pitching_Hand_Ang_Vel_max.X => 5726.495
+KINEMATIC_SEQUENCE.Pitching_Humerus_Ang_Vel_max.X => 5717.681
+KINEMATIC_SEQUENCE.Pitching_Shoulder_Ang_Vel_max.X => 5534.607
+KINEMATIC_SEQUENCE.Thorax_Ang_Vel_max.X => 833.4365
+
+### MODEL
+MODEL.LAR_Seg_Length.X => 0.310695
+MODEL.LTH_Seg_Length.X => 0.427083
+MODEL.RAR_Seg_Length.X => 0.310793
+MODEL.RTA_Seg_Length.X => 0.529939
+MODEL.RTH_Seg_Length.X => 0.415332
+
+### PROCESSED
+PROCESSED.Back_Knee_Angle@Footstrike.X => 33.89327
+PROCESSED.Back_Knee_Angle@Footstrike.Y => -5.372871
+PROCESSED.Back_Knee_Angle@Footstrike.Z => -15.05447
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 56.4933
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 10.35685
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -19.29952
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.X => 53.18678
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.Y => 6.103922
+PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.Z => -16.19251
+PROCESSED.Back_Knee_Angle@MaxKneeHeight.X => 34.21253
+PROCESSED.Back_Knee_Angle@MaxKneeHeight.Y => -2.982644
+PROCESSED.Back_Knee_Angle@MaxKneeHeight.Z => -3.983786
+PROCESSED.Back_Knee_Angle@PelvisRot_Stop.X => 50.57127
+PROCESSED.Back_Knee_Angle@PelvisRot_Stop.Y => 5.387918
+PROCESSED.Back_Knee_Angle@PelvisRot_Stop.Z => -15.87554
+PROCESSED.Back_Knee_Angle@Release.X => 57.42156
+PROCESSED.Back_Knee_Angle@Release.Y => 8.069256
+PROCESSED.Back_Knee_Angle@Release.Z => -17.7336
+PROCESSED.Back_Knee_Angle@Release100msAfter.X => 56.23873
+PROCESSED.Back_Knee_Angle@Release100msAfter.Y => 12.60908
+PROCESSED.Back_Knee_Angle@Release100msAfter.Z => -21.69085
+PROCESSED.Back_Knee_Angle@Setup.X => 24.27526
+PROCESSED.Back_Knee_Angle@Setup.Y => 0.5544897
+PROCESSED.Back_Knee_Angle@Setup.Z => -10.51771
+PROCESSED.Back_Leg_GRF_mag_max.X => 1.792192
+PROCESSED.Back_Leg_GRF_max.X => 0.2759618
+PROCESSED.Back_Leg_GRF_max.Y => 0.9871535
+PROCESSED.Back_Leg_GRF_max.Z => 1.537683
+PROCESSED.Back_Leg_GRF_min.X => -0.09632472
+PROCESSED.Back_Leg_GRF_min.Y => -0.2152697
+PROCESSED.Back_Leg_GRF_min.Z => 0
+PROCESSED.Cropped Measurement End Frame.X => 2262
+PROCESSED.Cropped Measurement Start Frame.X => 1747
+PROCESSED.Elbow_Torque_Nm@Footstrike.X => 17.23008
+PROCESSED.Elbow_Torque_Nm@Max_Shoulder_Int_Rot_FollowThru.X => -34.43032
+PROCESSED.Elbow_Torque_Nm@Max_Shoulder_Rot.X => 130.6203
+PROCESSED.Elbow_Torque_Nm@Release.X => 3.083144
+PROCESSED.Elbow_Torque@Footstrike.X => 0.0096792
+PROCESSED.Elbow_Torque@Max_Shoulder_Int_Rot_FollowThru.X => -0.01934164
+PROCESSED.Elbow_Torque@Max_Shoulder_Rot.X => 0.0733775
+PROCESSED.Elbow_Torque@Release.X => 0.00173199
+PROCESSED.Force_Ball@Release.X => 0.2380857
+PROCESSED.Frame_rate.X => 300
+PROCESSED.Head_Angle@Footstrike.X => -24.95697
+PROCESSED.Head_Angle@Footstrike.Y => -16.31635
+PROCESSED.Head_Angle@Footstrike.Z => 14.36887
+PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.X => -7.573365
+PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => -9.150467
+PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -31.4609
+PROCESSED.Head_Angle@Max_Shoulder_Rot.X => -32.67936
+PROCESSED.Head_Angle@Max_Shoulder_Rot.Y => -6.606501
+PROCESSED.Head_Angle@Max_Shoulder_Rot.Z => -21.76914
+PROCESSED.Head_Angle@MaxKneeHeight.X => -13.18947
+PROCESSED.Head_Angle@MaxKneeHeight.Y => -5.051676
+PROCESSED.Head_Angle@MaxKneeHeight.Z => 28.43976
+PROCESSED.Head_Angle@PelvisRot_Stop.X => -32.72725
+PROCESSED.Head_Angle@PelvisRot_Stop.Y => -8.969769
+PROCESSED.Head_Angle@PelvisRot_Stop.Z => -21.18522
+PROCESSED.Head_Angle@Release.X => -29.94296
+PROCESSED.Head_Angle@Release.Y => 2.813235
+PROCESSED.Head_Angle@Release.Z => -23.33189
+PROCESSED.Head_Angle@Release100msAfter.X => 2.656705
+PROCESSED.Head_Angle@Release100msAfter.Y => -5.878666
+PROCESSED.Head_Angle@Release100msAfter.Z => -26.11569
+PROCESSED.Head_Angle@Setup.X => -9.797229
+PROCESSED.Head_Angle@Setup.Y => -7.610807
+PROCESSED.Head_Angle@Setup.Z => 28.10272
+PROCESSED.Hip Shoulders Sep@Footstrike.X => -5.053811
+PROCESSED.Hip Shoulders Sep@Footstrike.Y => -5.341989
+PROCESSED.Hip Shoulders Sep@Footstrike.Z => 40.26875
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.X => 36.22323
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.Y => 19.69577
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.Z => -17.31511
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.X => 18.14464
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.Y => 22.68446
+PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.Z => 9.160884
+PROCESSED.Hip Shoulders Sep@MaxKneeHeight.X => 36.97134
+PROCESSED.Hip Shoulders Sep@MaxKneeHeight.Y => 5.149544
+PROCESSED.Hip Shoulders Sep@MaxKneeHeight.Z => -7.867407
+PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.X => 14.90604
+PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.Y => 20.57058
+PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.Z => 13.03875
+PROCESSED.Hip Shoulders Sep@Release.X => 25.47994
+PROCESSED.Hip Shoulders Sep@Release.Y => 28.31246
+PROCESSED.Hip Shoulders Sep@Release.Z => -1.052552
+PROCESSED.Hip Shoulders Sep@Release100msAfter.X => 40.296
+PROCESSED.Hip Shoulders Sep@Release100msAfter.Y => 11.40794
+PROCESSED.Hip Shoulders Sep@Release100msAfter.Z => -30.20834
+PROCESSED.Hip Shoulders Sep@Setup.X => 3.005245
+PROCESSED.Hip Shoulders Sep@Setup.Y => 0.8921533
+PROCESSED.Hip Shoulders Sep@Setup.Z => -5.989619
+PROCESSED.Hip Shoulders Sep@Shoulder_ExtRot90.X => 38.00403
+PROCESSED.Lead_Knee_Ang_Vel@Footstrike.X => -347.4967
+PROCESSED.Lead_Knee_Ang_Vel@Footstrike.Y => 218.8874
+PROCESSED.Lead_Knee_Ang_Vel@Footstrike.Z => 93.8612
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X => -331.7995
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => -34.37046
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 282.3694
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.X => -317.1834
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.Y => 8.779467
+PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.Z => 110.8008
+PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.X => 297.3248
+PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.Y => -79.18297
+PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.Z => -53.73346
+PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.X => -309.057
+PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.Y => 1.321411
+PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.Z => 94.72198
+PROCESSED.Lead_Knee_Ang_Vel@Release.X => -433.7067
+PROCESSED.Lead_Knee_Ang_Vel@Release.Y => 179.8127
+PROCESSED.Lead_Knee_Ang_Vel@Release.Z => 147.2451
+PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.X => 329.2133
+PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.Y => -7.806796
+PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.Z => -215.903
+PROCESSED.Lead_Knee_Ang_Vel@Setup.X => 349.8555
+PROCESSED.Lead_Knee_Ang_Vel@Setup.Y => -77.90946
+PROCESSED.Lead_Knee_Ang_Vel@Setup.Z => -111.2645
+PROCESSED.Lead_Knee_Angle@Footstrike.X => 37.83092
+PROCESSED.Lead_Knee_Angle@Footstrike.Y => 12.81226
+PROCESSED.Lead_Knee_Angle@Footstrike.Z => -25.62925
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.X => -6.760872
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 3.218101
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -11.11444
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.X => 23.21549
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.Y => 6.907117
+PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.Z => -20.90316
+PROCESSED.Lead_Knee_Angle@MaxKneeHeight.X => 128.683
+PROCESSED.Lead_Knee_Angle@MaxKneeHeight.Y => 21.96385
+PROCESSED.Lead_Knee_Angle@MaxKneeHeight.Z => -9.841182
+PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.X => 25.01491
+PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.Y => 7.715475
+PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.Z => -21.25372
+PROCESSED.Lead_Knee_Angle@Release.X => 12.52805
+PROCESSED.Lead_Knee_Angle@Release.Y => 6.4724
+PROCESSED.Lead_Knee_Angle@Release.Z => -18.10336
+PROCESSED.Lead_Knee_Angle@Release100msAfter.X => 1.938016
+PROCESSED.Lead_Knee_Angle@Release100msAfter.Y => -1.163566
+PROCESSED.Lead_Knee_Angle@Release100msAfter.Z => -8.371697
+PROCESSED.Lead_Knee_Angle@Setup.X => 9.023769
+PROCESSED.Lead_Knee_Angle@Setup.Y => 1.02361
+PROCESSED.Lead_Knee_Angle@Setup.Z => -12.69274
+PROCESSED.Lead_Leg_GRF_mag_impulse_Midpoint_FS_Release.X => 0.1287293
+PROCESSED.Lead_Leg_GRF_mag_impulse.X => 0.2099402
+PROCESSED.Lead_Leg_GRF_mag_max.X => 2.537678
+PROCESSED.Lead_Leg_GRF_mag_Midpoint_FS_Release.X => 2.537678
+PROCESSED.Lead_Leg_GRF_max.X => 0.3179297
+PROCESSED.Lead_Leg_GRF_max.Y => 0.0161076
+PROCESSED.Lead_Leg_GRF_max.Z => 2.053384
+PROCESSED.Lead_Leg_GRF_min.X => -0.36746
+PROCESSED.Lead_Leg_GRF_min.Y => -1.488742
+PROCESSED.Lead_Leg_GRF_min.Z => 0
+PROCESSED.Max_Elbow_Flex_Torque_Nm.X => -22.44504
+PROCESSED.Max_Elbow_Flex_Torque.X => -0.01260877
+PROCESSED.Max_Elbow_Force.X => 1.647996
+PROCESSED.Max_Elbow_Varus_Torque_Nm.X => 132.9675
+PROCESSED.Max_Elbow_Varus_Torque.X => 0.07469608
+PROCESSED.Max_Shoulder_Abd_Torque.X => -0.03736999
+PROCESSED.Max_Shoulder_Dist_Force_Per.X => 158.406
+PROCESSED.Max_Shoulder_Dist_Force.X => 1.58406
+PROCESSED.Max_Shoulder_Hor_Add_Torque.X => -0.08910128
+PROCESSED.Max_Shoulder_IntRot_Torque.X => 0.07762341
+PROCESSED.MaxPelvisLinearVel_MPH.X => 2.635347
+PROCESSED.MaxPelvisLinearVel_MPH.Y => 5.573846
+PROCESSED.MaxPelvisLinearVel_MPH.Z => -1.234464
+PROCESSED.MaxPelvisLinearVel.X => 1.178125
+PROCESSED.MaxPelvisLinearVel.Y => 2.491772
+PROCESSED.MaxPelvisLinearVel.Z => -0.5518636
+PROCESSED.MaxTrunkLinearVel_MPH.X => 1.314549
+PROCESSED.MaxTrunkLinearVel_MPH.Y => 7.823456
+PROCESSED.MaxTrunkLinearVel_MPH.Z => -1.100742
+PROCESSED.MaxTrunkLinearVel.X => 0.5876653
+PROCESSED.MaxTrunkLinearVel.Y => 3.497454
+PROCESSED.MaxTrunkLinearVel.Z => -0.4920835
+PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.X => 2107.783
+PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.Y => 807.5387
+PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.Z => -748.0814
+PROCESSED.Pelvis_Ang_Acc@Release.X => 944.5664
+PROCESSED.Pelvis_Ang_Acc@Release.Y => 4576.828
+PROCESSED.Pelvis_Ang_Acc@Release.Z => 3726.835
+PROCESSED.Pelvis_Ang_Acc@Release100msAfter.X => 764.239
+PROCESSED.Pelvis_Ang_Acc@Release100msAfter.Y => 2416.296
+PROCESSED.Pelvis_Ang_Acc@Release100msAfter.Z => -1733.475
+PROCESSED.Pelvis_Ang_Vel@Footstrike.X => 67.24118
+PROCESSED.Pelvis_Ang_Vel@Footstrike.Y => 132.907
+PROCESSED.Pelvis_Ang_Vel@Footstrike.Z => 679.7135
+PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.X => 20.8091
+PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.Y => -163.2023
+PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.Z => 16.06492
+PROCESSED.Pelvis_Ang_Vel@Release.X => 148.1488
+PROCESSED.Pelvis_Ang_Vel@Release.Y => 244.7429
+PROCESSED.Pelvis_Ang_Vel@Release.Z => 68.57408
+PROCESSED.Pelvis_Ang_Vel@Release100msAfter.X => 221.5592
+PROCESSED.Pelvis_Ang_Vel@Release100msAfter.Y => 199.5576
+PROCESSED.Pelvis_Ang_Vel@Release100msAfter.Z => 114.3007
+PROCESSED.Pelvis_Angle@Footstrike.X => 14.61735
+PROCESSED.Pelvis_Angle@Footstrike.Y => -9.672633
+PROCESSED.Pelvis_Angle@Footstrike.Z => 32.95232
+PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 26.88606
+PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => -1.788693
+PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -7.397463
+PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.X => 22.02306
+PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.Y => -8.520534
+PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.Z => -9.639462
+PROCESSED.Pelvis_Angle@MaxKneeHeight.X => 7.334626
+PROCESSED.Pelvis_Angle@MaxKneeHeight.Y => 38.59848
+PROCESSED.Pelvis_Angle@MaxKneeHeight.Z => 131.8854
+PROCESSED.Pelvis_Angle@PelvisRot_Stop.X => 21.8359
+PROCESSED.Pelvis_Angle@PelvisRot_Stop.Y => -7.196072
+PROCESSED.Pelvis_Angle@PelvisRot_Stop.Z => -9.659715
+PROCESSED.Pelvis_Angle@Release.X => 24.61414
+PROCESSED.Pelvis_Angle@Release.Y => -6.74714
+PROCESSED.Pelvis_Angle@Release.Z => -11.7634
+PROCESSED.Pelvis_Angle@Release100msAfter.X => 33.69753
+PROCESSED.Pelvis_Angle@Release100msAfter.Y => 2.660104
+PROCESSED.Pelvis_Angle@Release100msAfter.Z => -7.205355
+PROCESSED.Pelvis_Angle@Setup.X => 0.3808321
+PROCESSED.Pelvis_Angle@Setup.Y => 4.820614
+PROCESSED.Pelvis_Angle@Setup.Z => 117.4932
+PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.X => 1.891647
+PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.Y => 5.194256
+PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.Z => -0.9122729
+PROCESSED.Pelvis_COG_Vel@Footstrike.X => 0.8456558
+PROCESSED.Pelvis_COG_Vel@Footstrike.Y => 2.322078
+PROCESSED.Pelvis_COG_Vel@Footstrike.Z => -0.4078291
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.X => 0.438872
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => 1.545095
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 1.280943
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.X => 1.548857
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.Y => -0.3262716
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.Z => 1.863408
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.X => 0.6924123
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.Y => -0.1458588
+PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.Z => 0.8330315
+PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.X => 0.2103344
+PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.Y => 0.4093409
+PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.Z => -0.1303284
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.X => 0.8377967
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.Y => -0.1153975
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.Z => 1.931346
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.X => 0.3745347
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.Y => -0.05158812
+PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.Z => 0.8634031
+PROCESSED.Pelvis_COG_Vel@Release_MPH.X => 3.405725
+PROCESSED.Pelvis_COG_Vel@Release_MPH.Y => 0.4444268
+PROCESSED.Pelvis_COG_Vel@Release_MPH.Z => 2.426853
+PROCESSED.Pelvis_COG_Vel@Release.X => 1.52252
+PROCESSED.Pelvis_COG_Vel@Release.Y => 0.1986798
+PROCESSED.Pelvis_COG_Vel@Release.Z => 1.084918
+PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.X => 2.697855
+PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.Y => 2.595088
+PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.Z => 0.8663769
+PROCESSED.Pelvis_COG_Vel@Release100msAfter.X => 1.206069
+PROCESSED.Pelvis_COG_Vel@Release100msAfter.Y => 1.160127
+PROCESSED.Pelvis_COG_Vel@Release100msAfter.Z => 0.3873114
+PROCESSED.Pelvis_COG_Vel@Setup.X => -0.1443923
+PROCESSED.Pelvis_COG_Vel@Setup.Y => -0.1451969
+PROCESSED.Pelvis_COG_Vel@Setup.Z => 0.02716179
+PROCESSED.Pelvis_COG@Footstrike_in.X => 12.5132
+PROCESSED.Pelvis_COG@Footstrike_in.Y => 58.42026
+PROCESSED.Pelvis_COG@Footstrike_in.Z => 18.45301
+PROCESSED.Pelvis_COG@Footstrike.X => 0.3178359
+PROCESSED.Pelvis_COG@Footstrike.Y => 1.483878
+PROCESSED.Pelvis_COG@Footstrike.Z => 0.4687074
+PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.X => 0.4343585
+PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.Y => 1.609744
+PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.Z => 0.5910967
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.X => 14.13973
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.Y => 62.12761
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.Z => 20.14825
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot.X => 0.3591498
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot.Y => 1.578044
+PROCESSED.Pelvis_COG@Max_Shoulder_Rot.Z => 0.5117667
+PROCESSED.Pelvis_COG@MaxKneeHeight.X => 0.2962269
+PROCESSED.Pelvis_COG@MaxKneeHeight.Y => 0.673573
+PROCESSED.Pelvis_COG@MaxKneeHeight.Z => 0.8257079
+PROCESSED.Pelvis_COG@PelvisRot_Stop_in.X => 13.99779
+PROCESSED.Pelvis_COG@PelvisRot_Stop_in.Y => 62.15667
+PROCESSED.Pelvis_COG@PelvisRot_Stop_in.Z => 19.92687
+PROCESSED.Pelvis_COG@PelvisRot_Stop.X => 0.3555446
+PROCESSED.Pelvis_COG@PelvisRot_Stop.Y => 1.578783
+PROCESSED.Pelvis_COG@PelvisRot_Stop.Z => 0.5061436
+PROCESSED.Pelvis_COG@Release_in.X => 15.41318
+PROCESSED.Pelvis_COG@Release_in.Y => 62.08857
+PROCESSED.Pelvis_COG@Release_in.Z => 21.12939
+PROCESSED.Pelvis_COG@Release.X => 0.3914956
+PROCESSED.Pelvis_COG@Release.Y => 1.577053
+PROCESSED.Pelvis_COG@Release.Z => 0.5366877
+PROCESSED.Pelvis_COG@Release100msAfter_in.X => 18.80184
+PROCESSED.Pelvis_COG@Release100msAfter_in.Y => 66.31038
+PROCESSED.Pelvis_COG@Release100msAfter_in.Z => 25.15885
+PROCESSED.Pelvis_COG@Release100msAfter.X => 0.4775677
+PROCESSED.Pelvis_COG@Release100msAfter.Y => 1.684287
+PROCESSED.Pelvis_COG@Release100msAfter.Z => 0.639036
+PROCESSED.Pelvis_COG@Setup.X => 0.2628048
+PROCESSED.Pelvis_COG@Setup.Y => 0.583001
+PROCESSED.Pelvis_COG@Setup.Z => 0.8228984
+PROCESSED.Pitching_Elbow_Ang_Vel_min.X => 383.7051
+PROCESSED.Pitching_Elbow_Ang_Vel_min.Y => -2265.402
+PROCESSED.Pitching_Elbow_Ang_Vel_min.Z => -950.278
+PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.X => -40.24202
+PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.Y => -259.3819
+PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.Z => 865.9023
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X => 541.308
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => -631.4426
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => -80.25646
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.X => 470.24
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.Y => -1857.929
+PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.Z => -926.4387
+PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.X => 4.429583
+PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.Y => -10.22592
+PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.Z => 9.033489
+PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.X => 216.1692
+PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.Y => -1433.106
+PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.Z => -726.3455
+PROCESSED.Pitching_Elbow_Ang_Vel@Release.X => 383.7051
+PROCESSED.Pitching_Elbow_Ang_Vel@Release.Y => -726.6949
+PROCESSED.Pitching_Elbow_Ang_Vel@Release.Z => -25.3486
+PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.X => -108.9379
+PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.Y => 131.1147
+PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.Z => -93.10086
+PROCESSED.Pitching_Elbow_Ang_Vel@Setup.X => -25.07645
+PROCESSED.Pitching_Elbow_Ang_Vel@Setup.Y => 65.21733
+PROCESSED.Pitching_Elbow_Ang_Vel@Setup.Z => -36.35239
+PROCESSED.Pitching_Elbow_Angle_max_MEAN.X => 137.1239
+PROCESSED.Pitching_Elbow_Angle_max_MEAN.Y => 0.000005122643
+PROCESSED.Pitching_Elbow_Angle_max_MEAN.Z => -74.11418
+PROCESSED.Pitching_Elbow_Angle_max.X => 137.1239
+PROCESSED.Pitching_Elbow_Angle_max.Y => 0.000005122643
+PROCESSED.Pitching_Elbow_Angle_max.Z => -74.11418
+PROCESSED.Pitching_Elbow_Angle@Footstrike.X => 137.1239
+PROCESSED.Pitching_Elbow_Angle@Footstrike.Y => 0
+PROCESSED.Pitching_Elbow_Angle@Footstrike.Z => -82.78842
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 31.98258
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => -0.000001707547
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -129.6187
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.X => 83.16364
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.Y => -0.000003415094
+PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.Z => -103.1618
+PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.X => 130.5175
+PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.Y => -0.000003415095
+PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.Z => -113.3908
+PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.X => 93.96554
+PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.Y => -0.000003415095
+PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.Z => -95.58414
+PROCESSED.Pitching_Elbow_Angle@Release.X => 24.56435
+PROCESSED.Pitching_Elbow_Angle@Release.Y => -8.537739e-7
+PROCESSED.Pitching_Elbow_Angle@Release.Z => -119.5467
+PROCESSED.Pitching_Elbow_Angle@Release100msAfter.X => 30.17782
+PROCESSED.Pitching_Elbow_Angle@Release100msAfter.Y => 8.537735e-7
+PROCESSED.Pitching_Elbow_Angle@Release100msAfter.Z => -130.8722
+PROCESSED.Pitching_Elbow_Angle@Setup.X => 114.8858
+PROCESSED.Pitching_Elbow_Angle@Setup.Y => 0.000001494104
+PROCESSED.Pitching_Elbow_Angle@Setup.Z => -111.1342
+PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.X => -1833.613
+PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.Y => -141.6927
+PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.Z => 115.7841
+PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.X => 2489.699
+PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.Y => -1375.873
+PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.Z => 2004.128
+PROCESSED.Pitching_Hand_Ang_Vel@Release.X => 5232.322
+PROCESSED.Pitching_Hand_Ang_Vel@Release.Y => 1708.734
+PROCESSED.Pitching_Hand_Ang_Vel@Release.Z => 3684.09
+PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.X => 498.8018
+PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.Y => 1094.314
+PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.Z => -349.0649
+PROCESSED.Pitching_Hand_Angle@Footstrike.X => -46.94702
+PROCESSED.Pitching_Hand_Angle@Footstrike.Y => 14.17578
+PROCESSED.Pitching_Hand_Angle@Footstrike.Z => 0.4703509
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.X => -34.18515
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 16.35647
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => 9.505259
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.X => -51.20575
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.Y => 12.81137
+PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.Z => 3.515893
+PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.X => -36.71484
+PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.Y => 18.75791
+PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.Z => 4.541799
+PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.X => -54.94944
+PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.Y => 15.61773
+PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.Z => 4.938995
+PROCESSED.Pitching_Hand_Angle@Release.X => -7.049747
+PROCESSED.Pitching_Hand_Angle@Release.Y => 12.33898
+PROCESSED.Pitching_Hand_Angle@Release.Z => 1.115868
+PROCESSED.Pitching_Hand_Angle@Release100msAfter.X => -27.77627
+PROCESSED.Pitching_Hand_Angle@Release100msAfter.Y => 7.954373
+PROCESSED.Pitching_Hand_Angle@Release100msAfter.Z => 8.583178
+PROCESSED.Pitching_Hand_Angle@Setup.X => -17.11326
+PROCESSED.Pitching_Hand_Angle@Setup.Y => 9.906862
+PROCESSED.Pitching_Hand_Angle@Setup.Z => 6.580195
+PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.X => -1840.903
+PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.Y => 227.0824
+PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.Z => -1702.243
+PROCESSED.Pitching_Humerus_Ang_Acc@Release.X => 54337.95
+PROCESSED.Pitching_Humerus_Ang_Acc@Release.Y => -17483.16
+PROCESSED.Pitching_Humerus_Ang_Acc@Release.Z => 47282.34
+PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.X => -2093.239
+PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.Y => -6783.319
+PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.Z => 31166.59
+PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.X => 278.1985
+PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.Y => 833.024
+PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.Z => -1731.837
+PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.X => -1170.456
+PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.Y => 442.3925
+PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.Z => 156.3659
+PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.X => -9.251244
+PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.Y => 44.79779
+PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.Z => 10.94939
+PROCESSED.Pitching_Humerus_Ang_Vel@Release.X => 183.4831
+PROCESSED.Pitching_Humerus_Ang_Vel@Release.Y => 295.8049
+PROCESSED.Pitching_Humerus_Ang_Vel@Release.Z => 5451.14
+PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.X => 243.8446
+PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.Y => 907.3371
+PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.Z => 772.6808
+PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.X => 271.5565
+PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.Y => -342.6452
+PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.Z => 1646.453
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X => 1556.393
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => -173.2858
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 1468.928
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.X => 653.9985
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.Y => 45.54129
+PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.Z => 71.02299
+PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.X => 10.43926
+PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.Y => -32.16261
+PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.Z => -43.84258
+PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.X => 814.7366
+PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.Y => 321.037
+PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.Z => 647.2909
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release.X => -683.3712
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release.Y => 116.4041
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release.Z => -5271.816
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.X => 518.9696
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.Y => -457.6072
+PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.Z => -764.8467
+PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.X => -54.02033
+PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.Y => 24.36644
+PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.Z => 64.50147
+PROCESSED.Pitching_Shoulder_Angle_Max.X => 50.82059
+PROCESSED.Pitching_Shoulder_Angle_Max.Y => 108.5205
+PROCESSED.Pitching_Shoulder_Angle_Max.Z => 186.9973
+PROCESSED.Pitching_Shoulder_Angle_Min.X => -50.82933
+PROCESSED.Pitching_Shoulder_Angle_Min.Y => 39.08631
+PROCESSED.Pitching_Shoulder_Angle_Min.Z => -39.5788
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.X => -73.6123
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.Y => 38.59523
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.Z => 124.3303
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.X => -43.10555
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.Y => 27.34588
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.Z => 44.9724
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.X => -33.80551
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Y => 70.24911
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Z => 222.4267
+PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.X => 36.18161
+PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.Y => 25.69322
+PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.Z => -54.10794
+PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.X => -26.81544
+PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.Y => 75.0848
+PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.Z => 213.8192
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.X => -58.18848
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.Y => 69.24221
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.Z => 183.6416
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.X => -80.80353
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.Y => -12.31789
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.Z => 121.3626
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.X => -0.1244736
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.Y => 27.3771
+PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.Z => -40.62149
+PROCESSED.Pitching_Shoulder_Angle@Footstrike.X => -50.24118
+PROCESSED.Pitching_Shoulder_Angle@Footstrike.Y => 77.26105
+PROCESSED.Pitching_Shoulder_Angle@Footstrike.Z => 44.7258
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 52.88169
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 130.4292
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -18.88634
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.X => 11.29721
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.Y => 106.3078
+PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.Z => 186.9973
+PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.X => 50.82059
+PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.Y => 43.33567
+PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.Z => 5.233728
+PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.X => 6.851888
+PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.Y => 103.28
+PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.Z => 186.2052
+PROCESSED.Pitching_Shoulder_Angle@Release.X => 17.85311
+PROCESSED.Pitching_Shoulder_Angle@Release.Y => 100.7675
+PROCESSED.Pitching_Shoulder_Angle@Release.Z => 123.757
+PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.X => 102.4733
+PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.Y => 98.98298
+PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.Z => 29.3844
+PROCESSED.Pitching_Shoulder_Angle@Setup.X => -0.2403676
+PROCESSED.Pitching_Shoulder_Angle@Setup.Y => 27.37735
+PROCESSED.Pitching_Shoulder_Angle@Setup.Z => -40.89217
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.X => -592.8123
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.Y => 375.0466
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.Z => 352.8312
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.X => -48.34686
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.Y => -365.7515
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.Z => 1644.565
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.X => 590.5845
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.Y => 290.5459
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.Z => -94.26894
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.X => 37.65448
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.Y => 134.9671
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.Z => -5265.086
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.X => 347.0616
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.Y => -555.4663
+PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.Z => -820.3788
+PROCESSED.Shoulder_Ang_Vel@Release_Abs.X => 683.3712
+PROCESSED.Shoulder_Ang_Vel@Release_Abs.Y => 116.4041
+PROCESSED.Shoulder_Ang_Vel@Release_Abs.Z => 5271.816
+PROCESSED.Shoulder_Ang_Vel@Release.X => -683.3712
+PROCESSED.Shoulder_Ang_Vel@Release.Y => 116.4041
+PROCESSED.Shoulder_Ang_Vel@Release.Z => -5271.816
+PROCESSED.Shoulder_Dist_Force@Footstrike.X => 0.2890939
+PROCESSED.Shoulder_Dist_Force@Max_Shoulder_Int_Rot_FollowThru.X => 0.8850203
+PROCESSED.Shoulder_Dist_Force@Max_Shoulder_Rot.X => 0.6109506
+PROCESSED.Shoulder_Dist_Force@Release.X => 1.578567
+PROCESSED.Shoulder_Force_Abd_N@Max_Shoulder_Abd_Force_N.X => 517.866
+PROCESSED.Shoulder_Force_Abd@Max_Shoulder_Abd_Force.X => 0.517251
+PROCESSED.Shoulder_Rotation_Cummulative_Range_FStoRelease.X => 205.5119
+PROCESSED.Shoulder_Torque@Footstrike.X => 0.00764342
+PROCESSED.Shoulder_Torque@Max_Shoulder_Int_Rot_FollowThru.X => -0.03007249
+PROCESSED.Shoulder_Torque@Max_Shoulder_Rot.X => 0.07741417
+PROCESSED.Shoulder_Torque@Release.X => 0.01280152
+PROCESSED.Shoulder_Vel_Min_Abs.X => 691.4431
+PROCESSED.Shoulder_Vel_Min_Abs.Y => 528.6721
+PROCESSED.Shoulder_Vel_Min_Abs.Z => 5534.607
+PROCESSED.Shoulder_Vel_Min.X => -691.4431
+PROCESSED.Shoulder_Vel_Min.Y => -528.6721
+PROCESSED.Shoulder_Vel_Min.Z => -5534.607
+PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.X => 535.6052
+PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.Y => 715.8717
+PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.Z => -545.3489
+PROCESSED.Thorax_Ang_Acc@Release.X => -131.5391
+PROCESSED.Thorax_Ang_Acc@Release.Y => -7726.151
+PROCESSED.Thorax_Ang_Acc@Release.Z => 969.225
+PROCESSED.Thorax_Ang_Acc@Release100msAfter.X => -1824.76
+PROCESSED.Thorax_Ang_Acc@Release100msAfter.Y => -200.3998
+PROCESSED.Thorax_Ang_Acc@Release100msAfter.Z => -717.5507
+PROCESSED.Thorax_Ang_Vel@Footstrike.X => -180.0537
+PROCESSED.Thorax_Ang_Vel@Footstrike.Y => 189.6042
+PROCESSED.Thorax_Ang_Vel@Footstrike.Z => 799.3165
+PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.X => 282.6443
+PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.Y => 332.8771
+PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.Z => 422.2104
+PROCESSED.Thorax_Ang_Vel@Release.X => 157.3283
+PROCESSED.Thorax_Ang_Vel@Release.Y => 270.0594
+PROCESSED.Thorax_Ang_Vel@Release.Z => 235.3079
+PROCESSED.Thorax_Ang_Vel@Release100msAfter.X => 89.79282
+PROCESSED.Thorax_Ang_Vel@Release100msAfter.Y => 79.82567
+PROCESSED.Thorax_Ang_Vel@Release100msAfter.Z => 321.34
+PROCESSED.time_MaxPelvisVel_MaxThoraxVel.X => 0.00666666
+PROCESSED.Trunk Rot wrt Pelvis Rot@Footstrike.X => 41.42339
+PROCESSED.Trunk Rot wrt Pelvis Rot@Max_Shoulder_Int_Rot_FollowThru.X => -3.948003
+PROCESSED.Trunk Rot wrt Pelvis Rot@Max_Shoulder_Rot.X => 13.67181
+PROCESSED.Trunk Rot wrt Pelvis Rot@Release.X => 8.877613
+PROCESSED.Trunk_Angle@Footstrike.X => 8.018558
+PROCESSED.Trunk_Angle@Footstrike.Y => -6.308837
+PROCESSED.Trunk_Angle@Footstrike.Z => 74.37571
+PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.X => 55.53366
+PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.Y => 28.03991
+PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.Z => -11.34547
+PROCESSED.Trunk_Angle@Max_Shoulder_Rot.X => 40.51889
+PROCESSED.Trunk_Angle@Max_Shoulder_Rot.Y => 13.59686
+PROCESSED.Trunk_Angle@Max_Shoulder_Rot.Z => 4.032349
+PROCESSED.Trunk_Angle@MaxKneeHeight.X => -8.79544
+PROCESSED.Trunk_Angle@MaxKneeHeight.Y => 4.328192
+PROCESSED.Trunk_Angle@MaxKneeHeight.Z => 119.5293
+PROCESSED.Trunk_Angle@PelvisRot_Stop.X => 38.27425
+PROCESSED.Trunk_Angle@PelvisRot_Stop.Y => 11.99949
+PROCESSED.Trunk_Angle@PelvisRot_Stop.Z => 6.802277
+PROCESSED.Trunk_Angle@Release.X => 45.52077
+PROCESSED.Trunk_Angle@Release.Y => 24.58129
+PROCESSED.Trunk_Angle@Release.Z => -2.885785
+PROCESSED.Trunk_Angle@Release100msAfter.X => 63.96883
+PROCESSED.Trunk_Angle@Release100msAfter.Y => 33.1549
+PROCESSED.Trunk_Angle@Release100msAfter.Z => -23.36218
+PROCESSED.Trunk_Angle@Setup.X => 0.1085251
+PROCESSED.Trunk_Angle@Setup.Y => 1.69769
+PROCESSED.Trunk_Angle@Setup.Z => 111.511
+PROCESSED.Trunk_Angle@Shoulder_ExtRot90.X => 49.13084
+PROCESSED.Trunk_COG_Vel@Footstrike_MPH.X => 1.794212
+PROCESSED.Trunk_COG_Vel@Footstrike_MPH.Y => 7.740864
+PROCESSED.Trunk_COG_Vel@Footstrike_MPH.Z => -0.7876028
+PROCESSED.Trunk_COG_Vel@Footstrike.X => 0.8020976
+PROCESSED.Trunk_COG_Vel@Footstrike.Y => 3.460532
+PROCESSED.Trunk_COG_Vel@Footstrike.Z => -0.3520957
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.X => -0.7451137
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Y => 0.8435754
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Z => 0.1609742
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.X => 0.493377
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.Y => 4.42941
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.Z => 1.737262
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.X => 0.2205628
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.Y => 1.980156
+PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.Z => 0.7766382
+PROCESSED.Trunk_COG_Vel@MaxKneeHeight.X => 0.05003913
+PROCESSED.Trunk_COG_Vel@MaxKneeHeight.Y => 0.3346989
+PROCESSED.Trunk_COG_Vel@MaxKneeHeight.Z => -0.1679486
+PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.X => 0.3166391
+PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.Y => 2.118881
+PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.Z => 0.5850394
+PROCESSED.Trunk_COG_Vel@Release_MPH.X => 0.8627505
+PROCESSED.Trunk_COG_Vel@Release_MPH.Y => 3.699539
+PROCESSED.Trunk_COG_Vel@Release_MPH.Z => 1.67227
+PROCESSED.Trunk_COG_Vel@Release.X => 0.3856902
+PROCESSED.Trunk_COG_Vel@Release.Y => 1.653869
+PROCESSED.Trunk_COG_Vel@Release.Z => 0.7475837
+PROCESSED.Trunk_COG_Vel@Release100msAfter.X => 0.02660202
+PROCESSED.Trunk_COG_Vel@Release100msAfter.Y => 1.241963
+PROCESSED.Trunk_COG_Vel@Release100msAfter.Z => -0.01119927
+PROCESSED.Trunk_COG_Vel@Setup.X => -0.1142814
+PROCESSED.Trunk_COG_Vel@Setup.Y => -0.02802613
+PROCESSED.Trunk_COG_Vel@Setup.Z => -0.06095134
+PROCESSED.Trunk_COG@Footstrike.X => 0.3750979
+PROCESSED.Trunk_COG@Footstrike.Y => 1.477402
+PROCESSED.Trunk_COG@Footstrike.Z => 0.7790854
+PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.X => 0.4094161
+PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.Y => 1.806895
+PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.Z => 0.7827097
+PROCESSED.Trunk_COG@Max_Shoulder_Rot.X => 0.4105187
+PROCESSED.Trunk_COG@Max_Shoulder_Rot.Y => 1.700296
+PROCESSED.Trunk_COG@Max_Shoulder_Rot.Z => 0.7441593
+PROCESSED.Trunk_COG@MaxKneeHeight.X => 0.2018656
+PROCESSED.Trunk_COG@MaxKneeHeight.Y => 0.6630929
+PROCESSED.Trunk_COG@MaxKneeHeight.Z => 1.041584
+PROCESSED.Trunk_COG@PelvisRot_Stop.X => 0.4117851
+PROCESSED.Trunk_COG@PelvisRot_Stop.Y => 1.687028
+PROCESSED.Trunk_COG@PelvisRot_Stop.Z => 0.7385128
+PROCESSED.Trunk_COG@Release.X => 0.4219187
+PROCESSED.Trunk_COG@Release.Y => 1.752045
+PROCESSED.Trunk_COG@Release.Z => 0.7662802
+PROCESSED.Trunk_COG@Release100msAfter.X => 0.3887517
+PROCESSED.Trunk_COG@Release100msAfter.Y => 1.86261
+PROCESSED.Trunk_COG@Release100msAfter.Z => 0.7891054
+PROCESSED.Trunk_COG@Setup.X => 0.224311
+PROCESSED.Trunk_COG@Setup.Y => 0.5858902
+PROCESSED.Trunk_COG@Setup.Z => 1.090906
+PROCESSED.Trunk_Rotation_Cummulative_Range_FStoRelease.X => 77.2615
+PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.X => -7.306167
+PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.Y => -0.7918886
+PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.Z => 40.55522
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.X => 32.46579
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.Y => 25.8134
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.Z => -3.181899
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.X => 22.6462
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.Y => 18.19332
+PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.Z => 16.5026
+PROCESSED.Trunk_wrt_Pelvis_FE@Release.X => 27.98224
+PROCESSED.Trunk_wrt_Pelvis_FE@Release.Y => 25.84763
+PROCESSED.Trunk_wrt_Pelvis_FE@Release.Z => 12.01979
+PROCESSED.Uncropped Measurement Frames.X => 2403
+PROCESSED.Uncropped Measurement Length.X => 8.01
+
+### STRIDE_LENGTH
+STRIDE_LENGTH.STRIDE_LENGTH_MEAN_PERCENT.X => 84.67744
+STRIDE_LENGTH.STRIDE_LENGTH.X => 1.505565
+
+### TIMING
+TIMING.FootstrikeTime.X => 1.133333
+TIMING.Max_Elbow_Flex_Ang_VelTime.X => 1.24
+TIMING.Max_Elbow_FlexTime.X => 1.133333
+TIMING.Max_Elbow_ForceTime.X => 0.8033333
+TIMING.Max_Forearm_PronSup_Ang_VelTime.X => 1.133333
+TIMING.Max_Forearm_PronSupTime.X => 1.156667
+TIMING.Max_Shoulder_Int_RotTime.X => 5.215406e-8
+TIMING.Max_Shoulder_RotTime.X => 1.226667
+TIMING.MaxElbowVelTime.X => 1.236667
+TIMING.MaxHandVelTime.X => 1.246667
+TIMING.MaxHumerusVelTime.X => 1.256667
+TIMING.MaxKneeHeightTime.X => 0.4466667
+TIMING.MaxPelvisLinearVelTime.X => 1.083333
+TIMING.MaxPelvisVelTime.X => 1.153333
+TIMING.MaxShoulderHorAngleTime.X => 1.353333
+TIMING.MaxShoulderVelTime.X => 1.256667
+TIMING.MaxThoraxVelTime.X => 1.16
+TIMING.MaxTrunkLinearVelTime.X => 1.14
+TIMING.PeakShoulder_AngVel_HzShldAbdTime.X => 0.6133333
+TIMING.PelvisRot_StopTime.X => 1.22
+TIMING.ReleaseTime.X => 1.253333
+TIMING.SetupTime.X => 0
+
+## Raw JSON (as Prisma returns it)
+{
+  "TIMING.SetupTime.X": 0,
+  "TIMING.ReleaseTime.X": 1.253333,
+  "BALLSPEED.SPIN_AXIS.X": 0,
+  "BALLSPEED.SPIN_RATE.X": 0,
+  "MODEL.LAR_Seg_Length.X": 0.310695,
+  "MODEL.LTH_Seg_Length.X": 0.427083,
+  "MODEL.RAR_Seg_Length.X": 0.310793,
+  "MODEL.RTA_Seg_Length.X": 0.529939,
+  "MODEL.RTH_Seg_Length.X": 0.415332,
+  "PROCESSED.Frame_rate.X": 300,
+  "TIMING.FootstrikeTime.X": 1.133333,
+  "TIMING.MaxHandVelTime.X": 1.246667,
+  "TIMING.MaxElbowVelTime.X": 1.236667,
+  "TIMING.MaxPelvisVelTime.X": 1.153333,
+  "TIMING.MaxThoraxVelTime.X": 1.16,
+  "TIMING.MaxHumerusVelTime.X": 1.256667,
+  "TIMING.MaxKneeHeightTime.X": 0.4466667,
+  "PROCESSED.Max_Elbow_Force.X": 1.647996,
+  "PROCESSED.Trunk_COG@Setup.X": 0.224311,
+  "PROCESSED.Trunk_COG@Setup.Y": 0.5858902,
+  "PROCESSED.Trunk_COG@Setup.Z": 1.090906,
+  "TIMING.MaxShoulderVelTime.X": 1.256667,
+  "TIMING.Max_Elbow_FlexTime.X": 1.133333,
+  "TIMING.PelvisRot_StopTime.X": 1.22,
+  "PROCESSED.Back_Leg_GRF_max.X": 0.2759618,
+  "PROCESSED.Back_Leg_GRF_max.Y": 0.9871535,
+  "PROCESSED.Back_Leg_GRF_max.Z": 1.537683,
+  "PROCESSED.Back_Leg_GRF_min.X": -0.09632472,
+  "PROCESSED.Back_Leg_GRF_min.Y": -0.2152697,
+  "PROCESSED.Back_Leg_GRF_min.Z": 0,
+  "PROCESSED.Head_Angle@Setup.X": -9.797229,
+  "PROCESSED.Head_Angle@Setup.Y": -7.610807,
+  "PROCESSED.Head_Angle@Setup.Z": 28.10272,
+  "PROCESSED.Lead_Leg_GRF_max.X": 0.3179297,
+  "PROCESSED.Lead_Leg_GRF_max.Y": 0.0161076,
+  "PROCESSED.Lead_Leg_GRF_max.Z": 2.053384,
+  "PROCESSED.Lead_Leg_GRF_min.X": -0.36746,
+  "PROCESSED.Lead_Leg_GRF_min.Y": -1.488742,
+  "PROCESSED.Lead_Leg_GRF_min.Z": 0,
+  "PROCESSED.Pelvis_COG@Setup.X": 0.2628048,
+  "PROCESSED.Pelvis_COG@Setup.Y": 0.583001,
+  "PROCESSED.Pelvis_COG@Setup.Z": 0.8228984,
+  "PROCESSED.Shoulder_Vel_Min.X": -691.4431,
+  "PROCESSED.Shoulder_Vel_Min.Y": -528.6721,
+  "PROCESSED.Shoulder_Vel_Min.Z": -5534.607,
+  "TIMING.Max_Elbow_ForceTime.X": 0.8033333,
+  "PROCESSED.MaxTrunkLinearVel.X": 0.5876653,
+  "PROCESSED.MaxTrunkLinearVel.Y": 3.497454,
+  "PROCESSED.MaxTrunkLinearVel.Z": -0.4920835,
+  "PROCESSED.Trunk_Angle@Setup.X": 0.1085251,
+  "PROCESSED.Trunk_Angle@Setup.Y": 1.69769,
+  "PROCESSED.Trunk_Angle@Setup.Z": 111.511,
+  "PROCESSED.Trunk_COG@Release.X": 0.4219187,
+  "PROCESSED.Trunk_COG@Release.Y": 1.752045,
+  "PROCESSED.Trunk_COG@Release.Z": 0.7662802,
+  "STRIDE_LENGTH.STRIDE_LENGTH.X": 1.505565,
+  "TIMING.Max_Shoulder_RotTime.X": 1.226667,
+  "PROCESSED.Force_Ball@Release.X": 0.2380857,
+  "PROCESSED.Head_Angle@Release.X": -29.94296,
+  "PROCESSED.Head_Angle@Release.Y": 2.813235,
+  "PROCESSED.Head_Angle@Release.Z": -23.33189,
+  "PROCESSED.MaxPelvisLinearVel.X": 1.178125,
+  "PROCESSED.MaxPelvisLinearVel.Y": 2.491772,
+  "PROCESSED.MaxPelvisLinearVel.Z": -0.5518636,
+  "PROCESSED.Pelvis_Angle@Setup.X": 0.3808321,
+  "PROCESSED.Pelvis_Angle@Setup.Y": 4.820614,
+  "PROCESSED.Pelvis_Angle@Setup.Z": 117.4932,
+  "PROCESSED.Pelvis_COG@Release.X": 0.3914956,
+  "PROCESSED.Pelvis_COG@Release.Y": 1.577053,
+  "PROCESSED.Pelvis_COG@Release.Z": 0.5366877,
+  "TIMING.MaxTrunkLinearVelTime.X": 1.14,
+  "PROCESSED.Trunk_Angle@Release.X": 45.52077,
+  "PROCESSED.Trunk_Angle@Release.Y": 24.58129,
+  "PROCESSED.Trunk_Angle@Release.Z": -2.885785,
+  "PROCESSED.Trunk_COG_Vel@Setup.X": -0.1142814,
+  "PROCESSED.Trunk_COG_Vel@Setup.Y": -0.02802613,
+  "PROCESSED.Trunk_COG_Vel@Setup.Z": -0.06095134,
+  "TIMING.MaxPelvisLinearVelTime.X": 1.083333,
+  "PROCESSED.Back_Leg_GRF_mag_max.X": 1.792192,
+  "PROCESSED.Elbow_Torque@Release.X": 0.00173199,
+  "PROCESSED.Lead_Leg_GRF_mag_max.X": 2.537678,
+  "PROCESSED.Pelvis_Angle@Release.X": 24.61414,
+  "PROCESSED.Pelvis_Angle@Release.Y": -6.74714,
+  "PROCESSED.Pelvis_Angle@Release.Z": -11.7634,
+  "PROCESSED.Pelvis_COG_Vel@Setup.X": -0.1443923,
+  "PROCESSED.Pelvis_COG_Vel@Setup.Y": -0.1451969,
+  "PROCESSED.Pelvis_COG_Vel@Setup.Z": 0.02716179,
+  "PROCESSED.Shoulder_Vel_Min_Abs.X": 691.4431,
+  "PROCESSED.Shoulder_Vel_Min_Abs.Y": 528.6721,
+  "PROCESSED.Shoulder_Vel_Min_Abs.Z": 5534.607,
+  "PROCESSED.Trunk_COG@Footstrike.X": 0.3750979,
+  "PROCESSED.Trunk_COG@Footstrike.Y": 1.477402,
+  "PROCESSED.Trunk_COG@Footstrike.Z": 0.7790854,
+  "TIMING.MaxShoulderHorAngleTime.X": 1.353333,
+  "TIMING.Max_Forearm_PronSupTime.X": 1.156667,
+  "PROCESSED.Back_Knee_Angle@Setup.X": 24.27526,
+  "PROCESSED.Back_Knee_Angle@Setup.Y": 0.5544897,
+  "PROCESSED.Back_Knee_Angle@Setup.Z": -10.51771,
+  "PROCESSED.Head_Angle@Footstrike.X": -24.95697,
+  "PROCESSED.Head_Angle@Footstrike.Y": -16.31635,
+  "PROCESSED.Head_Angle@Footstrike.Z": 14.36887,
+  "PROCESSED.Lead_Knee_Angle@Setup.X": 9.023769,
+  "PROCESSED.Lead_Knee_Angle@Setup.Y": 1.02361,
+  "PROCESSED.Lead_Knee_Angle@Setup.Z": -12.69274,
+  "PROCESSED.MaxTrunkLinearVel_MPH.X": 1.314549,
+  "PROCESSED.MaxTrunkLinearVel_MPH.Y": 7.823456,
+  "PROCESSED.MaxTrunkLinearVel_MPH.Z": -1.100742,
+  "PROCESSED.Max_Elbow_Flex_Torque.X": -0.01260877,
+  "PROCESSED.Pelvis_COG@Footstrike.X": 0.3178359,
+  "PROCESSED.Pelvis_COG@Footstrike.Y": 1.483878,
+  "PROCESSED.Pelvis_COG@Footstrike.Z": 0.4687074,
+  "PROCESSED.Pelvis_COG@Release_in.X": 15.41318,
+  "PROCESSED.Pelvis_COG@Release_in.Y": 62.08857,
+  "PROCESSED.Pelvis_COG@Release_in.Z": 21.12939,
+  "PROCESSED.Trunk_COG_Vel@Release.X": 0.3856902,
+  "PROCESSED.Trunk_COG_Vel@Release.Y": 1.653869,
+  "PROCESSED.Trunk_COG_Vel@Release.Z": 0.7475837,
+  "TIMING.Max_Shoulder_Int_RotTime.X": 5.215406e-8,
+  "PROCESSED.MaxPelvisLinearVel_MPH.X": 2.635347,
+  "PROCESSED.MaxPelvisLinearVel_MPH.Y": 5.573846,
+  "PROCESSED.MaxPelvisLinearVel_MPH.Z": -1.234464,
+  "PROCESSED.Max_Elbow_Varus_Torque.X": 0.07469608,
+  "PROCESSED.Pelvis_Ang_Acc@Release.X": 944.5664,
+  "PROCESSED.Pelvis_Ang_Acc@Release.Y": 4576.828,
+  "PROCESSED.Pelvis_Ang_Acc@Release.Z": 3726.835,
+  "PROCESSED.Pelvis_Ang_Vel@Release.X": 148.1488,
+  "PROCESSED.Pelvis_Ang_Vel@Release.Y": 244.7429,
+  "PROCESSED.Pelvis_Ang_Vel@Release.Z": 68.57408,
+  "PROCESSED.Pelvis_COG_Vel@Release.X": 1.52252,
+  "PROCESSED.Pelvis_COG_Vel@Release.Y": 0.1986798,
+  "PROCESSED.Pelvis_COG_Vel@Release.Z": 1.084918,
+  "PROCESSED.Thorax_Ang_Acc@Release.X": -131.5391,
+  "PROCESSED.Thorax_Ang_Acc@Release.Y": -7726.151,
+  "PROCESSED.Thorax_Ang_Acc@Release.Z": 969.225,
+  "PROCESSED.Thorax_Ang_Vel@Release.X": 157.3283,
+  "PROCESSED.Thorax_Ang_Vel@Release.Y": 270.0594,
+  "PROCESSED.Thorax_Ang_Vel@Release.Z": 235.3079,
+  "PROCESSED.Trunk_Angle@Footstrike.X": 8.018558,
+  "PROCESSED.Trunk_Angle@Footstrike.Y": -6.308837,
+  "PROCESSED.Trunk_Angle@Footstrike.Z": 74.37571,
+  "PROCESSED.Back_Knee_Angle@Release.X": 57.42156,
+  "PROCESSED.Back_Knee_Angle@Release.Y": 8.069256,
+  "PROCESSED.Back_Knee_Angle@Release.Z": -17.7336,
+  "PROCESSED.Elbow_Torque@Footstrike.X": 0.0096792,
+  "PROCESSED.Elbow_Torque_Nm@Release.X": 3.083144,
+  "PROCESSED.Hip Shoulders Sep@Setup.X": 3.005245,
+  "PROCESSED.Hip Shoulders Sep@Setup.Y": 0.8921533,
+  "PROCESSED.Hip Shoulders Sep@Setup.Z": -5.989619,
+  "PROCESSED.Lead_Knee_Ang_Vel@Setup.X": 349.8555,
+  "PROCESSED.Lead_Knee_Ang_Vel@Setup.Y": -77.90946,
+  "PROCESSED.Lead_Knee_Ang_Vel@Setup.Z": -111.2645,
+  "PROCESSED.Lead_Knee_Angle@Release.X": 12.52805,
+  "PROCESSED.Lead_Knee_Angle@Release.Y": 6.4724,
+  "PROCESSED.Lead_Knee_Angle@Release.Z": -18.10336,
+  "PROCESSED.Max_Shoulder_Abd_Torque.X": -0.03736999,
+  "PROCESSED.Max_Shoulder_Dist_Force.X": 1.58406,
+  "PROCESSED.Pelvis_Angle@Footstrike.X": 14.61735,
+  "PROCESSED.Pelvis_Angle@Footstrike.Y": -9.672633,
+  "PROCESSED.Pelvis_Angle@Footstrike.Z": 32.95232,
+  "PROCESSED.Shoulder_Torque@Release.X": 0.01280152,
+  "PROCESSED.Trunk_COG@MaxKneeHeight.X": 0.2018656,
+  "PROCESSED.Trunk_COG@MaxKneeHeight.Y": 0.6630929,
+  "PROCESSED.Trunk_COG@MaxKneeHeight.Z": 1.041584,
+  "TIMING.Max_Elbow_Flex_Ang_VelTime.X": 1.24,
+  "PROCESSED.Head_Angle@MaxKneeHeight.X": -13.18947,
+  "PROCESSED.Head_Angle@MaxKneeHeight.Y": -5.051676,
+  "PROCESSED.Head_Angle@MaxKneeHeight.Z": 28.43976,
+  "PROCESSED.Lead_Leg_GRF_mag_impulse.X": 0.2099402,
+  "PROCESSED.Max_Elbow_Flex_Torque_Nm.X": -22.44504,
+  "PROCESSED.Pelvis_COG@Footstrike_in.X": 12.5132,
+  "PROCESSED.Pelvis_COG@Footstrike_in.Y": 58.42026,
+  "PROCESSED.Pelvis_COG@Footstrike_in.Z": 18.45301,
+  "PROCESSED.Pelvis_COG@MaxKneeHeight.X": 0.2962269,
+  "PROCESSED.Pelvis_COG@MaxKneeHeight.Y": 0.673573,
+  "PROCESSED.Pelvis_COG@MaxKneeHeight.Z": 0.8257079,
+  "PROCESSED.Pitching_Elbow_Angle_max.X": 137.1239,
+  "PROCESSED.Pitching_Elbow_Angle_max.Y": 0.000005122643,
+  "PROCESSED.Pitching_Elbow_Angle_max.Z": -74.11418,
+  "PROCESSED.Shoulder_Ang_Vel@Release.X": -683.3712,
+  "PROCESSED.Shoulder_Ang_Vel@Release.Y": 116.4041,
+  "PROCESSED.Shoulder_Ang_Vel@Release.Z": -5271.816,
+  "PROCESSED.Trunk_COG@PelvisRot_Stop.X": 0.4117851,
+  "PROCESSED.Trunk_COG@PelvisRot_Stop.Y": 1.687028,
+  "PROCESSED.Trunk_COG@PelvisRot_Stop.Z": 0.7385128,
+  "PROCESSED.Trunk_COG_Vel@Footstrike.X": 0.8020976,
+  "PROCESSED.Trunk_COG_Vel@Footstrike.Y": 3.460532,
+  "PROCESSED.Trunk_COG_Vel@Footstrike.Z": -0.3520957,
+  "PROCESSED.Head_Angle@PelvisRot_Stop.X": -32.72725,
+  "PROCESSED.Head_Angle@PelvisRot_Stop.Y": -8.969769,
+  "PROCESSED.Head_Angle@PelvisRot_Stop.Z": -21.18522,
+  "PROCESSED.Hip Shoulders Sep@Release.X": 25.47994,
+  "PROCESSED.Hip Shoulders Sep@Release.Y": 28.31246,
+  "PROCESSED.Hip Shoulders Sep@Release.Z": -1.052552,
+  "PROCESSED.Lead_Knee_Ang_Vel@Release.X": -433.7067,
+  "PROCESSED.Lead_Knee_Ang_Vel@Release.Y": 179.8127,
+  "PROCESSED.Lead_Knee_Ang_Vel@Release.Z": 147.2451,
+  "PROCESSED.Max_Elbow_Varus_Torque_Nm.X": 132.9675,
+  "PROCESSED.Pelvis_Ang_Vel@Footstrike.X": 67.24118,
+  "PROCESSED.Pelvis_Ang_Vel@Footstrike.Y": 132.907,
+  "PROCESSED.Pelvis_Ang_Vel@Footstrike.Z": 679.7135,
+  "PROCESSED.Pelvis_COG@PelvisRot_Stop.X": 0.3555446,
+  "PROCESSED.Pelvis_COG@PelvisRot_Stop.Y": 1.578783,
+  "PROCESSED.Pelvis_COG@PelvisRot_Stop.Z": 0.5061436,
+  "PROCESSED.Pelvis_COG_Vel@Footstrike.X": 0.8456558,
+  "PROCESSED.Pelvis_COG_Vel@Footstrike.Y": 2.322078,
+  "PROCESSED.Pelvis_COG_Vel@Footstrike.Z": -0.4078291,
+  "PROCESSED.Pitching_Hand_Angle@Setup.X": -17.11326,
+  "PROCESSED.Pitching_Hand_Angle@Setup.Y": 9.906862,
+  "PROCESSED.Pitching_Hand_Angle@Setup.Z": 6.580195,
+  "PROCESSED.Thorax_Ang_Vel@Footstrike.X": -180.0537,
+  "PROCESSED.Thorax_Ang_Vel@Footstrike.Y": 189.6042,
+  "PROCESSED.Thorax_Ang_Vel@Footstrike.Z": 799.3165,
+  "PROCESSED.Trunk_Angle@MaxKneeHeight.X": -8.79544,
+  "PROCESSED.Trunk_Angle@MaxKneeHeight.Y": 4.328192,
+  "PROCESSED.Trunk_Angle@MaxKneeHeight.Z": 119.5293,
+  "PROCESSED.Trunk_COG_Vel@Release_MPH.X": 0.8627505,
+  "PROCESSED.Trunk_COG_Vel@Release_MPH.Y": 3.699539,
+  "PROCESSED.Trunk_COG_Vel@Release_MPH.Z": 1.67227,
+  "PROCESSED.Back_Knee_Angle@Footstrike.X": 33.89327,
+  "PROCESSED.Back_Knee_Angle@Footstrike.Y": -5.372871,
+  "PROCESSED.Back_Knee_Angle@Footstrike.Z": -15.05447,
+  "PROCESSED.Elbow_Torque_Nm@Footstrike.X": 17.23008,
+  "PROCESSED.Lead_Knee_Angle@Footstrike.X": 37.83092,
+  "PROCESSED.Lead_Knee_Angle@Footstrike.Y": 12.81226,
+  "PROCESSED.Lead_Knee_Angle@Footstrike.Z": -25.62925,
+  "PROCESSED.Max_Shoulder_IntRot_Torque.X": 0.07762341,
+  "PROCESSED.Pelvis_Angle@MaxKneeHeight.X": 7.334626,
+  "PROCESSED.Pelvis_Angle@MaxKneeHeight.Y": 38.59848,
+  "PROCESSED.Pelvis_Angle@MaxKneeHeight.Z": 131.8854,
+  "PROCESSED.Pelvis_COG_Vel@Release_MPH.X": 3.405725,
+  "PROCESSED.Pelvis_COG_Vel@Release_MPH.Y": 0.4444268,
+  "PROCESSED.Pelvis_COG_Vel@Release_MPH.Z": 2.426853,
+  "PROCESSED.Pitching_Elbow_Ang_Vel_min.X": 383.7051,
+  "PROCESSED.Pitching_Elbow_Ang_Vel_min.Y": -2265.402,
+  "PROCESSED.Pitching_Elbow_Ang_Vel_min.Z": -950.278,
+  "PROCESSED.Pitching_Elbow_Angle@Setup.X": 114.8858,
+  "PROCESSED.Pitching_Elbow_Angle@Setup.Y": 0.000001494104,
+  "PROCESSED.Pitching_Elbow_Angle@Setup.Z": -111.1342,
+  "PROCESSED.Shoulder_Torque@Footstrike.X": 0.00764342,
+  "PROCESSED.Trunk_Angle@PelvisRot_Stop.X": 38.27425,
+  "PROCESSED.Trunk_Angle@PelvisRot_Stop.Y": 11.99949,
+  "PROCESSED.Trunk_Angle@PelvisRot_Stop.Z": 6.802277,
+  "PROCESSED.Trunk_COG@Max_Shoulder_Rot.X": 0.4105187,
+  "PROCESSED.Trunk_COG@Max_Shoulder_Rot.Y": 1.700296,
+  "PROCESSED.Trunk_COG@Max_Shoulder_Rot.Z": 0.7441593,
+  "KINEMATIC_SEQUENCE.Pelvis_Ang_Vel_max.X": 738.7017,
+  "KINEMATIC_SEQUENCE.Thorax_Ang_Vel_max.X": 833.4365,
+  "PROCESSED.Head_Angle@Max_Shoulder_Rot.X": -32.67936,
+  "PROCESSED.Head_Angle@Max_Shoulder_Rot.Y": -6.606501,
+  "PROCESSED.Head_Angle@Max_Shoulder_Rot.Z": -21.76914,
+  "PROCESSED.Max_Shoulder_Dist_Force_Per.X": 158.406,
+  "PROCESSED.Max_Shoulder_Hor_Add_Torque.X": -0.08910128,
+  "PROCESSED.Pelvis_Angle@PelvisRot_Stop.X": 21.8359,
+  "PROCESSED.Pelvis_Angle@PelvisRot_Stop.Y": -7.196072,
+  "PROCESSED.Pelvis_Angle@PelvisRot_Stop.Z": -9.659715,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Rot.X": 0.3591498,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Rot.Y": 1.578044,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Rot.Z": 0.5117667,
+  "PROCESSED.Pitching_Hand_Angle@Release.X": -7.049747,
+  "PROCESSED.Pitching_Hand_Angle@Release.Y": 12.33898,
+  "PROCESSED.Pitching_Hand_Angle@Release.Z": 1.115868,
+  "PROCESSED.Pitching_Shoulder_Angle_Max.X": 50.82059,
+  "PROCESSED.Pitching_Shoulder_Angle_Max.Y": 108.5205,
+  "PROCESSED.Pitching_Shoulder_Angle_Max.Z": 186.9973,
+  "PROCESSED.Pitching_Shoulder_Angle_Min.X": -50.82933,
+  "PROCESSED.Pitching_Shoulder_Angle_Min.Y": 39.08631,
+  "PROCESSED.Pitching_Shoulder_Angle_Min.Z": -39.5788,
+  "PROCESSED.Shoulder_Dist_Force@Release.X": 1.578567,
+  "PROCESSED.Trunk_COG@Release100msAfter.X": 0.3887517,
+  "PROCESSED.Trunk_COG@Release100msAfter.Y": 1.86261,
+  "PROCESSED.Trunk_COG@Release100msAfter.Z": 0.7891054,
+  "PROCESSED.Trunk_COG_Vel@MaxKneeHeight.X": 0.05003913,
+  "PROCESSED.Trunk_COG_Vel@MaxKneeHeight.Y": 0.3346989,
+  "PROCESSED.Trunk_COG_Vel@MaxKneeHeight.Z": -0.1679486,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Release.X": 27.98224,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Release.Y": 25.84763,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Release.Z": 12.01979,
+  "PROCESSED.Head_Angle@Release100msAfter.X": 2.656705,
+  "PROCESSED.Head_Angle@Release100msAfter.Y": -5.878666,
+  "PROCESSED.Head_Angle@Release100msAfter.Z": -26.11569,
+  "PROCESSED.Hip Shoulders Sep@Footstrike.X": -5.053811,
+  "PROCESSED.Hip Shoulders Sep@Footstrike.Y": -5.341989,
+  "PROCESSED.Hip Shoulders Sep@Footstrike.Z": 40.26875,
+  "PROCESSED.Lead_Knee_Ang_Vel@Footstrike.X": -347.4967,
+  "PROCESSED.Lead_Knee_Ang_Vel@Footstrike.Y": 218.8874,
+  "PROCESSED.Lead_Knee_Ang_Vel@Footstrike.Z": 93.8612,
+  "PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.X": 2107.783,
+  "PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.Y": 807.5387,
+  "PROCESSED.Pelvis_Ang_Acc@MaxKneeHeight.Z": -748.0814,
+  "PROCESSED.Pelvis_COG@PelvisRot_Stop_in.X": 13.99779,
+  "PROCESSED.Pelvis_COG@PelvisRot_Stop_in.Y": 62.15667,
+  "PROCESSED.Pelvis_COG@PelvisRot_Stop_in.Z": 19.92687,
+  "PROCESSED.Pelvis_COG@Release100msAfter.X": 0.4775677,
+  "PROCESSED.Pelvis_COG@Release100msAfter.Y": 1.684287,
+  "PROCESSED.Pelvis_COG@Release100msAfter.Z": 0.639036,
+  "PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.X": 0.2103344,
+  "PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.Y": 0.4093409,
+  "PROCESSED.Pelvis_COG_Vel@MaxKneeHeight.Z": -0.1303284,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Setup.X": -25.07645,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Setup.Y": 65.21733,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Setup.Z": -36.35239,
+  "PROCESSED.Pitching_Elbow_Angle@Release.X": 24.56435,
+  "PROCESSED.Pitching_Elbow_Angle@Release.Y": -8.537739e-7,
+  "PROCESSED.Pitching_Elbow_Angle@Release.Z": -119.5467,
+  "PROCESSED.Shoulder_Ang_Vel@Release_Abs.X": 683.3712,
+  "PROCESSED.Shoulder_Ang_Vel@Release_Abs.Y": 116.4041,
+  "PROCESSED.Shoulder_Ang_Vel@Release_Abs.Z": 5271.816,
+  "PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.X": 535.6052,
+  "PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.Y": 715.8717,
+  "PROCESSED.Thorax_Ang_Acc@MaxKneeHeight.Z": -545.3489,
+  "PROCESSED.Trunk_Angle@Max_Shoulder_Rot.X": 40.51889,
+  "PROCESSED.Trunk_Angle@Max_Shoulder_Rot.Y": 13.59686,
+  "PROCESSED.Trunk_Angle@Max_Shoulder_Rot.Z": 4.032349,
+  "PROCESSED.Trunk_COG_Vel@Footstrike_MPH.X": 1.794212,
+  "PROCESSED.Trunk_COG_Vel@Footstrike_MPH.Y": 7.740864,
+  "PROCESSED.Trunk_COG_Vel@Footstrike_MPH.Z": -0.7876028,
+  "PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.X": 0.3166391,
+  "PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.Y": 2.118881,
+  "PROCESSED.Trunk_COG_Vel@PelvisRot_Stop.Z": 0.5850394,
+  "PROCESSED.Uncropped Measurement Frames.X": 2403,
+  "PROCESSED.Uncropped Measurement Length.X": 8.01,
+  "TIMING.Max_Forearm_PronSup_Ang_VelTime.X": 1.133333,
+  "PROCESSED.Back_Knee_Angle@MaxKneeHeight.X": 34.21253,
+  "PROCESSED.Back_Knee_Angle@MaxKneeHeight.Y": -2.982644,
+  "PROCESSED.Back_Knee_Angle@MaxKneeHeight.Z": -3.983786,
+  "PROCESSED.Cropped Measurement End Frame.X": 2262,
+  "PROCESSED.Elbow_Torque@Max_Shoulder_Rot.X": 0.0733775,
+  "PROCESSED.Lead_Knee_Angle@MaxKneeHeight.X": 128.683,
+  "PROCESSED.Lead_Knee_Angle@MaxKneeHeight.Y": 21.96385,
+  "PROCESSED.Lead_Knee_Angle@MaxKneeHeight.Z": -9.841182,
+  "PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.X": 22.02306,
+  "PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.Y": -8.520534,
+  "PROCESSED.Pelvis_Angle@Max_Shoulder_Rot.Z": -9.639462,
+  "PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.X": 1.891647,
+  "PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.Y": 5.194256,
+  "PROCESSED.Pelvis_COG_Vel@Footstrike_MPH.Z": -0.9122729,
+  "PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.X": 0.3745347,
+  "PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.Y": -0.05158812,
+  "PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop.Z": 0.8634031,
+  "PROCESSED.Pitching_Elbow_Angle_max_MEAN.X": 137.1239,
+  "PROCESSED.Pitching_Elbow_Angle_max_MEAN.Y": 0.000005122643,
+  "PROCESSED.Pitching_Elbow_Angle_max_MEAN.Z": -74.11418,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Release.X": 5232.322,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Release.Y": 1708.734,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Release.Z": 3684.09,
+  "PROCESSED.Pitching_Shoulder_Angle@Setup.X": -0.2403676,
+  "PROCESSED.Pitching_Shoulder_Angle@Setup.Y": 27.37735,
+  "PROCESSED.Pitching_Shoulder_Angle@Setup.Z": -40.89217,
+  "PROCESSED.Trunk_Angle@Release100msAfter.X": 63.96883,
+  "PROCESSED.Trunk_Angle@Release100msAfter.Y": 33.1549,
+  "PROCESSED.Trunk_Angle@Release100msAfter.Z": -23.36218,
+  "PROCESSED.Trunk_Angle@Shoulder_ExtRot90.X": 49.13084,
+  "PROCESSED.Back_Knee_Angle@PelvisRot_Stop.X": 50.57127,
+  "PROCESSED.Back_Knee_Angle@PelvisRot_Stop.Y": 5.387918,
+  "PROCESSED.Back_Knee_Angle@PelvisRot_Stop.Z": -15.87554,
+  "PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.X": 25.01491,
+  "PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.Y": 7.715475,
+  "PROCESSED.Lead_Knee_Angle@PelvisRot_Stop.Z": -21.25372,
+  "PROCESSED.Pelvis_Angle@Release100msAfter.X": 33.69753,
+  "PROCESSED.Pelvis_Angle@Release100msAfter.Y": 2.660104,
+  "PROCESSED.Pelvis_Angle@Release100msAfter.Z": -7.205355,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.X": 14.13973,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.Y": 62.12761,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Rot_in.Z": 20.14825,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Release.X": 383.7051,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Release.Y": -726.6949,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Release.Z": -25.3486,
+  "PROCESSED.Pitching_Hand_Angle@Footstrike.X": -46.94702,
+  "PROCESSED.Pitching_Hand_Angle@Footstrike.Y": 14.17578,
+  "PROCESSED.Pitching_Hand_Angle@Footstrike.Z": 0.4703509,
+  "PROCESSED.Shoulder_Dist_Force@Footstrike.X": 0.2890939,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.X": 0.2205628,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.Y": 1.980156,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot.Z": 0.7766382,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.X": -7.306167,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.Y": -0.7918886,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Footstrike.Z": 40.55522,
+  "PROCESSED.time_MaxPelvisVel_MaxThoraxVel.X": 0.00666666,
+  "STRIDE_LENGTH.STRIDE_LENGTH_MEAN_PERCENT.X": 84.67744,
+  "TIMING.PeakShoulder_AngVel_HzShldAbdTime.X": 0.6133333,
+  "PROCESSED.Cropped Measurement Start Frame.X": 1747,
+  "PROCESSED.Hip Shoulders Sep@MaxKneeHeight.X": 36.97134,
+  "PROCESSED.Hip Shoulders Sep@MaxKneeHeight.Y": 5.149544,
+  "PROCESSED.Hip Shoulders Sep@MaxKneeHeight.Z": -7.867407,
+  "PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.X": 297.3248,
+  "PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.Y": -79.18297,
+  "PROCESSED.Lead_Knee_Ang_Vel@MaxKneeHeight.Z": -53.73346,
+  "PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.X": 20.8091,
+  "PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.Y": -163.2023,
+  "PROCESSED.Pelvis_Ang_Vel@Max_Shoulder_Rot.Z": 16.06492,
+  "PROCESSED.Pelvis_COG@Release100msAfter_in.X": 18.80184,
+  "PROCESSED.Pelvis_COG@Release100msAfter_in.Y": 66.31038,
+  "PROCESSED.Pelvis_COG@Release100msAfter_in.Z": 25.15885,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.X": 0.6924123,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.Y": -0.1458588,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot.Z": 0.8330315,
+  "PROCESSED.Pitching_Elbow_Angle@Footstrike.X": 137.1239,
+  "PROCESSED.Pitching_Elbow_Angle@Footstrike.Y": 0,
+  "PROCESSED.Pitching_Elbow_Angle@Footstrike.Z": -82.78842,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.X": -54.02033,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.Y": 24.36644,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Setup.Z": 64.50147,
+  "PROCESSED.Pitching_Shoulder_Angle@Release.X": 17.85311,
+  "PROCESSED.Pitching_Shoulder_Angle@Release.Y": 100.7675,
+  "PROCESSED.Pitching_Shoulder_Angle@Release.Z": 123.757,
+  "PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.X": 282.6443,
+  "PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.Y": 332.8771,
+  "PROCESSED.Thorax_Ang_Vel@Max_Shoulder_Rot.Z": 422.2104,
+  "PROCESSED.Trunk_COG_Vel@Release100msAfter.X": 0.02660202,
+  "PROCESSED.Trunk_COG_Vel@Release100msAfter.Y": 1.241963,
+  "PROCESSED.Trunk_COG_Vel@Release100msAfter.Z": -0.01119927,
+  "PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.X": 53.18678,
+  "PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.Y": 6.103922,
+  "PROCESSED.Back_Knee_Angle@Max_Shoulder_Rot.Z": -16.19251,
+  "PROCESSED.Elbow_Torque_Nm@Max_Shoulder_Rot.X": 130.6203,
+  "PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.X": 14.90604,
+  "PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.Y": 20.57058,
+  "PROCESSED.Hip Shoulders Sep@PelvisRot_Stop.Z": 13.03875,
+  "PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.X": -309.057,
+  "PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.Y": 1.321411,
+  "PROCESSED.Lead_Knee_Ang_Vel@PelvisRot_Stop.Z": 94.72198,
+  "PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.X": 23.21549,
+  "PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.Y": 6.907117,
+  "PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot.Z": -20.90316,
+  "PROCESSED.Pelvis_Ang_Acc@Release100msAfter.X": 764.239,
+  "PROCESSED.Pelvis_Ang_Acc@Release100msAfter.Y": 2416.296,
+  "PROCESSED.Pelvis_Ang_Acc@Release100msAfter.Z": -1733.475,
+  "PROCESSED.Pelvis_Ang_Vel@Release100msAfter.X": 221.5592,
+  "PROCESSED.Pelvis_Ang_Vel@Release100msAfter.Y": 199.5576,
+  "PROCESSED.Pelvis_Ang_Vel@Release100msAfter.Z": 114.3007,
+  "PROCESSED.Pelvis_COG_Vel@Release100msAfter.X": 1.206069,
+  "PROCESSED.Pelvis_COG_Vel@Release100msAfter.Y": 1.160127,
+  "PROCESSED.Pelvis_COG_Vel@Release100msAfter.Z": 0.3873114,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.X": -1833.613,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.Y": -141.6927,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Footstrike.Z": 115.7841,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@Release.X": 54337.95,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@Release.Y": -17483.16,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@Release.Z": 47282.34,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Release.X": 183.4831,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Release.Y": 295.8049,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Release.Z": 5451.14,
+  "PROCESSED.Shoulder_Torque@Max_Shoulder_Rot.X": 0.07741417,
+  "PROCESSED.Thorax_Ang_Acc@Release100msAfter.X": -1824.76,
+  "PROCESSED.Thorax_Ang_Acc@Release100msAfter.Y": -200.3998,
+  "PROCESSED.Thorax_Ang_Acc@Release100msAfter.Z": -717.5507,
+  "PROCESSED.Thorax_Ang_Vel@Release100msAfter.X": 89.79282,
+  "PROCESSED.Thorax_Ang_Vel@Release100msAfter.Y": 79.82567,
+  "PROCESSED.Thorax_Ang_Vel@Release100msAfter.Z": 321.34,
+  "PROCESSED.Trunk Rot wrt Pelvis Rot@Release.X": 8.877613,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_10ms.X": -7.554595,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_10ms.Y": -3.668946,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_10ms.Z": 38.73084,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_20ms.X": -7.667787,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_20ms.Y": -0.7873843,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_20ms.Z": 38.73501,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_30ms.X": -7.736829,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_30ms.Y": 1.681736,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_30ms.Z": 38.00403,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_40ms.X": -6.823308,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_40ms.Y": 3.545001,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_40ms.Z": 36.97202,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_50ms.X": -5.085047,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_50ms.Y": 4.724707,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_50ms.Z": 34.80187,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_60ms.X": -0.9102361,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_60ms.Y": 8.549239,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_60ms.Z": 30.81278,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_70ms.X": 5.700648,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_70ms.Y": 13.49097,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_70ms.Z": 25.36739,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_80ms.X": 10.46172,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_80ms.Y": 17.86925,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_80ms.Z": 18.11355,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_90ms.X": 16.41395,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_90ms.Y": 21.69082,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_90ms.Z": 10.56396,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.X": -12.43149,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.Y": 3.07237,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.075ms.Z": 121.3507,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.X": -15.2886,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.Y": -1.264858,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.150ms.Z": 122.4251,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.X": -17.96401,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.Y": -7.701401,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.225ms.Z": 120.3847,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.X": -20.04288,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.Y": -13.86691,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.300ms.Z": 118.0644,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.X": -21.84974,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.Y": -20.65757,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.375ms.Z": 116.1061,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.X": -21.6844,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.Y": -25.83464,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.450ms.Z": 115.113,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.X": -19.95143,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.Y": -30.22,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.525ms.Z": 117.5487,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.X": -6.110163,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.Y": -24.97901,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.600ms.Z": 114.1783,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.X": 6.576572,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.Y": -8.208837,
+  "INCREMENT.Trunk_Angle@MaxKneeHeight_0.675ms.Z": 81.92551,
+  "PROCESSED.Back_Knee_Angle@Release100msAfter.X": 56.23873,
+  "PROCESSED.Back_Knee_Angle@Release100msAfter.Y": 12.60908,
+  "PROCESSED.Back_Knee_Angle@Release100msAfter.Z": -21.69085,
+  "PROCESSED.Lead_Knee_Angle@Release100msAfter.X": 1.938016,
+  "PROCESSED.Lead_Knee_Angle@Release100msAfter.Y": -1.163566,
+  "PROCESSED.Lead_Knee_Angle@Release100msAfter.Z": -8.371697,
+  "PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.X": 0.8377967,
+  "PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.Y": -0.1153975,
+  "PROCESSED.Pelvis_COG_Vel@PelvisRot_Stop_MPH.Z": 1.931346,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.X": -40.24202,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.Y": -259.3819,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Footstrike.Z": 865.9023,
+  "PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.X": -36.71484,
+  "PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.Y": 18.75791,
+  "PROCESSED.Pitching_Hand_Angle@MaxKneeHeight.Z": 4.541799,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Release.X": -683.3712,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Release.Y": 116.4041,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Release.Z": -5271.816,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.X": -0.1244736,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.Y": 27.3771,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Setup.Z": -40.62149,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_100ms.X": 20.84031,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_100ms.Y": 24.76468,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_100ms.Z": 6.207935,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_110ms.X": 23.04755,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_110ms.Y": 28.34167,
+  "INCREMENT.Hip Shoulders Sep@Footstrike_110ms.Z": 3.184481,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.X": 417.7752,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.Y": -109.7453,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_100ms.Z": -331.0016,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.X": -408.3475,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.Y": -555.5558,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_200ms.Z": -136.0459,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.X": 66.80164,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.Y": 297.8528,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_300ms.Z": -890.3646,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.X": -841.8845,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.Y": -139.6489,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_400ms.Z": -193.6034,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.X": -190.434,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.Y": -100.2076,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_500ms.Z": -723.5725,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.X": -2009.823,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.Y": -622.0182,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_600ms.Z": -5324.679,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.X": 854.9564,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.Y": -642.7081,
+  "INCREMENT.Pelvis_Ang_Acc@MaxKneeHeight_700ms.Z": -203.9437,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.X": 106.2322,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.Y": -9.993753,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_100ms.Z": 2.773077,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.X": 143.5337,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.Y": 16.85027,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_200ms.Z": 71.38173,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.X": 94.00117,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.Y": 22.52538,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_300ms.Z": 103.4342,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.X": 74.48506,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.Y": 27.28712,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_400ms.Z": 79.04251,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.X": 73.74406,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.Y": 40.64507,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_500ms.Z": 90.17546,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.X": 17.99406,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.Y": 146.3831,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_600ms.Z": 263.444,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.X": 28.48372,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.Y": 86.8487,
+  "INCREMENT.Pelvis_Ang_Vel@MaxKneeHeight_700ms.Z": 726.7341,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.X": 4.038682,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.Y": 35.55517,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.075ms.Z": 131.5168,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.X": -2.143975,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.Y": 29.32941,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.150ms.Z": 127.0075,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.X": -6.911767,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.Y": 20.22492,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.225ms.Z": 119.7113,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.X": -8.405026,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.Y": 13.74811,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.300ms.Z": 113.4958,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.X": -7.460098,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.Y": 6.679615,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.375ms.Z": 106.3554,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.X": -6.698444,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.Y": 1.267751,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.450ms.Z": 100.6732,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.X": -4.280077,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.Y": -4.899446,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.525ms.Z": 94.00687,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.X": 2.704558,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.Y": -10.44796,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.600ms.Z": 80.68691,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.X": 12.90989,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.Y": -10.25093,
+  "INCREMENT.Pelvis_Angle@MaxKneeHeight_0.675ms.Z": 39.85893,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.X": -110.1368,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.Y": -135.8742,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_100ms.Z": 185.9942,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.X": -187.0803,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.Y": -51.46902,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_200ms.Z": 90.20909,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.X": -317.7089,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.Y": 198.0134,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_300ms.Z": -27.67578,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.X": -327.2017,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.Y": -52.98688,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_400ms.Z": 658.5141,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.X": -761.354,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.Y": 694.6463,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_500ms.Z": 2205.228,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.X": -1124.742,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.Y": -2371.09,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_600ms.Z": -6289.378,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.X": 8148.216,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.Y": 2939.564,
+  "INCREMENT.Thorax_Ang_Acc@MaxKneeHeight_700ms.Z": -2165.619,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.X": 51.2397,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.Y": 4.831919,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_100ms.Z": 6.475632,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.X": 90.04517,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.Y": 18.82154,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_200ms.Z": 4.079521,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.X": 94.80694,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.Y": 14.72868,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_300ms.Z": 42.83235,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.X": 64.6761,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.Y": 39.01722,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_400ms.Z": 13.18789,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.X": 42.34519,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.Y": 51.46434,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_500ms.Z": -57.42302,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.X": -145.2755,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.Y": 34.81546,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_600ms.Z": 148.4806,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.X": -77.92257,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.Y": 237.6371,
+  "INCREMENT.Thorax_Ang_Vel@MaxKneeHeight_700ms.Z": 819.1819,
+  "KINEMATIC_SEQUENCE.Pitching_Hand_Ang_Vel_max.X": 5726.495,
+  "PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.X": 18.14464,
+  "PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.Y": 22.68446,
+  "PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot.Z": 9.160884,
+  "PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.X": -317.1834,
+  "PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.Y": 8.779467,
+  "PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Rot.Z": 110.8008,
+  "PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.X": 130.5175,
+  "PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.Y": -0.000003415095,
+  "PROCESSED.Pitching_Elbow_Angle@MaxKneeHeight.Z": -113.3908,
+  "PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.X": -54.94944,
+  "PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.Y": 15.61773,
+  "PROCESSED.Pitching_Hand_Angle@PelvisRot_Stop.Z": 4.938995,
+  "PROCESSED.Pitching_Shoulder_Angle@Footstrike.X": -50.24118,
+  "PROCESSED.Pitching_Shoulder_Angle@Footstrike.Y": 77.26105,
+  "PROCESSED.Pitching_Shoulder_Angle@Footstrike.Z": 44.7258,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.X": 0.493377,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.Y": 4.42941,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Rot_MPH.Z": 1.737262,
+  "KINEMATIC_SEQUENCE.Pitching_Elbow_Ang_Vel_max.X": 2265.402,
+  "PROCESSED.Hip Shoulders Sep@Release100msAfter.X": 40.296,
+  "PROCESSED.Hip Shoulders Sep@Release100msAfter.Y": 11.40794,
+  "PROCESSED.Hip Shoulders Sep@Release100msAfter.Z": -30.20834,
+  "PROCESSED.Hip Shoulders Sep@Shoulder_ExtRot90.X": 38.00403,
+  "PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.X": 329.2133,
+  "PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.Y": -7.806796,
+  "PROCESSED.Lead_Knee_Ang_Vel@Release100msAfter.Z": -215.903,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.X": 1.548857,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.Y": -0.3262716,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Rot_MPH.Z": 1.863408,
+  "PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.X": 93.96554,
+  "PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.Y": -0.000003415095,
+  "PROCESSED.Pitching_Elbow_Angle@PelvisRot_Stop.Z": -95.58414,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.X": 278.1985,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.Y": 833.024,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Footstrike.Z": -1731.837,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.X": -58.18848,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.Y": 69.24221,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Release.Z": 183.6416,
+  "PROCESSED.Trunk Rot wrt Pelvis Rot@Footstrike.X": 41.42339,
+  "PROCESSED.Lead_Leg_GRF_mag_Midpoint_FS_Release.X": 2.537678,
+  "PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.X": 2.697855,
+  "PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.Y": 2.595088,
+  "PROCESSED.Pelvis_COG_Vel@Release100msAfter_MPH.Z": 0.8663769,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.X": 4.429583,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.Y": -10.22592,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@MaxKneeHeight.Z": 9.033489,
+  "PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.X": -51.20575,
+  "PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.Y": 12.81137,
+  "PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Rot.Z": 3.515893,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.X": 271.5565,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.Y": -342.6452,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Footstrike.Z": 1646.453,
+  "PROCESSED.Shoulder_Dist_Force@Max_Shoulder_Rot.X": 0.6109506,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.X": 22.6462,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.Y": 18.19332,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Rot.Z": 16.5026,
+  "KINEMATIC_SEQUENCE.Pitching_Humerus_Ang_Vel_max.X": 5717.681,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.X": 216.1692,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.Y": -1433.106,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@PelvisRot_Stop.Z": -726.3455,
+  "PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.X": 83.16364,
+  "PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.Y": -0.000003415094,
+  "PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Rot.Z": -103.1618,
+  "PROCESSED.Pitching_Hand_Angle@Release100msAfter.X": -27.77627,
+  "PROCESSED.Pitching_Hand_Angle@Release100msAfter.Y": 7.954373,
+  "PROCESSED.Pitching_Hand_Angle@Release100msAfter.Z": 8.583178,
+  "PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.X": 50.82059,
+  "PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.Y": 43.33567,
+  "PROCESSED.Pitching_Shoulder_Angle@MaxKneeHeight.Z": 5.233728,
+  "KINEMATIC_SEQUENCE.Pitching_Shoulder_Ang_Vel_max.X": 5534.607,
+  "PROCESSED.Pitching_Elbow_Angle@Release100msAfter.X": 30.17782,
+  "PROCESSED.Pitching_Elbow_Angle@Release100msAfter.Y": 8.537735e-7,
+  "PROCESSED.Pitching_Elbow_Angle@Release100msAfter.Z": -130.8722,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.X": 2489.699,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.Y": -1375.873,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Max_Shoulder_Rot.Z": 2004.128,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.X": -1840.903,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.Y": 227.0824,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@MaxKneeHeight.Z": -1702.243,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.X": -9.251244,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.Y": 44.79779,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@MaxKneeHeight.Z": 10.94939,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.X": -592.8123,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.Y": 375.0466,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd_Max.Z": 352.8312,
+  "PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.X": 6.851888,
+  "PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.Y": 103.28,
+  "PROCESSED.Pitching_Shoulder_Angle@PelvisRot_Stop.Z": 186.2052,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.X": -73.6123,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.Y": 38.59523,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Footstrike.Z": 124.3303,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.X": 35.60515,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.Y": 4.781894,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.075ms.Z": -5.993963,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.X": 32.58015,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.Y": 6.04328,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.150ms.Z": -3.032141,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.X": 29.64269,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.Y": 4.618991,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.225ms.Z": 0.6965289,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.X": 29.83122,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.Y": 2.459606,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.300ms.Z": 3.900806,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.X": 30.7485,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.Y": -1.39863,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.375ms.Z": 8.323931,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.X": 30.62256,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.Y": -2.695011,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.450ms.Z": 11.88032,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.X": 29.1917,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.Y": -2.833582,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.525ms.Z": 19.40648,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.X": 16.6387,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.Y": -2.104543,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.600ms.Z": 31.09071,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.X": -2.960518,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.Y": -5.8745,
+  "INCREMENT.Hip Shoulders Sep@MaxKneeHeight_0.675ms.Z": 40.89763,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.X": -49.59297,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.Y": 74.57233,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_10ms.Z": 60.56269,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.X": -43.43804,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.Y": 71.20409,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_20ms.Z": 77.03835,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.X": -35.47277,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.Y": 71.28139,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_30ms.Z": 94.46728,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.X": -24.60067,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.Y": 73.28365,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_40ms.Z": 113.8075,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.X": -13.42786,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.Y": 79.38912,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_50ms.Z": 132.4534,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.X": -5.31992,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.Y": 84.20154,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_60ms.Z": 152.0368,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.X": 0.3280364,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.Y": 90.52911,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_70ms.Z": 170.5521,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.X": 4.303792,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.Y": 98.30844,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_80ms.Z": 181.0483,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.X": 8.805252,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.Y": 104.3768,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_90ms.Z": 186.7592,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.X": 470.24,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.Y": -1857.929,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Rot.Z": -926.4387,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.X": 498.8018,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.Y": 1094.314,
+  "PROCESSED.Pitching_Hand_Ang_Vel@Release100msAfter.Z": -349.0649,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.X": 10.43926,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.Y": -32.16261,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@MaxKneeHeight.Z": -43.84258,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.X": 355.6851,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.Y": 1133.853,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_10ms.Z": -1544.855,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.X": 291.8724,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.Y": 1463.747,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_20ms.Z": -1370.111,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.X": 157.0475,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.Y": 1734.654,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_30ms.Z": -1352.581,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.X": -81.22494,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.Y": 2005.311,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_40ms.Z": -1359.269,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.X": -480.7992,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.Y": 2064.149,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_50ms.Z": -1387.262,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.X": -775.359,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.Y": 1573.643,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_60ms.Z": -1378.392,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.X": -1003.914,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.Y": 1331.191,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_70ms.Z": -1104.922,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.X": -1194.212,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.Y": 1058.53,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_80ms.Z": -664.411,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.X": -1279.979,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.Y": 518.3636,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_90ms.Z": -77.02775,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.X": 15.4043,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.Y": 107.247,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_100ms.Z": 184.2034,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.X": 19.55138,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.Y": 103.7294,
+  "INCREMENT.Pitching_Shoulder_Angle@Footstrike_110ms.Z": 168.8149,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.X": -108.9379,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.Y": 131.1147,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Release100msAfter.Z": -93.10086,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.X": 814.7366,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.Y": 321.037,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@PelvisRot_Stop.Z": 647.2909,
+  "PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.X": 11.29721,
+  "PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.Y": 106.3078,
+  "PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Rot.Z": 186.9973,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.X": -916.082,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.Y": 62.25444,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_100ms.Z": 968.0625,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.X": -355.4384,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.Y": -47.65289,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@Footstrike_110ms.Z": 2806.566,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.X": -1170.456,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.Y": 442.3925,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Max_Shoulder_Rot.Z": 156.3659,
+  "PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.X": 102.4733,
+  "PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.Y": 98.98298,
+  "PROCESSED.Pitching_Shoulder_Angle@Release100msAfter.Z": 29.3844,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.X": 36.18161,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.Y": 25.69322,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@MaxKneeHeight.Z": -54.10794,
+  "PROCESSED.Shoulder_Force_Abd@Max_Shoulder_Abd_Force.X": 0.517251,
+  "PROCESSED.Trunk Rot wrt Pelvis Rot@Max_Shoulder_Rot.X": 13.67181,
+  "PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.X": 0.4094161,
+  "PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.Y": 1.806895,
+  "PROCESSED.Trunk_COG@Max_Shoulder_Int_Rot_FollowThru.Z": 0.7827097,
+  "PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.X": -7.573365,
+  "PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": -9.150467,
+  "PROCESSED.Head_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -31.4609,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.X": 0.4343585,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.Y": 1.609744,
+  "PROCESSED.Pelvis_COG@Max_Shoulder_Int_Rot_FollowThru.Z": 0.5910967,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.X": -2093.239,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.Y": -6783.319,
+  "PROCESSED.Pitching_Humerus_Ang_Acc@Release100msAfter.Z": 31166.59,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.X": 243.8446,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.Y": 907.3371,
+  "PROCESSED.Pitching_Humerus_Ang_Vel@Release100msAfter.Z": 772.6808,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.X": 37.65448,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.Y": 134.9671,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release.Z": -5265.086,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.X": 653.9985,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.Y": 45.54129,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Rot.Z": 71.02299,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.X": -26.81544,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.Y": 75.0848,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@PelvisRot_Stop.Z": 213.8192,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.X": 518.9696,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.Y": -457.6072,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Release100msAfter.Z": -764.8467,
+  "PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.X": 55.53366,
+  "PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": 28.03991,
+  "PROCESSED.Trunk_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -11.34547,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.X": -149.4733,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.Y": -724.4697,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_100ms.Z": -207.5963,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.X": 443.8397,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.Y": -1026.603,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_200ms.Z": 514.6825,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.X": 854.1993,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.Y": -902.5034,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_300ms.Z": 1005.172,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.X": -2129.704,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.Y": -388.689,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_400ms.Z": -1400.132,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.X": -1918.63,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.Y": -1312.37,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_500ms.Z": 1428.702,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.X": -428.2905,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.Y": 2479.694,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_600ms.Z": -10735.2,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.X": -4493.525,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.Y": 30967.88,
+  "INCREMENT.Pitching_Humerus_Ang_Acc@MaxKneeHeight_700ms.Z": 9651.073,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.X": -138.6581,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.Y": 82.74287,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_100ms.Z": -24.77743,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.X": -148.1916,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.Y": 59.2251,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_200ms.Z": 28.28082,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.X": -83.57414,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.Y": -5.936111,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_300ms.Z": 105.5547,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.X": -90.76438,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.Y": -39.62099,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_400ms.Z": 115.4858,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.X": -338.2293,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.Y": -141.7612,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_500ms.Z": 44.81747,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.X": -433.4812,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.Y": -42.69482,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_600ms.Z": -441.074,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.X": 345.4423,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.Y": 1272.693,
+  "INCREMENT.Pitching_Humerus_Ang_Vel@MaxKneeHeight_700ms.Z": -1480.265,
+  "PROCESSED.Elbow_Torque@Max_Shoulder_Int_Rot_FollowThru.X": -0.01934164,
+  "PROCESSED.Lead_Leg_GRF_mag_impulse_Midpoint_FS_Release.X": 0.1287293,
+  "PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.X": 26.88606,
+  "PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": -1.788693,
+  "PROCESSED.Pelvis_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -7.397463,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.X": -33.80551,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Y": 70.24911,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Z": 222.4267,
+  "PROCESSED.Trunk_Rotation_Cummulative_Range_FStoRelease.X": 77.2615,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.X": -48.34686,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.Y": -365.7515,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Footstrike.Z": 1644.565,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.X": -80.80353,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.Y": -12.31789,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Release100msAfter.Z": 121.3626,
+  "PROCESSED.Shoulder_Force_Abd_N@Max_Shoulder_Abd_Force_N.X": 517.866,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.X": -0.7451137,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Y": 0.8435754,
+  "PROCESSED.Trunk_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Z": 0.1609742,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.X": 0.438872,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Y": 1.545095,
+  "PROCESSED.Pelvis_COG_Vel@Max_Shoulder_Int_Rot_FollowThru.Z": 1.280943,
+  "PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.X": 56.4933,
+  "PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": 10.35685,
+  "PROCESSED.Back_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -19.29952,
+  "PROCESSED.Elbow_Torque_Nm@Max_Shoulder_Int_Rot_FollowThru.X": -34.43032,
+  "PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.X": -6.760872,
+  "PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": 3.218101,
+  "PROCESSED.Lead_Knee_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -11.11444,
+  "PROCESSED.Shoulder_Rotation_Cummulative_Range_FStoRelease.X": 205.5119,
+  "PROCESSED.Shoulder_Torque@Max_Shoulder_Int_Rot_FollowThru.X": -0.03007249,
+  "PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.X": 36.22323,
+  "PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.Y": 19.69577,
+  "PROCESSED.Hip Shoulders Sep@Max_Shoulder_Int_Rot_FollowThru.Z": -17.31511,
+  "PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X": -331.7995,
+  "PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y": -34.37046,
+  "PROCESSED.Lead_Knee_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z": 282.3694,
+  "PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.X": -34.18515,
+  "PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": 16.35647,
+  "PROCESSED.Pitching_Hand_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": 9.505259,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.X": 590.5845,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.Y": 290.5459,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Max_Shoulder_Rot.Z": -94.26894,
+  "PROCESSED.Shoulder_Dist_Force@Max_Shoulder_Int_Rot_FollowThru.X": 0.8850203,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.X": 32.46579,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.Y": 25.8134,
+  "PROCESSED.Trunk_wrt_Pelvis_FE@Max_Shoulder_Int_Rot_FollowThru.Z": -3.181899,
+  "PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.X": 31.98258,
+  "PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": -0.000001707547,
+  "PROCESSED.Pitching_Elbow_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -129.6187,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.X": 347.0616,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.Y": -555.4663,
+  "PROCESSED.Pitching_Shoulder_AngVel_HzShldAbd@Release100msAfter.Z": -820.3788,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X": 541.308,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y": -631.4426,
+  "PROCESSED.Pitching_Elbow_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z": -80.25646,
+  "PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.X": 52.88169,
+  "PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.Y": 130.4292,
+  "PROCESSED.Pitching_Shoulder_Angle@Max_Shoulder_Int_Rot_FollowThru.Z": -18.88634,
+  "PROCESSED.Trunk Rot wrt Pelvis Rot@Max_Shoulder_Int_Rot_FollowThru.X": -3.948003,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.X": 1556.393,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Y": -173.2858,
+  "PROCESSED.Pitching_Shoulder_Ang_Vel@Max_Shoulder_Int_Rot_FollowThru.Z": 1468.928,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.X": -43.10555,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.Y": 27.34588,
+  "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Int_Rot_FollowThru.Z": 44.9724
+}
+
+## Raw JSON from PostgreSQL (metrics::text — exact keys as stored)
+Sample (first 4000 chars) to verify key names in DB. Search for '.X', '.Y', '.Z' in keys:
+{"TIMING.SetupTime.X": 0, "TIMING.ReleaseTime.X": 1.253333, "BALLSPEED.SPIN_AXIS.X": 0, "BALLSPEED.SPIN_RATE.X": 0, "MODEL.LAR_Seg_Length.X": 0.310695, "MODEL.LTH_Seg_Length.X": 0.427083, "MODEL.RAR_Seg_Length.X": 0.310793, "MODEL.RTA_Seg_Length.X": 0.529939, "MODEL.RTH_Seg_Length.X": 0.415332, "PROCESSED.Frame_rate.X": 300, "TIMING.FootstrikeTime.X": 1.133333, "TIMING.MaxHandVelTime.X": 1.246667, "TIMING.MaxElbowVelTime.X": 1.236667, "TIMING.MaxPelvisVelTime.X": 1.153333, "TIMING.MaxThoraxVelTime.X": 1.16, "TIMING.MaxHumerusVelTime.X": 1.256667, "TIMING.MaxKneeHeightTime.X": 0.4466667, "PROCESSED.Max_Elbow_Force.X": 1.647996, "PROCESSED.Trunk_COG@Setup.X": 0.224311, "PROCESSED.Trunk_COG@Setup.Y": 0.5858902, "PROCESSED.Trunk_COG@Setup.Z": 1.090906, "TIMING.MaxShoulderVelTime.X": 1.256667, "TIMING.Max_Elbow_FlexTime.X": 1.133333, "TIMING.PelvisRot_StopTime.X": 1.22, "PROCESSED.Back_Leg_GRF_max.X": 0.2759618, "PROCESSED.Back_Leg_GRF_max.Y": 0.9871535, "PROCESSED.Back_Leg_GRF_max.Z": 1.537683, "PROCESSED.Back_Leg_GRF_min.X": -0.09632472, "PROCESSED.Back_Leg_GRF_min.Y": -0.2152697, "PROCESSED.Back_Leg_GRF_min.Z": 0, "PROCESSED.Head_Angle@Setup.X": -9.797229, "PROCESSED.Head_Angle@Setup.Y": -7.610807, "PROCESSED.Head_Angle@Setup.Z": 28.10272, "PROCESSED.Lead_Leg_GRF_max.X": 0.3179297, "PROCESSED.Lead_Leg_GRF_max.Y": 0.0161076, "PROCESSED.Lead_Leg_GRF_max.Z": 2.053384, "PROCESSED.Lead_Leg_GRF_min.X": -0.36746, "PROCESSED.Lead_Leg_GRF_min.Y": -1.488742, "PROCESSED.Lead_Leg_GRF_min.Z": 0, "PROCESSED.Pelvis_COG@Setup.X": 0.2628048, "PROCESSED.Pelvis_COG@Setup.Y": 0.583001, "PROCESSED.Pelvis_COG@Setup.Z": 0.8228984, "PROCESSED.Shoulder_Vel_Min.X": -691.4431, "PROCESSED.Shoulder_Vel_Min.Y": -528.6721, "PROCESSED.Shoulder_Vel_Min.Z": -5534.607, "TIMING.Max_Elbow_ForceTime.X": 0.8033333, "PROCESSED.MaxTrunkLinearVel.X": 0.5876653, "PROCESSED.MaxTrunkLinearVel.Y": 3.497454, "PROCESSED.MaxTrunkLinearVel.Z": -0.4920835, "PROCESSED.Trunk_Angle@Setup.X": 0.1085251, "PROCESSED.Trunk_Angle@Setup.Y": 1.69769, "PROCESSED.Trunk_Angle@Setup.Z": 111.511, "PROCESSED.Trunk_COG@Release.X": 0.4219187, "PROCESSED.Trunk_COG@Release.Y": 1.752045, "PROCESSED.Trunk_COG@Release.Z": 0.7662802, "STRIDE_LENGTH.STRIDE_LENGTH.X": 1.505565, "TIMING.Max_Shoulder_RotTime.X": 1.226667, "PROCESSED.Force_Ball@Release.X": 0.2380857, "PROCESSED.Head_Angle@Release.X": -29.94296, "PROCESSED.Head_Angle@Release.Y": 2.813235, "PROCESSED.Head_Angle@Release.Z": -23.33189, "PROCESSED.MaxPelvisLinearVel.X": 1.178125, "PROCESSED.MaxPelvisLinearVel.Y": 2.491772, "PROCESSED.MaxPelvisLinearVel.Z": -0.5518636, "PROCESSED.Pelvis_Angle@Setup.X": 0.3808321, "PROCESSED.Pelvis_Angle@Setup.Y": 4.820614, "PROCESSED.Pelvis_Angle@Setup.Z": 117.4932, "PROCESSED.Pelvis_COG@Release.X": 0.3914956, "PROCESSED.Pelvis_COG@Release.Y": 1.577053, "PROCESSED.Pelvis_COG@Release.Z": 0.5366877, "TIMING.MaxTrunkLinearVelTime.X": 1.14, "PROCESSED.Trunk_Angle@Release.X": 45.52077, "PROCESSED.Trunk_Angle@Release.Y": 24.58129, "PROCESSED.Trunk_Angle@Release.Z": -2.885785, "PROCESSED.Trunk_COG_Vel@Setup.X": -0.1142814, "PROCESSED.Trunk_COG_Vel@Setup.Y": -0.02802613, "PROCESSED.Trunk_COG_Vel@Setup.Z": -0.06095134, "TIMING.MaxPelvisLinearVelTime.X": 1.083333, "PROCESSED.Back_Leg_GRF_mag_max.X": 1.792192, "PROCESSED.Elbow_Torque@Release.X": 0.00173199, "PROCESSED.Lead_Leg_GRF_mag_max.X": 2.537678, "PROCESSED.Pelvis_Angle@Release.X": 24.61414, "PROCESSED.Pelvis_Angle@Release.Y": -6.74714, "PROCESSED.Pelvis_Angle@Release.Z": -11.7634, "PROCESSED.Pelvis_COG_Vel@Setup.X": -0.1443923, "PROCESSED.Pelvis_COG_Vel@Setup.Y": -0.1451969, "PROCESSED.Pelvis_COG_Vel@Setup.Z": 0.02716179, "PROCESSED.Shoulder_Vel_Min_Abs.X": 691.4431, "PROCESSED.Shoulder_Vel_Min_Abs.Y": 528.6721, "PROCESSED.Shoulder_Vel_Min_Abs.Z": 5534.607, "PROCESSED.Trunk_COG@Footstrike.X": 0.3750979, "PROCESSED.Trunk_COG@Footstrike.Y": 1.477402, "PROCESSED.Trunk_COG@Footstrike.Z": 0.7790854, "TIMING.MaxShoulderHorAngleTime.X": 1.353333, "TIMING.Max_Forearm_PronSup
+... [truncated]
+
+Keys with ".X" in raw DB string: YES

@@ -22,6 +22,7 @@ export type ProteusPayload = {
 };
 
 const PROTEUS_VARIABLES = [
+  { name: "Power_high", key: "power_high" as const },
   { name: "Power_mean", key: "power_mean" as const },
   { name: "Velocity_high", key: "velocity_high" as const },
   { name: "Velocity_mean", key: "velocity_mean" as const },
@@ -55,6 +56,7 @@ export async function buildProteusPitcherPayload(
     select: {
       session_date: true,
       movement: true,
+      power_high: true,
       power_mean: true,
       velocity_high: true,
       velocity_mean: true,
@@ -129,6 +131,7 @@ export async function buildProteusHitterPayload(
     select: {
       session_date: true,
       movement: true,
+      power_high: true,
       power_mean: true,
       velocity_high: true,
       velocity_mean: true,

@@ -38,6 +38,7 @@ export default function UaisMaintenancePage() {
 
   const [duplicateSessionModal, setDuplicateSessionModal] = useState<{ jobId: string; date: string } | null>(null);
   const duplicateSessionModalOpenRef = useRef(false);
+  const duplicateSessionResponseResolverRef = useRef<(() => void) | null>(null);
 
   const [checkDuplicatesQuery, setCheckDuplicatesQuery] = useState("");
   const [checkDuplicatesResult, setCheckDuplicatesResult] = useState<{ athlete_uuid: string; name: string; email: string | null }[] | null>(null);
@@ -182,19 +183,24 @@ export default function UaisMaintenancePage() {
               return;
             }
             const decoder = new TextDecoder();
+            let streamText = "";
+            let duplicatePromptHandled = false;
             while (true) {
               const { done, value } = await reader.read();
               if (done) break;
               const chunk = decoder.decode(value, { stream: true });
-              setOutput((o) => {
-                const next = o + chunk;
-                const match = next.match(DUPLICATE_SESSION_REGEX);
-                if (match && !duplicateSessionModalOpenRef.current) {
-                  duplicateSessionModalOpenRef.current = true;
-                  setDuplicateSessionModal({ jobId, date: match[1] });
-                }
-                return next;
-              });
+              streamText += chunk;
+              setOutput((o) => o + chunk);
+              const match = streamText.match(DUPLICATE_SESSION_REGEX);
+              if (match && !duplicatePromptHandled && !duplicateSessionModalOpenRef.current) {
+                duplicatePromptHandled = true;
+                duplicateSessionModalOpenRef.current = true;
+                setDuplicateSessionModal({ jobId, date: match[1] });
+                await new Promise<void>((resumeAfterResponse) => {
+                  duplicateSessionResponseResolverRef.current = resumeAfterResponse;
+                });
+                duplicateSessionResponseResolverRef.current = null;
+              }
             }
             resolve();
           };
@@ -288,6 +294,10 @@ export default function UaisMaintenancePage() {
       }
     } catch (e) {
       setOutput((prev) => prev + `\n[Send error] ${e instanceof Error ? e.message : "Failed"}\n`);
+    } finally {
+      const resume = duplicateSessionResponseResolverRef.current;
+      duplicateSessionResponseResolverRef.current = null;
+      if (resume) resume();
     }
   };
 

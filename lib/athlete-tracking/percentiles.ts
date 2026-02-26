@@ -32,6 +32,10 @@ type PayloadMetric = {
   value: number | null;
   valueUnit: string;
   orientation: string | null;
+  mobilityMetricKind?: "GROUP" | "COMPONENT";
+  mobilityGroup?: string;
+  mobilityDisplayLabel?: string;
+  mobilityOutOf?: number | null;
 };
 
 function attachPercentiles(
@@ -174,8 +178,15 @@ export async function getMobilityWithPercentiles(
       return max !== Number.POSITIVE_INFINITY ? max : null;
     };
     const metrics = withPercentiles.map((m) => {
-      const noPercentile = m.category !== "Grip Strength" ? { ...m, percentile: null } : m;
-      return { ...noPercentile, max: maxForCategory(m.category) };
+      const keepPercentile =
+        m.category === "Grip Strength" ||
+        (m.mobilityMetricKind === "COMPONENT" &&
+          (m.name === "shoulder_ir" || m.name === "shoulder_er"));
+      const noPercentile = keepPercentile ? m : { ...m, percentile: null };
+      return {
+        ...noPercentile,
+        max: m.mobilityMetricKind === "GROUP" ? maxForCategory(m.category) : null,
+      };
     });
     return { metrics, sessionDate: payload.sessionDate ?? null };
   } catch {

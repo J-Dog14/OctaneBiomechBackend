@@ -33,7 +33,7 @@ export async function buildAthleticScreenPayload(
     throw notFound("Athlete not found");
   }
 
-  const [latestCmj, latestDj] = await Promise.all([
+  const [latestCmj, latestDj, latestPpu, latestSlv] = await Promise.all([
     prisma.f_athletic_screen_cmj.findFirst({
       where: { athlete_uuid: athleteUuid },
       orderBy: [{ session_date: "desc" }, { created_at: "desc" }],
@@ -44,20 +44,28 @@ export async function buildAthleticScreenPayload(
       orderBy: [{ session_date: "desc" }, { created_at: "desc" }],
       select: { session_date: true },
     }),
+    prisma.f_athletic_screen_ppu.findFirst({
+      where: { athlete_uuid: athleteUuid },
+      orderBy: [{ session_date: "desc" }, { created_at: "desc" }],
+      select: { session_date: true },
+    }),
+    prisma.f_athletic_screen_slv.findFirst({
+      where: { athlete_uuid: athleteUuid },
+      orderBy: [{ session_date: "desc" }, { created_at: "desc" }],
+      select: { session_date: true },
+    }),
   ]);
 
-  const sessionDate =
-    latestCmj?.session_date && latestDj?.session_date
-      ? latestCmj.session_date >= latestDj.session_date
-        ? latestCmj.session_date
-        : latestDj.session_date
-      : latestCmj?.session_date ?? latestDj?.session_date;
+  const dates = [latestCmj?.session_date, latestDj?.session_date, latestPpu?.session_date, latestSlv?.session_date].filter(
+    (d): d is Date => d != null
+  );
+  const sessionDate = dates.length > 0 ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
 
   if (!sessionDate) {
     throw notFound("No athletic screen data found for athlete");
   }
 
-  const [cmjRow, djRow] = await Promise.all([
+  const [cmjRow, djRow, ppuRow, slvRows] = await Promise.all([
     prisma.f_athletic_screen_cmj.findFirst({
       where: { athlete_uuid: athleteUuid, session_date: sessionDate },
       orderBy: { created_at: "desc" },
@@ -82,6 +90,31 @@ export async function buildAthleticScreenPayload(
         time_to_rpd_max_s: true,
         rsi: true,
         ct: true,
+      },
+    }),
+    prisma.f_athletic_screen_ppu.findFirst({
+      where: { athlete_uuid: athleteUuid, session_date: sessionDate },
+      orderBy: { created_at: "desc" },
+      select: {
+        jh_in: true,
+        peak_power: true,
+        auc_j: true,
+        kurtosis: true,
+        rpd_max_w_per_s: true,
+        time_to_rpd_max_s: true,
+      },
+    }),
+    prisma.f_athletic_screen_slv.findMany({
+      where: { athlete_uuid: athleteUuid, session_date: sessionDate },
+      orderBy: { created_at: "desc" },
+      select: {
+        side: true,
+        jh_in: true,
+        peak_power_w: true,
+        auc_j: true,
+        kurtosis: true,
+        rpd_max_w_per_s: true,
+        time_to_rpd_max_s: true,
       },
     }),
   ]);
@@ -137,6 +170,45 @@ export async function buildAthleticScreenPayload(
         orientation,
       }
     );
+  }
+
+  if (ppuRow) {
+    for (const { name, key } of commonSpecs) {
+      metrics.push({
+        category: "PPU",
+        name,
+        value: decimalToNumber(ppuRow[key]),
+        valueUnit,
+        orientation,
+      });
+    }
+  }
+
+  const normalizeSide = (s: string | null): string => {
+    const t = s?.trim().toLowerCase();
+    if (t === "l" || t === "left") return "Left";
+    if (t === "r" || t === "right") return "Right";
+    return t ? String(s).trim() : "Unknown";
+  };
+  for (const row of slvRows ?? []) {
+    const category = `SLV_${normalizeSide(row.side)}`;
+    const slvSpecs = [
+      { name: "JH", key: "jh_in" as const },
+      { name: "PP", key: "peak_power_w" as const },
+      { name: "Work (AUC)", key: "auc_j" as const },
+      { name: "Kurtosis", key: "kurtosis" as const },
+      { name: "Max RPD", key: "rpd_max_w_per_s" as const },
+      { name: "Time to Max RPD", key: "time_to_rpd_max_s" as const },
+    ];
+    for (const { name, key } of slvSpecs) {
+      metrics.push({
+        category,
+        name,
+        value: decimalToNumber(row[key]),
+        valueUnit,
+        orientation,
+      });
+    }
   }
 
   const sessionDateStr = sessionDate.toISOString().split("T")[0];

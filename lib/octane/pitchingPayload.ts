@@ -38,10 +38,94 @@ type MetricSpec = {
   fromAthlete?: "weightLbs";
   /** If set, compute value from other computed values. */
   compute?: (ctx: { velocityMph: number | null; weightLbs: number | null }) => number | null;
+  /** If set, compute value from the metric value map (e.g. difference of two keys). */
+  computeFromMap?: (map: Map<string, number | null>) => number | null;
 };
 
 /** Parsed metrics from f_pitching_trials.metrics JSON (metric name -> value). */
 export type TrialMetricsMap = Map<string, number | null>;
+
+/** Get value from map, trying key and optional .X/.Y/.Z variant. */
+function getFromMap(map: Map<string, number | null>, key: string): number | null {
+  const v = map.get(key);
+  if (v !== undefined) return v;
+  if (key.endsWith("_X")) return map.get(key.slice(0, -2) + ".X") ?? null;
+  if (key.endsWith("_Y")) return map.get(key.slice(0, -2) + ".Y") ?? null;
+  if (key.endsWith("_Z")) return map.get(key.slice(0, -2) + ".Z") ?? null;
+  return null;
+}
+
+function roundTo(value: number, places: number): number {
+  const factor = 10 ** places;
+  return Math.round(value * factor) / factor;
+}
+
+type ProgressionSummary = {
+  gainOrLoss: number | null;
+  amountToPeak: number | null;
+  peakAfterFootstrikeMs: number | null;
+  postPeakLossRate: number | null;
+};
+
+function computeProgressionSummary(
+  map: Map<string, number | null>,
+  opts: {
+    footstrikeKey: string;
+    incrementPrefix: string;
+    axis: "X" | "Y" | "Z";
+    lowerIsGain: boolean;
+  }
+): ProgressionSummary {
+  const footstrike = getFromMap(map, `${opts.footstrikeKey}_${opts.axis}`);
+  if (footstrike == null) {
+    return {
+      gainOrLoss: null,
+      amountToPeak: null,
+      peakAfterFootstrikeMs: null,
+      postPeakLossRate: null,
+    };
+  }
+
+  const points: Array<{ ms: number; value: number }> = [{ ms: 0, value: footstrike }];
+  for (let ms = 10; ms <= 110; ms += 10) {
+    const value = getFromMap(map, `${opts.incrementPrefix}_${ms}ms_${opts.axis}`);
+    if (value != null) points.push({ ms, value });
+  }
+
+  let peakPoint = points[0]!;
+  for (const p of points) {
+    if (opts.lowerIsGain ? p.value < peakPoint.value : p.value > peakPoint.value) {
+      peakPoint = p;
+    }
+  }
+
+  const amountToPeak = opts.lowerIsGain
+    ? footstrike - peakPoint.value
+    : peakPoint.value - footstrike;
+
+  const gainOrLoss =
+    amountToPeak > 0 ? 1 : amountToPeak < 0 ? -1 : 0;
+
+  const peakAfterFootstrikeMs = peakPoint.ms > 0 ? peakPoint.ms : null;
+  const laterPoints = points.filter((p) => p.ms > peakPoint.ms);
+
+  let postPeakLossRate: number | null = null;
+  if (laterPoints.length > 0) {
+    const last = laterPoints[laterPoints.length - 1]!;
+    const loss = opts.lowerIsGain
+      ? last.value - peakPoint.value
+      : peakPoint.value - last.value;
+    const dt = last.ms - peakPoint.ms;
+    postPeakLossRate = dt > 0 ? loss / dt : null;
+  }
+
+  return {
+    gainOrLoss,
+    amountToPeak,
+    peakAfterFootstrikeMs,
+    postPeakLossRate,
+  };
+}
 
 // This is the legacy payload shape you shared in output_payload.json.
 // We pull values from `f_pitching_trials.metrics` (JSON) or fallback to `f_kinematics_pitching`.
@@ -68,179 +152,141 @@ const PITCHING_METRIC_SPECS: MetricSpec[] = [
     name: "FOOT_PLANT",
     valueUnit: "DEGREES",
     orientation: "LOWER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Pelvis_Angle@Footstrike"],
-  },
-  {
-    category: "PELVIS_ROTATION",
-    name: "MAX_ER",
-    valueUnit: "DEGREES",
-    orientation: "LOWER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Pelvis_Angle@Max_Shoulder_Rot"],
-  },
-  {
-    category: "PELVIS_ROTATION",
-    name: "RELEASE",
-    valueUnit: "DEGREES",
-    orientation: "LOWER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Pelvis_Angle@Release"],
+    metricNameCandidates: ["PROCESSED.Pelvis_Angle@Footstrike.Z", "PROCESSED.Pelvis_Angle@Footstrike_Z"],
   },
   {
     category: "TRUNK_POSITION",
     name: "FOOT_PLANT",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Trunk_Angle@Footstrike"],
-  },
-  {
-    category: "TRUNK_POSITION",
-    name: "MAX_ER",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Trunk_Angle@Max_Shoulder_Rot"],
-  },
-  {
-    category: "TRUNK_POSITION",
-    name: "RELEASE",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Trunk_Angle@Release"],
+    metricNameCandidates: ["PROCESSED.Trunk_Angle@Footstrike.Z", "PROCESSED.Trunk_Angle@Footstrike_Z"],
   },
   {
     category: "HIP_SHOULDER_SEPARATION",
     name: "FOOT_PLANT",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Hip Shoulders Sep@Footstrike"],
-  },
-  {
-    category: "HIP_SHOULDER_SEPARATION",
-    name: "MAX_ER",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Hip Shoulders Sep@Max_Shoulder_Rot"],
-  },
-  {
-    category: "HIP_SHOULDER_SEPARATION",
-    name: "RELEASE",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Hip Shoulders Sep@Release"],
+    metricNameCandidates: ["PROCESSED.Hip Shoulders Sep@Footstrike.Z", "PROCESSED.Hip Shoulders Sep@Footstrike_Z"],
   },
   {
     category: "FRONT_LEG",
     name: "FOOT_PLANT",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Lead_Knee_Angle@Footstrike"],
-  },
-  {
-    category: "FRONT_LEG",
-    name: "MAX_ER",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Lead_Knee_Angle@Max_Shoulder_Rot"],
+    metricNameCandidates: ["PROCESSED.Lead_Knee_Angle@Footstrike.X", "PROCESSED.Lead_Knee_Angle@Footstrike_X"],
   },
   {
     category: "FRONT_LEG",
     name: "RELEASE",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Lead_Knee_Angle@Release"],
+    metricNameCandidates: ["PROCESSED.Lead_Knee_Angle@Release.X", "PROCESSED.Lead_Knee_Angle@Release_X"],
   },
   {
     category: "SHOULDER_ER",
     name: "FOOT_PLANT",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle@Footstrike"],
+    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle@Footstrike_Z", "PROCESSED.Pitching_Shoulder_Angle@Footstrike.Z"],
   },
   {
     category: "SHOULDER_ER",
     name: "MAX",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle_Max"],
+    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle_Max_Z", "PROCESSED.Pitching_Shoulder_Angle_Max.Z"],
   },
   {
     category: "ABDUCTION",
     name: "FOOT_PLANT",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    // Best-effort mapping; refine once we confirm the intended UAIS metric name.
-    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle@Footstrike"],
+    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle@Footstrike.X", "PROCESSED.Pitching_Shoulder_Angle@Footstrike_X"],
   },
   {
     category: "ABDUCTION",
     name: "MAX",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle_Max"],
+    metricNameCandidates: ["PROCESSED.Pitching_Shoulder_Angle_Min"],
   },
   {
     category: "KINEMATIC_SEQUENCE",
     name: "PELVIS",
     valueUnit: "DEGREES_PER_SECOND",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["KINEMATIC_SEQUENCE.Pelvis_Ang_Vel_max"],
+    metricNameCandidates: ["KINEMATIC_SEQUENCE.Pelvis_Ang_Vel_max.X", "KINEMATIC_SEQUENCE.Pelvis_Ang_Vel_max"],
   },
   {
     category: "KINEMATIC_SEQUENCE",
     name: "TORSO",
     valueUnit: "DEGREES_PER_SECOND",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["KINEMATIC_SEQUENCE.Thorax_Ang_Vel_max"],
+    metricNameCandidates: ["KINEMATIC_SEQUENCE.Thorax_Ang_Vel_max.X", "KINEMATIC_SEQUENCE.Thorax_Ang_Vel_max"],
   },
   {
     category: "KINEMATIC_SEQUENCE",
     name: "ARM",
     valueUnit: "DEGREES_PER_SECOND",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["KINEMATIC_SEQUENCE.Pitching_Humerus_Ang_Vel_max"],
+    metricNameCandidates: ["KINEMATIC_SEQUENCE.Pitching_Humerus_Ang_Vel_max.X", "KINEMATIC_SEQUENCE.Pitching_Humerus_Ang_Vel_max"],
   },
   {
     category: "KINEMATIC_SEQUENCE",
     name: "HAND",
     valueUnit: "DEGREES_PER_SECOND",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["KINEMATIC_SEQUENCE.Pitching_Hand_Ang_Vel_max"],
-  },
-  {
-    category: "LATERAL_TILT",
-    name: "TRANSLATION",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: [],
+    metricNameCandidates: ["KINEMATIC_SEQUENCE.Pitching_Hand_Ang_Vel_max.X", "KINEMATIC_SEQUENCE.Pitching_Hand_Ang_Vel_max"],
   },
   {
     category: "FRONT_LEG",
     name: "EXTENSION",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Lead_Knee_Angle_max"],
-  },
-  {
-    category: "FRONT_LEG",
-    name: "TRANSLATION",
-    valueUnit: "DEGREES",
-    orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: [],
+    computeFromMap(map) {
+      const release = getFromMap(map, "PROCESSED.Lead_Knee_Angle@Release_X");
+      const footstrike = getFromMap(map, "PROCESSED.Lead_Knee_Angle@Footstrike_X");
+      if (release == null || footstrike == null) return null;
+      return footstrike - release;
+    },
   },
   {
     category: "GRF",
     name: "MID_POINT",
     valueUnit: "N_BW",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: ["PROCESSED.Lead_Leg_GRF_mag_Midpoint_FS_Release"],
+    metricNameCandidates: ["PROCESSED.Lead_Leg_GRF_mag_Midpoint_FS_Release.X", "PROCESSED.Lead_Leg_GRF_mag_Midpoint_FS_Release_X"],
   },
-  { category: "GRF", name: "X_DIR", valueUnit: "N_BW", orientation: "HIGHER_IS_BETTER", metricNameCandidates: [] },
-  { category: "GRF", name: "Y_DIR", valueUnit: "N_BW", orientation: "HIGHER_IS_BETTER", metricNameCandidates: [] },
-  { category: "GRF", name: "Z_DIR", valueUnit: "N_BW", orientation: "HIGHER_IS_BETTER", metricNameCandidates: [] },
+  {
+    category: "GRF",
+    name: "GRF_MAG_MAX",
+    valueUnit: "N_BW",
+    orientation: "HIGHER_IS_BETTER",
+    metricNameCandidates: ["PROCESSED.Lead_Leg_GRF_mag_max.X", "PROCESSED.Lead_Leg_GRF_mag_max_X"],
+  },
+  {
+    category: "GRF",
+    name: "Y_DIR",
+    valueUnit: "N_BW",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      const y = getFromMap(map, "PROCESSED.Lead_Leg_GRF_min_Y");
+      return y == null ? null : Math.abs(y);
+    },
+  },
+  {
+    category: "GRF",
+    name: "Z_DIR",
+    valueUnit: "N_BW",
+    orientation: "HIGHER_IS_BETTER",
+    metricNameCandidates: ["PROCESSED.Lead_Leg_GRF_max.Z", "PROCESSED.Lead_Leg_GRF_max_Z"],
+  },
   {
     category: "LATERAL_TILT",
     name: "RELEASE",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: [],
+    metricNameCandidates: ["PROCESSED.Trunk_Angle@Release.X", "PROCESSED.Trunk_Angle@Release_X"],
   },
   {
     category: "LINEAR_VELOCITY",
@@ -250,11 +296,162 @@ const PITCHING_METRIC_SPECS: MetricSpec[] = [
     metricNameCandidates: ["PROCESSED.MaxPelvisLinearVel_MPH"],
   },
   {
-    category: "SUBJECT_METRICS",
-    name: "RELEASE",
+    category: "SHOULDER_EXTERNAL_ROTATION",
+    name: "MAX",
     valueUnit: "DEGREES",
     orientation: "HIGHER_IS_BETTER",
-    metricNameCandidates: [],
+    metricNameCandidates: [
+      "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot.Z",
+      "PROCESSED.Pitching_Shoulder_Angle_XYZ@Max_Shoulder_Rot_Z",
+    ],
+  },
+  {
+    category: "PELVIC_OBLIQUITY",
+    name: "TOTAL",
+    valueUnit: "DEGREES",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      const release = getFromMap(map, "PROCESSED.Pelvis_Angle@Release_Y");
+      const footstrike = getFromMap(map, "PROCESSED.Pelvis_Angle@Footstrike_Y");
+      if (release == null || footstrike == null) return null;
+      return release - footstrike;
+    },
+  },
+  {
+    category: "TOTAL_TRUNK_FLEXION",
+    name: "TOTAL",
+    valueUnit: "DEGREES",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      const release = getFromMap(map, "PROCESSED.Trunk_Angle@Release_X");
+      const footstrike = getFromMap(map, "PROCESSED.Trunk_Angle@Footstrike_X");
+      if (release == null || footstrike == null) return null;
+      return release - footstrike;
+    },
+  },
+  {
+    category: "ABDUCTION_PROGRESS",
+    name: "GAIN_OR_LOSS",
+    valueUnit: "NUMBER",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Pitching_Shoulder_Angle@Footstrike",
+        incrementPrefix: "INCREMENT.Pitching_Shoulder_Angle@Footstrike",
+        axis: "X",
+        lowerIsGain: true,
+      }).gainOrLoss;
+    },
+  },
+  {
+    category: "ABDUCTION_PROGRESS",
+    name: "AMOUNT_TO_PEAK",
+    valueUnit: "DEGREES",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Pitching_Shoulder_Angle@Footstrike",
+        incrementPrefix: "INCREMENT.Pitching_Shoulder_Angle@Footstrike",
+        axis: "X",
+        lowerIsGain: true,
+      }).amountToPeak;
+    },
+  },
+  {
+    category: "ABDUCTION_PROGRESS",
+    name: "PEAK_AFTER_FOOTSTRIKE_MS",
+    valueUnit: "NUMBER",
+    orientation: "LOWER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Pitching_Shoulder_Angle@Footstrike",
+        incrementPrefix: "INCREMENT.Pitching_Shoulder_Angle@Footstrike",
+        axis: "X",
+        lowerIsGain: true,
+      }).peakAfterFootstrikeMs;
+    },
+  },
+  {
+    category: "ABDUCTION_PROGRESS",
+    name: "POST_PEAK_LOSS_RATE",
+    valueUnit: "NUMBER",
+    orientation: "LOWER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Pitching_Shoulder_Angle@Footstrike",
+        incrementPrefix: "INCREMENT.Pitching_Shoulder_Angle@Footstrike",
+        axis: "X",
+        lowerIsGain: true,
+      }).postPeakLossRate;
+    },
+  },
+  {
+    category: "ABDUCTION",
+    name: "TIME_TO_MAX_HOR_ANGLE_MS",
+    valueUnit: "NUMBER",
+    orientation: "LOWER_IS_BETTER",
+    computeFromMap(map) {
+      const maxTime = getFromMap(map, "TIMING.MaxShoulderHorAngleTime_X");
+      const footstrikeTime = getFromMap(map, "TIMING.FootstrikeTime_X");
+      if (maxTime == null || footstrikeTime == null) return null;
+      return roundTo((maxTime - footstrikeTime) * 1000, 2);
+    },
+  },
+  {
+    category: "HIP_SHOULDER_PROGRESS",
+    name: "GAIN_OR_LOSS",
+    valueUnit: "NUMBER",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Hip Shoulders Sep@Footstrike",
+        incrementPrefix: "INCREMENT.Hip Shoulders Sep@Footstrike",
+        axis: "Z",
+        lowerIsGain: false,
+      }).gainOrLoss;
+    },
+  },
+  {
+    category: "HIP_SHOULDER_PROGRESS",
+    name: "AMOUNT_TO_PEAK",
+    valueUnit: "DEGREES",
+    orientation: "HIGHER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Hip Shoulders Sep@Footstrike",
+        incrementPrefix: "INCREMENT.Hip Shoulders Sep@Footstrike",
+        axis: "Z",
+        lowerIsGain: false,
+      }).amountToPeak;
+    },
+  },
+  {
+    category: "HIP_SHOULDER_PROGRESS",
+    name: "PEAK_AFTER_FOOTSTRIKE_MS",
+    valueUnit: "NUMBER",
+    orientation: "LOWER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Hip Shoulders Sep@Footstrike",
+        incrementPrefix: "INCREMENT.Hip Shoulders Sep@Footstrike",
+        axis: "Z",
+        lowerIsGain: false,
+      }).peakAfterFootstrikeMs;
+    },
+  },
+  {
+    category: "HIP_SHOULDER_PROGRESS",
+    name: "POST_PEAK_LOSS_RATE",
+    valueUnit: "NUMBER",
+    orientation: "LOWER_IS_BETTER",
+    computeFromMap(map) {
+      return computeProgressionSummary(map, {
+        footstrikeKey: "PROCESSED.Hip Shoulders Sep@Footstrike",
+        incrementPrefix: "INCREMENT.Hip Shoulders Sep@Footstrike",
+        axis: "Z",
+        lowerIsGain: false,
+      }).postPeakLossRate;
+    },
   },
   {
     category: "SUBJECT_METRICS",
@@ -305,12 +502,27 @@ function parseTrialMetricsJson(metrics: unknown): Map<string, number | null> {
   }
   const obj = metrics as Record<string, unknown>;
   for (const [key, val] of Object.entries(obj)) {
-    const num = decimalToNumber(val);
+    // DB may store values as single-element arrays e.g. "key": [-51.08]
+    const scalar = Array.isArray(val) && val.length > 0 ? val[0] : val;
+    const num = decimalToNumber(scalar);
     out.set(key, num);
     // So payload specs that expect "PROCESSED.Pelvis_Angle@Footstrike" (no suffix) find the value from ".X"
     if (key.endsWith(".X")) {
       const baseKey = key.slice(0, -2);
       if (!out.has(baseKey)) out.set(baseKey, num);
+    }
+    // Alias _X, _Y, _Z so specs can use either "Key_X" or "Key.X" style
+    if (key.endsWith("_X") || key.endsWith("_Y") || key.endsWith("_Z")) {
+      const suffix = key.slice(-2);
+      const baseKey = key.slice(0, -2);
+      const dotKey = `${baseKey}.${suffix === "_X" ? "X" : suffix === "_Y" ? "Y" : "Z"}`;
+      if (!out.has(dotKey)) out.set(dotKey, num);
+    }
+    if (key.includes(".") && (key.endsWith(".Y") || key.endsWith(".Z"))) {
+      const baseKey = key.slice(0, -2);
+      const underscore = key.endsWith(".Y") ? "_Y" : "_Z";
+      const altKey = baseKey + underscore;
+      if (!out.has(altKey)) out.set(altKey, num);
     }
   }
   return out;
@@ -332,6 +544,8 @@ function buildMetricsFromValueMap(
 
     if (spec.fromAthlete === "weightLbs") {
       value = weightLbs;
+    } else if (spec.computeFromMap) {
+      value = spec.computeFromMap(valueByMetricName);
     } else if (spec.compute) {
       value = spec.compute({ velocityMph, weightLbs });
     } else if (spec.metricNameCandidates?.length) {
@@ -365,6 +579,95 @@ function buildMetricsFromValueMap(
   };
 }
 
+/** Derive axis component from a resolved metric key (e.g. "_Z" or ".Z" -> "Z"). */
+function componentFromKey(key: string): "X" | "Y" | "Z" | null {
+  if (key.endsWith("_X") || key.endsWith(".X")) return "X";
+  if (key.endsWith("_Y") || key.endsWith(".Y")) return "Y";
+  if (key.endsWith("_Z") || key.endsWith(".Z")) return "Z";
+  return null;
+}
+
+export type PitchingPayloadDebugRow = {
+  category: string;
+  name: string;
+  value: number | null;
+  valueUnit: string;
+  /** Key that provided the value (candidate key, or "computeFromMap" / "compute" / "fromAthlete"). */
+  resolvedKey: string;
+  /** Axis component when value came from a vector key (X, Y, Z), or null. */
+  component: "X" | "Y" | "Z" | null;
+};
+
+/**
+ * Builds the pitching payload and returns it plus a debug list: for each metric, the resolved key
+ * and component (X/Y/Z) so you can verify what is being pulled from the trials JSON.
+ */
+export function buildPitchingPayloadWithDebug(
+  valueByMetricName: Map<string, number | null>,
+  athlete: { athlete_uuid: string; age_group: string | null; weight: unknown }
+): { payload: PitchingPayload; debug: PitchingPayloadDebugRow[] } {
+  const velocityMph =
+    valueByMetricName.get("BALLSPEED.BALL_RELEASE_SPEED") ?? null;
+  const weightLbs = decimalToNumber(athlete.weight);
+
+  const debug: PitchingPayloadDebugRow[] = [];
+
+  const metrics: PitchingPayloadMetric[] = PITCHING_METRIC_SPECS.map((spec) => {
+    let value: number | null = null;
+    let resolvedKey = "";
+
+    if (spec.fromAthlete === "weightLbs") {
+      value = weightLbs;
+      resolvedKey = "fromAthlete";
+    } else if (spec.computeFromMap) {
+      value = spec.computeFromMap(valueByMetricName);
+      resolvedKey = "computeFromMap";
+    } else if (spec.compute) {
+      value = spec.compute({ velocityMph, weightLbs });
+      resolvedKey = "compute";
+    } else if (spec.metricNameCandidates?.length) {
+      for (const candidate of spec.metricNameCandidates) {
+        const v = valueByMetricName.get(candidate);
+        if (v !== undefined) {
+          value = v;
+          resolvedKey = candidate;
+          break;
+        }
+      }
+    }
+
+    debug.push({
+      category: spec.category,
+      name: spec.name,
+      value,
+      valueUnit: spec.valueUnit,
+      resolvedKey,
+      component: resolvedKey ? componentFromKey(resolvedKey) : null,
+    });
+
+    return {
+      category: spec.category,
+      name: spec.name,
+      value,
+      valueUnit: spec.valueUnit,
+      orientation: spec.orientation,
+    };
+  });
+
+  const scoreMetric = metrics.find(
+    (m) => m.category === "SUBJECT_METRICS" && m.name === "SCORE"
+  );
+
+  const payload: PitchingPayload = {
+    athleteUuid: athlete.athlete_uuid,
+    level: deriveLevelFromAthlete({ age_group: athlete.age_group ?? null }),
+    score: scoreMetric?.value ?? null,
+    metrics,
+  };
+
+  return { payload, debug };
+}
+
 /**
  * Builds the pitching payload from f_pitching_trials (one row per trial, metrics in JSON).
  * Picks the single best trial by velocity_mph, then parses metrics from that row.
@@ -385,7 +688,7 @@ export async function buildPitchingPayloadFromTrials(
   const bestTrial = await prisma.f_pitching_trials.findFirst({
     where: { athlete_uuid: athleteUuid },
     orderBy: [{ velocity_mph: "desc" }, { session_date: "desc" }, { trial_index: "asc" }],
-    select: { metrics: true, velocity_mph: true, weight: true },
+    select: { metrics: true, velocity_mph: true, weight: true, session_date: true },
   });
 
   if (!bestTrial) {
@@ -394,9 +697,9 @@ export async function buildPitchingPayloadFromTrials(
 
   const valueByMetricName = parseTrialMetricsJson(bestTrial.metrics);
 
-  // If velocity_mph is on the row but not in metrics JSON, use it so SCORE and VELOCITY match.
+  // Always use row velocity_mph as the source of truth for TRACKMAN_METRICS|VELOCITY in trials.
   const velocityFromRow = decimalToNumber(bestTrial.velocity_mph);
-  if (velocityFromRow !== null && !valueByMetricName.has("BALLSPEED.BALL_RELEASE_SPEED")) {
+  if (velocityFromRow !== null) {
     valueByMetricName.set("BALLSPEED.BALL_RELEASE_SPEED", velocityFromRow);
   }
 
@@ -409,6 +712,42 @@ export async function buildPitchingPayloadFromTrials(
   const payload = buildMetricsFromValueMap(valueByMetricName, athleteForBuild);
   const sessionDate = bestTrial.session_date.toISOString().split("T")[0];
   return { ...payload, sessionDate };
+}
+
+/**
+ * Returns the value map and athlete for the best pitching trial (by velocity).
+ * Used by the payload debug endpoint so we can show resolved key and component per metric.
+ */
+export async function getPitchingTrialValueMapAndAthlete(athleteUuid: string): Promise<{
+  valueByMetricName: Map<string, number | null>;
+  athlete: { athlete_uuid: string; age_group: string | null; weight: unknown };
+  sessionDate: string;
+} | null> {
+  const athlete = await prisma.d_athletes.findUnique({
+    where: { athlete_uuid: athleteUuid },
+    select: { athlete_uuid: true, age_group: true, weight: true },
+  });
+  if (!athlete) return null;
+
+  const bestTrial = await prisma.f_pitching_trials.findFirst({
+    where: { athlete_uuid: athleteUuid },
+    orderBy: [{ velocity_mph: "desc" }, { session_date: "desc" }, { trial_index: "asc" }],
+    select: { metrics: true, velocity_mph: true, weight: true, session_date: true },
+  });
+  if (!bestTrial) return null;
+
+  const valueByMetricName = parseTrialMetricsJson(bestTrial.metrics);
+  const velocityFromRow = decimalToNumber(bestTrial.velocity_mph);
+  if (velocityFromRow !== null) {
+    valueByMetricName.set("BALLSPEED.BALL_RELEASE_SPEED", velocityFromRow);
+  }
+  const athleteForBuild =
+    bestTrial.weight != null && decimalToNumber(bestTrial.weight) !== null
+      ? { ...athlete, weight: bestTrial.weight }
+      : athlete;
+
+  const sessionDate = bestTrial.session_date.toISOString().split("T")[0];
+  return { valueByMetricName, athlete: athleteForBuild, sessionDate };
 }
 
 /**

@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useState, Suspense } from "react";
+import { Fragment, useCallback, useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { MetricRadarChart, type RadarMetric, type RadarDataSeries, SERIES_COLORS } from "./MetricRadarChart";
-import { formatMetricDisplayName } from "@/lib/athlete-tracking/displayNames";
+import { formatMetricDisplayName, formatValueWithUnit } from "@/lib/athlete-tracking/displayNames";
 
 type AthleteItem = {
   athlete_uuid: string;
@@ -19,6 +19,10 @@ type MetricWithPercentile = {
   orientation: string | null;
   percentile: number | null;
   max?: number | null;
+  mobilityMetricKind?: "GROUP" | "COMPONENT";
+  mobilityGroup?: string;
+  mobilityDisplayLabel?: string;
+  mobilityOutOf?: number | null;
 };
 
 type DomainWithMetrics = {
@@ -43,8 +47,32 @@ type AthleteTrackingReport = {
   domains: DomainWithMetrics[];
 };
 
+/** Pitching radar shows only these category|name pairs; table still shows all metrics. */
+const PITCHING_RADAR_ALLOWLIST = new Set([
+  "HIP_SHOULDER_SEPARATION|MAX_ER",
+  "ABDUCTION|FOOT_PLANT",
+  "SUBJECT_METRICS|SCORE",
+  "TRACKMAN_METRICS|VELOCITY",
+  "KINEMATIC_SEQUENCE|PELVIS",
+  "KINEMATIC_SEQUENCE|TORSO",
+  "KINEMATIC_SEQUENCE|ARM",
+  "KINEMATIC_SEQUENCE|HAND",
+  "GRF|MID_POINT",
+]);
+
+const HITTING_RADAR_ALLOWLIST = new Set([
+  "PROCESSED|Max_Bat_Ang_Vel",
+  "PROCESSED|Max_Pelvis_Ang_Vel",
+  "PROCESSED|Max_Thorax_Ang_Vel",
+  "PROCESSED|Max_Lead_Hand_Ang_Vel",
+  "PROCESSED|Max_Lead_Forearm_Ang_Vel",
+  "PROCESSED|Pelvis_Shoulders_Separation@Lead_Foot_Down",
+  "PROCESSED|Max_RPV_CGPos_VLab_Linear_Vel",
+  "PROCESSED|Max_RTA_CGPos_VLab_Linear_Vel",
+]);
+
 /** One point per unique metric; value is percentile or normalized (value/max*100) for mobility categories. */
-function metricsToRadarData(metrics: MetricWithPercentile[]): RadarMetric[] {
+function metricsToRadarData(metrics: MetricWithPercentile[], domainId?: string): RadarMetric[] {
   const seen = new Set<string>();
   const out: RadarMetric[] = [];
   for (const m of metrics) {
@@ -60,12 +88,13 @@ function metricsToRadarData(metrics: MetricWithPercentile[]): RadarMetric[] {
     const uniqueKey = `${m.category} – ${m.name}`;
     if (seen.has(uniqueKey)) continue;
     seen.add(uniqueKey);
-    const shortLabel = uniqueKey.length > 16 ? uniqueKey.slice(0, 14) + "…" : uniqueKey;
+    const displayName = formatMetricDisplayName(m.name, m.category, domainId);
+    const shortLabel = displayName.length > 16 ? displayName.slice(0, 14) + "…" : displayName;
     out.push({
       subject: shortLabel,
       value: chartValue,
       fullMark: 100,
-      displayValue: `${formatMetricDisplayName(m.name, m.category)}: ${displaySuffix}`,
+      displayValue: `${displayName}: ${displaySuffix}`,
     });
   }
   return out;
@@ -74,12 +103,12 @@ function metricsToRadarData(metrics: MetricWithPercentile[]): RadarMetric[] {
 /** Top 5 highest and top 5 lowest percentiles across all domains (for Highlights vs Lowlights). */
 function getHighlightsAndLowlights(
   domains: DomainWithMetrics[]
-): { highlights: Array<{ domainLabel: string; metric: MetricWithPercentile }>; lowlights: Array<{ domainLabel: string; metric: MetricWithPercentile }> } {
-  const withPct: Array<{ domainLabel: string; metric: MetricWithPercentile }> = [];
+): { highlights: Array<{ domainLabel: string; domainId: string; metric: MetricWithPercentile }>; lowlights: Array<{ domainLabel: string; domainId: string; metric: MetricWithPercentile }> } {
+  const withPct: Array<{ domainLabel: string; domainId: string; metric: MetricWithPercentile }> = [];
   for (const d of domains) {
     for (const m of d.metrics) {
       if (m.percentile != null && Number.isFinite(m.percentile)) {
-        withPct.push({ domainLabel: d.label, metric: m });
+        withPct.push({ domainLabel: d.label, domainId: d.domainId, metric: m });
       }
     }
   }
@@ -89,6 +118,496 @@ function getHighlightsAndLowlights(
   const lowlights = sorted.slice(0, 5);
   const highlights = sorted.slice(-5).reverse();
   return { highlights, lowlights };
+}
+
+function formatMetricValueParts(m: MetricWithPercentile): { valuePart: string; unitPart: string } {
+  if (
+    (m.category === "ABDUCTION_PROGRESS" || m.category === "HIP_SHOULDER_PROGRESS") &&
+    m.name === "GAIN_OR_LOSS"
+  ) {
+    if (m.value === 1) return { valuePart: "GAIN", unitPart: "" };
+    if (m.value === -1) return { valuePart: "LOSS", unitPart: "" };
+    if (m.value === 0) return { valuePart: "NO_CHANGE", unitPart: "" };
+    return { valuePart: "—", unitPart: "" };
+  }
+  return formatValueWithUnit(m.value, m.valueUnit, m.max);
+}
+
+function getPercentileStyle(percentile: number | null | undefined) {
+  if (percentile == null || !Number.isFinite(percentile)) return undefined;
+  if (percentile < 25) return { color: "var(--accent-secondary)" };
+  if (percentile > 75) return { color: "#16a34a" };
+  return undefined;
+}
+
+type MobilityGroupTableSection = {
+  group: MetricWithPercentile;
+  components: MetricWithPercentile[];
+};
+
+function buildMobilityGroupSections(metrics: MetricWithPercentile[]): MobilityGroupTableSection[] {
+  const sections: MobilityGroupTableSection[] = [];
+  const byGroup = new Map<string, MobilityGroupTableSection>();
+
+  for (const metric of metrics) {
+    if (metric.mobilityMetricKind === "GROUP") {
+      const section = { group: metric, components: [] as MetricWithPercentile[] };
+      sections.push(section);
+      byGroup.set(metric.mobilityGroup ?? metric.category, section);
+    }
+  }
+
+  for (const metric of metrics) {
+    if (metric.mobilityMetricKind !== "COMPONENT") continue;
+    const key = metric.mobilityGroup ?? metric.category;
+    const section = byGroup.get(key);
+    if (section) section.components.push(metric);
+  }
+
+  // Backward-compatible fallback in case metadata is not present.
+  if (sections.length === 0) {
+    return metrics.map((m) => ({ group: m, components: [] }));
+  }
+  return sections;
+}
+
+function formatMobilityComponentValue(metric: MetricWithPercentile): string {
+  if (metric.value == null || !Number.isFinite(metric.value)) return "—";
+  if (metric.name === "shoulder_ir" || metric.name === "shoulder_er") {
+    return `${Math.round(metric.value)}°`;
+  }
+  if (metric.mobilityOutOf != null && metric.mobilityOutOf > 0) {
+    return `${Math.round(metric.value)}/${metric.mobilityOutOf}`;
+  }
+  return Number(metric.value).toFixed(0);
+}
+
+const MOBILITY_COMPONENT_LABEL_OVERRIDES: Record<string, string> = {
+  shoulder_stability_flexion: "Stability Flexion",
+  shoulder_stability_abduction: "Stability Abduction",
+  shoulder_stability_er_at_0_deg_horiz_abuduction: "Stability ER @ 0° HABD",
+  shoulder_stability_ir_at_0_deg_horiz_abduction: "Stability IR @ 0° HABD",
+  young_stretch_passive: "Young Stretch + Passive",
+  shoulder_total_arc: "Total Arc",
+  back_to_wall_shoulder_flexion: "Back To Wall Flexion",
+  elbow_extension_rom: "Extension ROM",
+  elbow_flexion_rom: "Flexion ROM",
+  elbow_pronation_rom: "Pronation ROM",
+  elbow_supination_rom: "Supination ROM",
+  radial_nerve_glide: "Radial Nerve Glide",
+  ulnar_nerve_glide: "Ulnar Nerve Glide",
+  glute_strength_test_prone_hammy_push: "Glute Strength",
+  prone_hamstring_raise: "Prone Ham Raise",
+  pelvic_tilt_against_wall: "Pelvic Tilt Wall",
+};
+
+function formatMobilityComponentLabel(metric: MetricWithPercentile, domainId: string): string {
+  return (
+    MOBILITY_COMPONENT_LABEL_OVERRIDES[metric.name] ??
+    metric.mobilityDisplayLabel ??
+    formatMetricDisplayName(metric.name, metric.category, domainId)
+  );
+}
+
+function isShoulderRomMetric(metric: MetricWithPercentile): boolean {
+  return metric.name === "shoulder_ir" || metric.name === "shoulder_er";
+}
+
+function scoreOutOfThreeFromPercentile(percentile: number | null | undefined): string {
+  if (percentile == null || !Number.isFinite(percentile)) return "—";
+  if (percentile < 33.34) return "1/3";
+  if (percentile < 66.67) return "2/3";
+  return "3/3";
+}
+
+function scoreOutOfThreeFromPercentileValue(percentile: number | null | undefined): number | null {
+  if (percentile == null || !Number.isFinite(percentile)) return null;
+  if (percentile < 33.34) return 1;
+  if (percentile < 66.67) return 2;
+  return 3;
+}
+
+function getMobilityComponentScoreValue(metric: MetricWithPercentile): number | null {
+  if (metric.value == null || !Number.isFinite(metric.value)) return null;
+  if (isShoulderRomMetric(metric)) {
+    return scoreOutOfThreeFromPercentileValue(metric.percentile);
+  }
+  if (metric.mobilityOutOf != null && metric.mobilityOutOf > 0) {
+    return Math.round(metric.value);
+  }
+  return metric.value;
+}
+
+function getRadarMetricsForDomain(metrics: MetricWithPercentile[], domainId: string): MetricWithPercentile[] {
+  if (domainId === "pitching") {
+    return metrics.filter((m) => PITCHING_RADAR_ALLOWLIST.has(`${m.category}|${m.name}`));
+  }
+  if (domainId === "hitting") {
+    return metrics.filter((m) => HITTING_RADAR_ALLOWLIST.has(`${m.category}|${m.name}`));
+  }
+  // Keep mobility radar at category-level scores only.
+  if (domainId === "mobility") {
+    const sections = buildMobilityGroupSections(metrics);
+    if (sections.length > 0) {
+      return sections.map((section) => {
+        if (section.group.category !== "Shoulder Mobility") return section.group;
+        const derivedScore = section.components.reduce((sum, component) => {
+          const score = getMobilityComponentScoreValue(component);
+          return score == null ? sum : sum + score;
+        }, 0);
+        return {
+          ...section.group,
+          value: derivedScore,
+        };
+      });
+    }
+    return metrics.filter((m) => m.mobilityMetricKind !== "COMPONENT");
+  }
+  return metrics;
+}
+
+type PitchingSectionMetricItem =
+  | { kind: "metric"; key: string; label: string }
+  | { kind: "derived"; derivedId: "MAX_HSS" | "ARM_TIMING_FLAG"; label: string };
+
+type PitchingSection = {
+  id: string;
+  title?: string;
+  description: string;
+  items: PitchingSectionMetricItem[];
+};
+
+type PitchingDisplayCell = {
+  key: string;
+  label: string;
+  valuePart: string;
+  unitPart: string;
+  percentile: number | null;
+};
+
+type HittingSectionMetricItem = { key: string; label: string };
+
+type HittingSection = {
+  id: string;
+  title: string;
+  description: string;
+  items: HittingSectionMetricItem[];
+};
+
+const PITCHING_TABLE_SECTIONS: PitchingSection[] = [
+  {
+    id: "top-basics",
+    description:
+      "The Octane Biomechanics Score is made up of multiple movement variables that are crucial for producing velocity efficiently and safely.",
+    items: [
+      { kind: "metric", key: "SUBJECT_METRICS|SCORE", label: "Octane Biomechanics Score" },
+      { kind: "metric", key: "TRACKMAN_METRICS|VELOCITY", label: "Velo" },
+    ],
+  },
+  {
+    id: "ground-reaction-forces",
+    title: "Ground Reaction Forces",
+    description:
+      "Ground reaction forces follow Newton's 3rd Law: when you push into the ground, the ground pushes back. The more force you can produce at the right time, the more energy you can transfer up the body and into the ball.",
+    items: [
+      { kind: "metric", key: "GRF|MID_POINT", label: "Midpoint" },
+      { kind: "metric", key: "GRF|GRF_MAG_MAX", label: "Magnitude Max" },
+      { kind: "metric", key: "GRF|Z_DIR", label: "Z" },
+      { kind: "metric", key: "GRF|Y_DIR", label: "Y" },
+    ],
+  },
+  {
+    id: "lead-leg",
+    title: "Lead Leg Block",
+    description:
+      "An efficient lead leg block occurs when the front leg is positioned and strong enough to stop forward momentum and redirect force back up the body at ball release. A stronger, more stable block improves energy transfer.",
+    items: [
+      { kind: "metric", key: "FRONT_LEG|EXTENSION", label: "Lead Leg Block" },
+      { kind: "metric", key: "FRONT_LEG|FOOT_PLANT", label: "Knee Flexion @ Footplant" },
+      { kind: "metric", key: "FRONT_LEG|RELEASE", label: "Knee Flexion @ Release" },
+    ],
+  },
+  {
+    id: "pelvis",
+    title: "Pelvis Rotation",
+    description:
+      "The pelvis is a primary driver of velocity. As it rotates toward home plate, it allows the lower half to clear while the upper half stays back. More open at foot contact generally allows better energy transfer up the chain.",
+    items: [
+      { kind: "metric", key: "PELVIS_ROTATION|FOOT_PLANT", label: "Pelvis @ Footplant" },
+      { kind: "metric", key: "PELVIC_OBLIQUITY|TOTAL", label: "Pelvic Obliquity (FP to Release)" },
+    ],
+  },
+  {
+    id: "hip-shoulder-separation",
+    title: "Hip-Shoulder Separation",
+    description:
+      "Hip-shoulder separation occurs when the pelvis rotates toward home while the torso remains closed at and shortly after foot contact. This creates stretch across large trunk muscles, allowing stored elastic energy to transfer into the throw.",
+    items: [
+      { kind: "metric", key: "HIP_SHOULDER_SEPARATION|FOOT_PLANT", label: "HSS @ Footplant" },
+      { kind: "derived", derivedId: "MAX_HSS", label: "Max HSS" },
+      { kind: "metric", key: "HIP_SHOULDER_PROGRESS|GAIN_OR_LOSS", label: "Gain or Loss" },
+      { kind: "metric", key: "HIP_SHOULDER_PROGRESS|AMOUNT_TO_PEAK", label: "Diff FP to Peak" },
+      { kind: "metric", key: "HIP_SHOULDER_PROGRESS|PEAK_AFTER_FOOTSTRIKE_MS", label: "Time to Peak" },
+      { kind: "metric", key: "HIP_SHOULDER_PROGRESS|POST_PEAK_LOSS_RATE", label: "Rate of Loss" },
+    ],
+  },
+  {
+    id: "torso",
+    title: "Torso Position",
+    description:
+      "The torso connects the lower half to the arm. Staying closed at and shortly after foot contact allows energy to transfer efficiently while reducing stress on the shoulder and elbow.",
+    items: [
+      { kind: "metric", key: "TRUNK_POSITION|FOOT_PLANT", label: "Torso @ Footplant" },
+      { kind: "metric", key: "TOTAL_TRUNK_FLEXION|TOTAL", label: "Total Torso Flexion (FP to Release)" },
+      { kind: "metric", key: "LATERAL_TILT|RELEASE", label: "Lateral Tilt @ Release" },
+    ],
+  },
+  {
+    id: "horizontal-abduction",
+    title: "Horizontal Abduction (Scap Load)",
+    description:
+      "Often called \"scap load,\" horizontal abduction allows the arm to properly trail the body down the mound. The key is maintaining sufficient abduction at and shortly after foot contact - this ensures the arm stays synced with the lower half and allows efficient energy transfer. The more scap load maintained through this window, the better.",
+    items: [
+      { kind: "metric", key: "ABDUCTION|FOOT_PLANT", label: "Abduction @ Footplant" },
+      { kind: "metric", key: "ABDUCTION|MAX", label: "Max Abduction" },
+      { kind: "metric", key: "ABDUCTION_PROGRESS|GAIN_OR_LOSS", label: "Gain or Loss" },
+      { kind: "metric", key: "ABDUCTION_PROGRESS|AMOUNT_TO_PEAK", label: "Diff FP to Peak" },
+      { kind: "metric", key: "ABDUCTION_PROGRESS|PEAK_AFTER_FOOTSTRIKE_MS", label: "Time to Peak" },
+      { kind: "metric", key: "ABDUCTION_PROGRESS|POST_PEAK_LOSS_RATE", label: "Rate of Loss" },
+    ],
+  },
+  {
+    id: "shoulder-external-rotation",
+    title: "Shoulder External Rotation",
+    description:
+      "Arm position at foot contact reflects timing. 33-77 degrees = On time; below 33 degrees = Late; above 77 degrees = Early. Being on time allows the arm to sync with the body and reduces stress on the shoulder and elbow. Max external rotation, or layback, reflects mobility and proper sequencing. Ideally >=180 degrees. Adequate layback allows for better velocity while reducing shoulder stress.",
+    items: [
+      { kind: "metric", key: "SHOULDER_ER|FOOT_PLANT", label: "Shoulder ER @ Footplant" },
+      { kind: "derived", derivedId: "ARM_TIMING_FLAG", label: "Arm Timing Flag" },
+      { kind: "metric", key: "SHOULDER_EXTERNAL_ROTATION|MAX", label: "Max External Rotation (Layback)" },
+    ],
+  },
+  {
+    id: "kinematic-sequence",
+    title: "Kinematic Sequence",
+    description:
+      "Kinematic sequence refers to the order and timing of how body segments accelerate during the throw. Ideally, energy flows from the ground -> hips -> torso -> arm -> ball in a smooth, progressive pattern. Proper sequencing maximizes velocity while minimizing stress.",
+    items: [
+      { kind: "metric", key: "KINEMATIC_SEQUENCE|PELVIS", label: "Pelvis Ang Velo" },
+      { kind: "metric", key: "KINEMATIC_SEQUENCE|TORSO", label: "Torso Ang Velo" },
+      { kind: "metric", key: "KINEMATIC_SEQUENCE|ARM", label: "Arm Ang Velo" },
+      { kind: "metric", key: "KINEMATIC_SEQUENCE|HAND", label: "Hand Ang Velo" },
+    ],
+  },
+];
+
+const HITTING_TABLE_SECTIONS: HittingSection[] = [
+  {
+    id: "kinematic-sequence",
+    title: "Kinematic Sequence",
+    description:
+      "Kinematic sequence tracks the order and peak magnitude of segment angular velocities through the swing.",
+    items: [
+      { key: "PROCESSED|Max_Pelvis_Ang_Vel", label: "Pelvis Velo" },
+      { key: "PROCESSED|Max_Thorax_Ang_Vel", label: "Trunk Velo" },
+      { key: "PROCESSED|Max_Lead_Forearm_Ang_Vel", label: "Arm Velo" },
+      { key: "PROCESSED|Max_Lead_Hand_Ang_Vel", label: "Hand Velo" },
+      { key: "PROCESSED|Max_Bat_Ang_Vel", label: "Bat Velo" },
+    ],
+  },
+  {
+    id: "bat-attack-and-distance",
+    title: "Bat Attack Angles",
+    description:
+      "Attack angles and travelled distance describe the path and coverage of the bat through contact.",
+    items: [
+      { key: "PLANE|Horizontal_attack_angle", label: "Horizontal Attack Angle" },
+      { key: "PLANE|Vertical_attack_angle", label: "Vertical Attack Angle" },
+      { key: "PROCESSED|Bat_travelled_distance_max", label: "Bat Travelled Distance" },
+    ],
+  },
+  {
+    id: "bat-contact-angles",
+    title: "Bat Angles @ Contact",
+    description:
+      "Bat orientation at contact captures how the barrel is presented in frontal, sagittal, and transversal planes.",
+    items: [
+      { key: "PLANE|Bat_Angle_Frontal@Contact", label: "Frontal @ Contact" },
+      { key: "PLANE|Bat_Angle_Sagittal@Contact", label: "Sagittal @ Contact" },
+      { key: "PLANE|Bat_Angle_Transversal@Contact", label: "Transversal @ Contact" },
+    ],
+  },
+  {
+    id: "lead-knee-block",
+    title: "Lead Knee Block",
+    description:
+      "Lead-leg extension captures block quality, followed by lead-knee position at foot contact and at ball contact.",
+    items: [
+      { key: "PROCESSED|Lead_Knee_Extension", label: "Lead Knee Extension" },
+      { key: "PROCESSED|Lead_Knee_Angle@Lead_Foot_Down", label: "Lead Knee Angle @ FC" },
+      { key: "PROCESSED|Lead_Knee_Angle@Contact", label: "Lead Knee Angle @ Contact" },
+    ],
+  },
+  {
+    id: "pelvis",
+    title: "Pelvis",
+    description:
+      "Pelvis positioning at lead foot down and contact, plus total pelvis rotation across that window.",
+    items: [
+      { key: "PROCESSED|Pelvis_Angle@Lead_Foot_Down", label: "Pelvis @ Lead Foot Down" },
+      { key: "PROCESSED|Pelvis_Angle@Contact", label: "Pelvis @ Contact" },
+      { key: "PROCESSED|Pelvis_Total_Rotation", label: "Total Pelvis Rotation" },
+    ],
+  },
+  {
+    id: "hip-shoulder-separation",
+    title: "Hip-Shoulder Separation",
+    description:
+      "Separation values across key swing events show how the pelvis and trunk load/unload through the motion.",
+    items: [
+      { key: "PROCESSED|Pelvis_Shoulders_Separation@Setup", label: "Separation @ Setup" },
+      { key: "PROCESSED|Pelvis_Shoulders_Separation@Lead_Foot_Down", label: "Separation @ Lead Foot Down" },
+      { key: "PROCESSED|Pelvis_Shoulders_Separation@Downswing", label: "Separation @ Downswing" },
+      { key: "PROCESSED|Pelvis_Shoulders_Separation@Max_Bat_Ang_Vel", label: "Separation @ Max Bat Velo" },
+      {
+        key: "PROCESSED|Pelvis_Shoulders_Separation@Max_Lead_Hand_Ang_Vel",
+        label: "Separation @ Max Hand Velo",
+      },
+      { key: "PROCESSED|Pelvis_Shoulders_Separation@Contact", label: "Separation @ Contact" },
+    ],
+  },
+  {
+    id: "trunk",
+    title: "Trunk",
+    description:
+      "Trunk positioning at lead foot down and contact, plus total trunk rotation across that window.",
+    items: [
+      { key: "PROCESSED|Trunk_Angle@Lead_Foot_Down", label: "Trunk @ Lead Foot Down" },
+      { key: "PROCESSED|Trunk_Angle@Contact", label: "Trunk @ Contact" },
+      { key: "PROCESSED|Trunk_Total_Rotation", label: "Total Trunk Rotation" },
+    ],
+  },
+  {
+    id: "stride-width",
+    title: "Stride Width",
+    description:
+      "Stride width at lead foot down helps contextualize lower-half positioning and base stability.",
+    items: [
+      { key: "PROCESSED|Stride_Width@Lead_Foot_Down", label: "Stride Width @ Lead Foot Down" },
+    ],
+  },
+];
+
+function getMetricByKey(metrics: MetricWithPercentile[], key: string): MetricWithPercentile | null {
+  for (const metric of metrics) {
+    if (`${metric.category}|${metric.name}` === key) return metric;
+  }
+  return null;
+}
+
+function buildPitchingDisplayCells(
+  metrics: MetricWithPercentile[],
+  items: PitchingSectionMetricItem[]
+): PitchingDisplayCell[] {
+  return items.map((item) => {
+    if (item.kind === "metric") {
+      const metric = getMetricByKey(metrics, item.key);
+      if (!metric) {
+        return {
+          key: item.key,
+          label: item.label,
+          valuePart: "—",
+          unitPart: "",
+          percentile: null,
+        };
+      }
+      if (
+        item.key === "HIP_SHOULDER_PROGRESS|AMOUNT_TO_PEAK" ||
+        item.key === "ABDUCTION_PROGRESS|AMOUNT_TO_PEAK"
+      ) {
+        const gainKey = item.key.startsWith("HIP_SHOULDER_PROGRESS")
+          ? "HIP_SHOULDER_PROGRESS|GAIN_OR_LOSS"
+          : "ABDUCTION_PROGRESS|GAIN_OR_LOSS";
+        const gainMetric = getMetricByKey(metrics, gainKey);
+        if (gainMetric?.value === 0 || gainMetric?.value === -1) {
+          const zero = formatValueWithUnit(0, metric.valueUnit, metric.max);
+          return {
+            key: item.key,
+            label: item.label,
+            valuePart: "0",
+            unitPart: zero.unitPart,
+            percentile: metric.percentile,
+          };
+        }
+      }
+      const { valuePart, unitPart } = formatMetricValueParts(metric);
+      return {
+        key: item.key,
+        label: item.label,
+        valuePart,
+        unitPart,
+        percentile: metric.percentile,
+      };
+    }
+
+    if (item.derivedId === "MAX_HSS") {
+      const footPlant = getMetricByKey(metrics, "HIP_SHOULDER_SEPARATION|FOOT_PLANT")?.value;
+      const amountToPeak = getMetricByKey(metrics, "HIP_SHOULDER_PROGRESS|AMOUNT_TO_PEAK")?.value;
+      const maxHss =
+        footPlant != null && Number.isFinite(footPlant)
+          ? footPlant + Math.max(amountToPeak ?? 0, 0)
+          : null;
+      const { valuePart, unitPart } = formatValueWithUnit(maxHss, "DEGREES");
+      return {
+        key: "DERIVED|MAX_HSS",
+        label: item.label,
+        valuePart,
+        unitPart,
+        percentile: null,
+      };
+    }
+
+    const armTimingSource = getMetricByKey(metrics, "SHOULDER_ER|FOOT_PLANT")?.value;
+    let armTimingFlag = "—";
+    if (armTimingSource != null && Number.isFinite(armTimingSource)) {
+      if (armTimingSource < 33) armTimingFlag = "LATE";
+      else if (armTimingSource > 77) armTimingFlag = "EARLY";
+      else armTimingFlag = "ON_TIME";
+    }
+    return {
+      key: "DERIVED|ARM_TIMING_FLAG",
+      label: item.label,
+      valuePart: armTimingFlag,
+      unitPart: "",
+      percentile: null,
+    };
+  });
+}
+
+function buildHittingDisplayCells(
+  metrics: MetricWithPercentile[],
+  items: HittingSectionMetricItem[]
+): PitchingDisplayCell[] {
+  return items.map((item) => {
+    const metric = getMetricByKey(metrics, item.key);
+    if (!metric) {
+      return {
+        key: item.key,
+        label: item.label,
+        valuePart: "—",
+        unitPart: "",
+        percentile: null,
+      };
+    }
+    const { valuePart, unitPart } = formatMetricValueParts(metric);
+    return {
+      key: item.key,
+      label: item.label,
+      valuePart,
+      unitPart,
+      percentile: metric.percentile,
+    };
+  });
 }
 
 function AthleteTrackingContentInner() {
@@ -108,6 +627,8 @@ function AthleteTrackingContentInner() {
   const [compareReport, setCompareReport] = useState<AthleteTrackingReport | null>(null);
   const [loadingCompare, setLoadingCompare] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
+  const [athleticScreenSubIndex, setAthleticScreenSubIndex] = useState(0);
+  const [expandedMobilityGroups, setExpandedMobilityGroups] = useState<Record<string, boolean>>({});
   const [addAthleteQuery, setAddAthleteQuery] = useState("");
 
   const loadAthletes = useCallback(async () => {
@@ -181,6 +702,13 @@ function AthleteTrackingContentInner() {
   }, [currentUuid, fetchReport]);
 
   useEffect(() => {
+    const domain = report?.domains[pageIndex - 1];
+    if (domain?.domainId === "athleticScreen") {
+      setAthleticScreenSubIndex(0);
+    }
+  }, [report, pageIndex]);
+
+  useEffect(() => {
     if (!compareUuid || compareUuid === currentUuid) {
       setCompareReport(null);
       return;
@@ -214,7 +742,7 @@ function AthleteTrackingContentInner() {
   const { highlights, lowlights } =
     report && report.domains.length > 0
       ? getHighlightsAndLowlights(report.domains)
-      : { highlights: [] as Array<{ domainLabel: string; metric: MetricWithPercentile }>, lowlights: [] as Array<{ domainLabel: string; metric: MetricWithPercentile }> };
+      : { highlights: [] as Array<{ domainLabel: string; domainId: string; metric: MetricWithPercentile }>, lowlights: [] as Array<{ domainLabel: string; domainId: string; metric: MetricWithPercentile }> };
 
   return (
     <div>
@@ -431,10 +959,10 @@ function AthleteTrackingContentInner() {
                       <div>
                         <h4 style={{ margin: "0 0 0.5rem", fontSize: "0.9rem", color: "var(--accent)" }}>Highlights</h4>
                         <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
-                          {highlights.map(({ domainLabel, metric }, i) => (
+                          {highlights.map(({ domainLabel, domainId, metric }, i) => (
                             <li key={`high-${i}-${domainLabel}-${metric.name}`} style={{ marginBottom: "0.35rem" }}>
-                              {formatMetricDisplayName(metric.name, metric.category)} <span className="text-muted">({domainLabel})</span>{" "}
-                              <span className="text-accent">{Math.round(metric.percentile ?? 0)}th %ile</span>
+                              {formatMetricDisplayName(metric.name, metric.category, domainId)} <span className="text-muted">({domainLabel})</span>{" "}
+                          <span style={getPercentileStyle(metric.percentile)}>{Math.round(metric.percentile ?? 0)}th %ile</span>
                             </li>
                           ))}
                         </ul>
@@ -442,10 +970,10 @@ function AthleteTrackingContentInner() {
                       <div>
                         <h4 style={{ margin: "0 0 0.5rem", fontSize: "0.9rem", color: "var(--accent-secondary)" }}>Lowlights</h4>
                         <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
-                          {lowlights.map(({ domainLabel, metric }, i) => (
+                          {lowlights.map(({ domainLabel, domainId, metric }, i) => (
                             <li key={`low-${i}-${domainLabel}-${metric.name}`} style={{ marginBottom: "0.35rem" }}>
-                              {formatMetricDisplayName(metric.name, metric.category)} <span className="text-muted">({domainLabel})</span>{" "}
-                              <span className="text-danger">{Math.round(metric.percentile ?? 0)}th %ile</span>
+                              {formatMetricDisplayName(metric.name, metric.category, domainId)} <span className="text-muted">({domainLabel})</span>{" "}
+                          <span style={getPercentileStyle(metric.percentile)}>{Math.round(metric.percentile ?? 0)}th %ile</span>
                             </li>
                           ))}
                         </ul>
@@ -458,13 +986,283 @@ function AthleteTrackingContentInner() {
               {pageIndex >= 1 && report.domains[pageIndex - 1] && (() => {
                 const domain = report.domains[pageIndex - 1]!;
                 const compareDomain = compareReport?.domains.find((d) => d.domainId === domain.domainId);
+
+                if (domain.domainId === "athleticScreen") {
+                  const ATHLETIC_SCREEN_MOVEMENT_ORDER = ["DJ", "PPU", "CMJ", "SLV"] as const;
+                  const ATHLETIC_SCREEN_VARIABLE_ORDER = [
+                    "JH",
+                    "PP",
+                    "Work (AUC)",
+                    "Kurtosis",
+                    "Max RPD",
+                    "Time to Max RPD",
+                    "RSI",
+                    "CT",
+                  ] as const;
+                  const ATHLETIC_SCREEN_VARIABLE_DESCRIPTIONS: Record<string, string> = {
+                    JH: "Jump height; higher generally indicates better explosive output.",
+                    PP: "Peak power; maximum power generated during the movement.",
+                    "Work (AUC)": "Total work over the force-time curve.",
+                    Kurtosis: "Shape descriptor of force-time distribution.",
+                    "Max RPD": "Maximum rate of power development.",
+                    "Time to Max RPD": "Time required to reach max RPD.",
+                    RSI: "Reactive Strength Index; jump outcome relative to contact efficiency.",
+                    CT: "Contact time during the drop jump.",
+                  };
+                  const ATHLETIC_SCREEN_TABLE_CATEGORY_ORDER = [
+                    "DJ",
+                    "CMJ",
+                    "PPU",
+                    "SLV_Left",
+                    "SLV_Right",
+                  ] as const;
+                  const ATHLETIC_SCREEN_CATEGORY_LABELS: Record<string, string> = {
+                    CMJ: "CMJ",
+                    DJ: "DJ",
+                    PPU: "PPU",
+                    SLV_Left: "SLV Left",
+                    SLV_Right: "SLV Right",
+                  };
+                  const movements = ATHLETIC_SCREEN_MOVEMENT_ORDER.filter((mov) =>
+                    domain.metrics.some(
+                      (m) => m.category === mov || (mov === "SLV" && m.category.startsWith("SLV_"))
+                    )
+                  );
+                  const currentMovement = movements[athleticScreenSubIndex] ?? movements[0];
+                  const currentMovementIndex = Math.max(0, movements.indexOf(currentMovement));
+                  const isSlv = currentMovement === "SLV";
+                  const movementMetrics = isSlv
+                    ? domain.metrics.filter((m) => m.category.startsWith("SLV_"))
+                    : domain.metrics.filter((m) => m.category === currentMovement);
+                  const slvLeft = movementMetrics.filter((m) => m.category === "SLV_Left");
+                  const slvRight = movementMetrics.filter((m) => m.category === "SLV_Right");
+                  const metricByCategoryAndName = new Map<string, MetricWithPercentile>();
+                  for (const metric of domain.metrics) {
+                    metricByCategoryAndName.set(`${metric.category}|${metric.name}`, metric);
+                  }
+
+                  return (
+                    <>
+                      <div style={{ textAlign: "center", marginBottom: "0.4rem" }}>
+                        <div style={{ fontSize: "0.98rem", fontWeight: 600 }}>{currentMovement}</div>
+                        <div className="text-muted" style={{ fontSize: "0.78rem" }}>
+                          {movements.length > 0 ? `${currentMovementIndex + 1}/${movements.length}` : "0/0"}
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "auto minmax(0, 1fr) auto",
+                          alignItems: "center",
+                          gap: "0.6rem",
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        <button
+                          type="button"
+                          className="btn-ghost"
+                          style={{ padding: "10px 12px", minWidth: 44, fontSize: "1.05rem", fontWeight: 700 }}
+                          onClick={() =>
+                            setAthleticScreenSubIndex((prev) =>
+                              movements.length === 0
+                                ? 0
+                                : (prev - 1 + movements.length) % movements.length
+                            )
+                          }
+                          disabled={movements.length <= 1}
+                          aria-label="Previous movement"
+                        >
+                          ←
+                        </button>
+                        {isSlv ? (
+                          <MetricRadarChart
+                            title={`SLV${domain.sessionDate ? ` (${domain.sessionDate})` : ""} – percentiles`}
+                            dataSeries={[
+                              {
+                                name: "SLV Left",
+                                data: metricsToRadarData(slvLeft, domain.domainId),
+                                color: SERIES_COLORS[0]!,
+                              },
+                              {
+                                name: "SLV Right",
+                                data: metricsToRadarData(slvRight, domain.domainId),
+                                color: "#ef4444",
+                              },
+                            ]}
+                          />
+                        ) : (
+                          <MetricRadarChart
+                            title={`${currentMovement}${domain.sessionDate ? ` (${domain.sessionDate})` : ""} – percentiles`}
+                            data={metricsToRadarData(movementMetrics, domain.domainId)}
+                          />
+                        )}
+                        <button
+                          type="button"
+                          className="btn-ghost"
+                          style={{ padding: "10px 12px", minWidth: 44, fontSize: "1.05rem", fontWeight: 700 }}
+                          onClick={() =>
+                            setAthleticScreenSubIndex((prev) =>
+                              movements.length === 0
+                                ? 0
+                                : (prev + 1) % movements.length
+                            )
+                          }
+                          disabled={movements.length <= 1}
+                          aria-label="Next movement"
+                        >
+                          →
+                        </button>
+                      </div>
+                      <div className="card">
+                        <h3 style={{ margin: "0 0 0.75rem", fontSize: "1rem" }}>
+                          Metrics{domain.sessionDate ? ` · ${domain.sessionDate}` : ""}
+                        </h3>
+                        <table style={{ borderCollapse: "collapse" }}>
+                          <thead>
+                            <tr>
+                              <th>Variable</th>
+                              <th>CMJ</th>
+                              <th>DJ</th>
+                              <th>PPU</th>
+                              <th>SLV Left</th>
+                              <th>SLV Right</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {ATHLETIC_SCREEN_VARIABLE_ORDER.map((variableName, variableIdx) => {
+                              const hasAny = ATHLETIC_SCREEN_TABLE_CATEGORY_ORDER.some((category) =>
+                                metricByCategoryAndName.has(`${category}|${variableName}`)
+                              );
+                              if (!hasAny) return null;
+
+                              return (
+                                <Fragment key={`athletic-var-${variableName}`}>
+                                  {variableIdx > 0 ? (
+                                    <tr>
+                                      <td colSpan={6} style={{ padding: "0.45rem 0 0.35rem", borderBottom: "none" }}>
+                                        <div style={{ borderTop: "1px solid var(--border)" }} />
+                                      </td>
+                                    </tr>
+                                  ) : null}
+                                  <tr>
+                                    <td style={{ borderBottom: "none", padding: "0.2rem 0.35rem 0.55rem 0" }}>
+                                      <div style={{ fontWeight: 600, marginBottom: "0.2rem" }}>{variableName}</div>
+                                      <div className="text-muted" style={{ fontSize: "0.8rem" }}>
+                                        {ATHLETIC_SCREEN_VARIABLE_DESCRIPTIONS[variableName]}
+                                      </div>
+                                    </td>
+                                    {ATHLETIC_SCREEN_TABLE_CATEGORY_ORDER.map((category) => {
+                                      const metric = metricByCategoryAndName.get(`${category}|${variableName}`) ?? null;
+                                      return (
+                                        <td key={`athletic-cell-${variableName}-${category}`} style={{ verticalAlign: "top" }}>
+                                          {metric ? (
+                                            <>
+                                              <div>
+                                                {(() => {
+                                                  const { valuePart, unitPart } = formatMetricValueParts(metric);
+                                                  return valuePart === "—" ? "" : (<><strong>{valuePart}</strong>{unitPart}</>);
+                                                })()}
+                                              </div>
+                                              <div
+                                                className={metric.percentile == null ? "text-muted" : undefined}
+                                                style={{
+                                                  marginTop: "0.2rem",
+                                                  fontSize: "0.78rem",
+                                                  ...(metric.percentile != null ? (getPercentileStyle(metric.percentile) ?? {}) : {}),
+                                                }}
+                                              >
+                                                {metric.percentile != null ? `${Math.round(metric.percentile)}th %ile` : ""}
+                                              </div>
+                                            </>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </td>
+                                      );
+                                    })}
+                                  </tr>
+                                </Fragment>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </>
+                  );
+                }
+
+                if (domain.domainId === "proteus") {
+                  const PROTEUS_HIGH = ["Power_high", "Velocity_high", "Acceleration_high"];
+                  const PROTEUS_MEAN = ["Power_mean", "Velocity_mean", "Acceleration_mean"];
+                  const movements = Array.from(new Set(domain.metrics.map((m) => m.category)));
+                  return (
+                    <>
+                      {movements.map((movement) => {
+                        const movementMetrics = domain.metrics.filter((m) => m.category === movement);
+                        const highMetrics = movementMetrics.filter((m) => PROTEUS_HIGH.includes(m.name));
+                        const meanMetrics = movementMetrics.filter((m) => PROTEUS_MEAN.includes(m.name));
+                        const highData = metricsToRadarData(highMetrics, domain.domainId);
+                        const meanData = metricsToRadarData(meanMetrics, domain.domainId);
+                        return (
+                          <div key={movement} style={{ marginBottom: "2rem" }}>
+                            <h3 style={{ margin: "0 0 1rem", fontSize: "1rem" }}>
+                              {movement}{domain.sessionDate ? ` · ${domain.sessionDate}` : ""}
+                            </h3>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                              <MetricRadarChart title="High" data={highData} />
+                              <MetricRadarChart title="Mean" data={meanData} />
+                            </div>
+                            <div className="card">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                    <th>Percentile</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {movementMetrics.map((m, i) => (
+                                    <tr key={`${domain.domainId}-${movement}-${i}-${m.name}`}>
+                                      <td>{formatMetricDisplayName(m.name, m.category, domain.domainId)}</td>
+                                      <td>
+                                        {(() => {
+                                          const { valuePart, unitPart } = formatMetricValueParts(m);
+                                          return valuePart === "—" ? "—" : (<><strong>{valuePart}</strong>{unitPart}</>);
+                                        })()}
+                                      </td>
+                                      <td>
+                                        {m.percentile != null ? (
+                                          <span style={getPercentileStyle(m.percentile)}>
+                                            {Math.round(m.percentile)}th %ile
+                                          </span>
+                                        ) : (
+                                          "—"
+                                        )}
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </>
+                  );
+                }
+
+                const radarMetrics = getRadarMetricsForDomain(domain.metrics, domain.domainId);
+                const compareRadarMetrics = compareDomain
+                  ? getRadarMetricsForDomain(compareDomain.metrics, domain.domainId)
+                  : undefined;
                 const series: RadarDataSeries[] = [
-                  { name: report.athlete.name, data: metricsToRadarData(domain.metrics), color: SERIES_COLORS[0]! },
+                  { name: report.athlete.name, data: metricsToRadarData(radarMetrics, domain.domainId), color: SERIES_COLORS[0]! },
                 ];
                 if (compareDomain && compareReport) {
                   series.push({
                     name: compareReport.athlete.name,
-                    data: metricsToRadarData(compareDomain.metrics),
+                    data: metricsToRadarData(compareRadarMetrics ?? [], domain.domainId),
                     color: SERIES_COLORS[1]!,
                   });
                 }
@@ -481,43 +1279,356 @@ function AthleteTrackingContentInner() {
                       dataSeries={series.length > 1 ? series : undefined}
                     />
                   </div>
-                  <div className="card">
-                    <h3 style={{ margin: "0 0 0.75rem", fontSize: "1rem" }}>
-                      Metrics{domain.sessionDate ? ` · ${domain.sessionDate}` : ""}
-                    </h3>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Metric</th>
-                          <th>Value</th>
-                          <th>Percentile</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {report.domains[pageIndex - 1]!.metrics.map((m, i) => (
-                          <tr key={`${report.domains[pageIndex - 1]!.domainId}-${i}-${m.category}-${m.name}`}>
-                            <td>{formatMetricDisplayName(m.name, m.category)}</td>
-                            <td>
-                              {m.value != null
-                                ? m.max != null
-                                  ? `${Number(m.value).toFixed(0)} / ${m.max}`
-                                  : `${Number(m.value).toFixed(2)} ${m.valueUnit}`
-                                : "—"}
-                            </td>
-                            <td>
-                              {m.percentile != null ? (
-                                <span className={m.percentile < 25 ? "text-danger" : ""}>
-                                  {Math.round(m.percentile)}th %ile
-                                </span>
-                              ) : (
-                                "—"
-                              )}
+                  {domain.domainId === "pitching" ? (
+                    <>
+                      {PITCHING_TABLE_SECTIONS.map((section) => {
+                        const cells = buildPitchingDisplayCells(domain.metrics, section.items);
+                        return (
+                          <div key={section.id} className="card" style={{ marginBottom: "1rem" }}>
+                            {section.title ? (
+                              <h3 style={{ margin: "0 0 0.35rem", fontSize: "1rem" }}>{section.title}</h3>
+                            ) : null}
+                            <p
+                              className="text-muted"
+                              style={{
+                                margin: section.title ? "0 0 0.75rem" : "0 0 0.75rem",
+                                fontSize: "0.82rem",
+                                lineHeight: 1.45,
+                              }}
+                            >
+                              {section.description}
+                            </p>
+                            <table>
+                              <thead>
+                                <tr>
+                                  {cells.map((cell) => (
+                                    <th key={`${section.id}-${cell.key}`}>{cell.label}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  {cells.map((cell) => (
+                                    <td key={`${section.id}-${cell.key}-value`}>
+                                      {cell.valuePart === "—" ? "—" : (
+                                        <>
+                                          <strong
+                                            style={
+                                              cell.key.endsWith("|GAIN_OR_LOSS")
+                                                ? cell.valuePart === "GAIN"
+                                                  ? { color: "#16a34a" }
+                                                  : cell.valuePart === "LOSS"
+                                                    ? { color: "var(--accent-secondary)" }
+                                                    : undefined
+                                                : cell.key === "DERIVED|ARM_TIMING_FLAG"
+                                                  ? cell.valuePart === "ON_TIME"
+                                                    ? { color: "#16a34a" }
+                                                    : cell.valuePart === "EARLY" || cell.valuePart === "LATE"
+                                                      ? { color: "var(--accent-secondary)" }
+                                                      : undefined
+                                                  : undefined
+                                            }
+                                          >
+                                            {cell.valuePart}
+                                          </strong>
+                                          {cell.unitPart}
+                                        </>
+                                      )}
+                                      <div
+                                        className={cell.percentile == null ? "text-muted" : undefined}
+                                        style={{
+                                          marginTop: "0.2rem",
+                                          fontSize: "0.78rem",
+                                          ...(cell.percentile != null ? (getPercentileStyle(cell.percentile) ?? {}) : {}),
+                                        }}
+                                      >
+                                        {cell.percentile != null ? `${Math.round(cell.percentile)}th %ile` : "—"}
+                                      </div>
+                                    </td>
+                                  ))}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : domain.domainId === "hitting" ? (
+                    <>
+                      {HITTING_TABLE_SECTIONS.map((section) => {
+                        const cells = buildHittingDisplayCells(domain.metrics, section.items);
+                        return (
+                          <div key={section.id} className="card" style={{ marginBottom: "1rem" }}>
+                            <h3 style={{ margin: "0 0 0.35rem", fontSize: "1rem" }}>{section.title}</h3>
+                            <p
+                              className="text-muted"
+                              style={{
+                                margin: "0 0 0.75rem",
+                                fontSize: "0.82rem",
+                                lineHeight: 1.45,
+                              }}
+                            >
+                              {section.description}
+                            </p>
+                            <table>
+                              <thead>
+                                <tr>
+                                  {cells.map((cell) => (
+                                    <th key={`${section.id}-${cell.key}`}>{cell.label}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  {cells.map((cell) => (
+                                    <td key={`${section.id}-${cell.key}-value`}>
+                                      {cell.valuePart === "—" ? "—" : (
+                                        <>
+                                          <strong>{cell.valuePart}</strong>
+                                          {cell.unitPart}
+                                        </>
+                                      )}
+                                      <div
+                                        className={cell.percentile == null ? "text-muted" : undefined}
+                                        style={{
+                                          marginTop: "0.2rem",
+                                          fontSize: "0.78rem",
+                                          ...(cell.percentile != null ? (getPercentileStyle(cell.percentile) ?? {}) : {}),
+                                        }}
+                                      >
+                                        {cell.percentile != null ? `${Math.round(cell.percentile)}th %ile` : "—"}
+                                      </div>
+                                    </td>
+                                  ))}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : domain.domainId === "mobility" ? (
+                    <div className="card">
+                      <table style={{ borderCollapse: "collapse" }}>
+                        <tbody>
+                          {domain.sessionDate ? (
+                            <tr>
+                              <td
+                                colSpan={3}
+                                className="text-muted"
+                                style={{ fontSize: "0.82rem", padding: "0.35rem 0 1.6rem", borderBottom: "none" }}
+                              >
+                                Session Date: {domain.sessionDate}
+                              </td>
+                            </tr>
+                          ) : null}
+                          {buildMobilityGroupSections(domain.metrics).map((section, idx) => {
+                            const derivedScoreValue =
+                              section.group.category === "Shoulder Mobility"
+                                ? section.components.reduce((sum, component) => {
+                                    const score = getMobilityComponentScoreValue(component);
+                                    return score == null ? sum : sum + score;
+                                  }, 0)
+                                : null;
+                            const scoreValue =
+                              derivedScoreValue != null
+                                ? derivedScoreValue
+                                : section.group.value != null && Number.isFinite(section.group.value)
+                                  ? Math.round(section.group.value)
+                                  : null;
+                            const scoreText =
+                              scoreValue != null
+                                ? section.group.max != null && section.group.max > 0
+                                  ? `${scoreValue}/${section.group.max}`
+                                  : `${scoreValue}`
+                                : "—";
+                            const percentText =
+                              scoreValue != null && section.group.max != null && section.group.max > 0
+                                ? `${Math.round((scoreValue / section.group.max) * 100)}%`
+                                : section.group.category === "Grip Strength" &&
+                                    section.group.percentile != null &&
+                                    Number.isFinite(section.group.percentile)
+                                  ? `${Math.round(section.group.percentile)}th %ile`
+                                  : "—";
+                            const isGripStrength = section.group.category === "Grip Strength";
+                            const isExpanded = Boolean(expandedMobilityGroups[section.group.category]);
+                            return (
+                              <Fragment key={`mobility-group-${section.group.category}`}>
+                                <tr>
+                                  <td colSpan={3} style={{ padding: idx === 0 ? "0 0 0.55rem" : "0.9rem 0 0.55rem", borderBottom: "none" }}>
+                                    <div style={{ borderTop: "1px solid var(--border)" }} />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td
+                                    style={{
+                                      fontSize: "1.08rem",
+                                      fontWeight: 700,
+                                      padding: "0.55rem 2.5rem 0.4rem 2.5rem",
+                                      borderBottom: "none",
+                                    }}
+                                  >
+                                    <div style={{ display: "inline-flex", alignItems: "center", gap: "0.55rem" }}>
+                                      <span>{section.group.mobilityDisplayLabel ?? section.group.category}</span>
+                                      {section.components.length > 0 ? (
+                                        <button
+                                          type="button"
+                                          className="btn-ghost"
+                                          style={{ fontSize: "0.72rem", padding: "2px 8px", lineHeight: 1.2 }}
+                                          onClick={() =>
+                                            setExpandedMobilityGroups((prev) => ({
+                                              ...prev,
+                                              [section.group.category]: !prev[section.group.category],
+                                            }))
+                                          }
+                                        >
+                                          {isExpanded ? "Hide details" : "Show details"}
+                                        </button>
+                                      ) : null}
+                                    </div>
+                                  </td>
+                                  <td
+                                    style={{
+                                      textAlign: "center",
+                                      fontSize: "1.08rem",
+                                      fontWeight: 700,
+                                      whiteSpace: "nowrap",
+                                      padding: "0.55rem 2.5rem 0.4rem",
+                                      borderBottom: "none",
+                                    }}
+                                  >
+                                    {scoreText}
+                                  </td>
+                                  <td
+                                    style={{
+                                      textAlign: "right",
+                                      fontSize: "1.08rem",
+                                      fontWeight: 700,
+                                      whiteSpace: "nowrap",
+                                      padding: "0.55rem 2.5rem 0.4rem",
+                                      borderBottom: "none",
+                                    }}
+                                  >
+                                    {percentText}
+                                  </td>
+                                </tr>
+                                {section.components.length > 0 && isExpanded ? (
+                                  <tr>
+                                    <td colSpan={3} style={{ padding: "0.15rem 0 0.95rem", borderBottom: "none" }}>
+                                      <div
+                                        style={{
+                                          display: "grid",
+                                          gridTemplateColumns: "repeat(auto-fit, minmax(165px, 1fr))",
+                                          columnGap: "0.75rem",
+                                          rowGap: "0.55rem",
+                                          width: "100%",
+                                        }}
+                                      >
+                                        {section.components.map((component) => (
+                                          isShoulderRomMetric(component) ? (
+                                            <div
+                                              key={`mobility-comp-${section.group.category}-${component.name}`}
+                                              style={{
+                                                whiteSpace: "nowrap",
+                                                border: "1px solid var(--border)",
+                                                borderRadius: 999,
+                                                background: "var(--bg-tertiary)",
+                                                padding: "6px 10px",
+                                                display: "grid",
+                                                gridTemplateColumns: "1fr auto auto",
+                                                alignItems: "center",
+                                                gap: "0.6rem",
+                                              }}
+                                            >
+                                              <span style={{ marginRight: "0.3rem", color: "var(--text-secondary)", fontSize: "0.84rem" }}>
+                                                {formatMobilityComponentLabel(component, domain.domainId)}
+                                              </span>
+                                              <strong style={{ fontSize: "0.9rem", justifySelf: "center" }}>
+                                                {formatMobilityComponentValue(component)}
+                                              </strong>
+                                              <strong style={{ fontSize: "0.82rem" }}>
+                                                {scoreOutOfThreeFromPercentile(component.percentile)}
+                                              </strong>
+                                            </div>
+                                          ) : (
+                                            <div
+                                              key={`mobility-comp-${section.group.category}-${component.name}`}
+                                              style={{
+                                                whiteSpace: "nowrap",
+                                                border: "1px solid var(--border)",
+                                                borderRadius: 999,
+                                                background: "var(--bg-tertiary)",
+                                                padding: "6px 10px",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "space-between",
+                                                gap: "0.6rem",
+                                              }}
+                                            >
+                                              <span style={{ marginRight: "0.3rem", color: "var(--text-secondary)", fontSize: "0.84rem" }}>
+                                                {formatMobilityComponentLabel(component, domain.domainId)}
+                                              </span>
+                                              <strong style={{ fontSize: "0.9rem" }}>
+                                                {isGripStrength
+                                                  ? formatMobilityComponentValue({ ...component, mobilityOutOf: null })
+                                                  : formatMobilityComponentValue(component)}
+                                              </strong>
+                                            </div>
+                                          )
+                                        ))}
+                                      </div>
+                                    </td>
+                                  </tr>
+                                ) : null}
+                              </Fragment>
+                            );
+                          })}
+                          <tr>
+                            <td colSpan={3} style={{ padding: "0.35rem 0 0", borderBottom: "none" }}>
+                              <div style={{ borderTop: "1px solid var(--border)" }} />
                             </td>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="card">
+                      <h3 style={{ margin: "0 0 0.75rem", fontSize: "1rem" }}>
+                        Metrics{domain.sessionDate ? ` · ${domain.sessionDate}` : ""}
+                      </h3>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                            <th>Percentile</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {report.domains[pageIndex - 1]!.metrics.map((m, i) => (
+                            <tr key={`${report.domains[pageIndex - 1]!.domainId}-${i}-${m.category}-${m.name}`}>
+                              <td>{formatMetricDisplayName(m.name, m.category, domain.domainId)}</td>
+                              <td>
+                                {(() => {
+                                  const { valuePart, unitPart } = formatMetricValueParts(m);
+                                  return valuePart === "—" ? "—" : (<><strong>{valuePart}</strong>{unitPart}</>);
+                                })()}
+                              </td>
+                              <td>
+                                {m.percentile != null ? (
+                                  <span style={getPercentileStyle(m.percentile)}>
+                                    {Math.round(m.percentile)}th %ile
+                                  </span>
+                                ) : (
+                                  "—"
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </>
                 );
               })()}

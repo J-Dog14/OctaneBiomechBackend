@@ -75,6 +75,7 @@ export async function lookupOctaneUserByEmail(
   const url = `${baseUrl.replace(/\/$/, "")}/api/external/users/by-email?email=${encodeURIComponent(email)}`;
   const headers: Record<string, string> = {};
   if (apiKey) {
+    // Use key as-is; avoid double-encoding (e.g. .env should have literal "=" not "%3D")
     headers.Authorization = `Bearer ${apiKey}`;
   }
 

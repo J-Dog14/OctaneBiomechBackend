@@ -50,14 +50,19 @@ export async function buildAthleteReportPayload(
 
   const [
     armAction,
-    athleticScreen,
+    athleticScreenLegacy,
     mobility,
     proSup,
     proteus,
     readinessScreen,
+    pitchingTrials,
     kinematicsPitching,
     kinematicsHitting,
     curveballTest,
+    athleticScreenCmj,
+    athleticScreenDj,
+    athleticScreenPpu,
+    athleticScreenSlv,
   ] = await Promise.all([
     prisma.f_arm_action.count({ where: { athlete_uuid: athleteUuid } }),
     prisma.f_athletic_screen.count({ where: { athlete_uuid: athleteUuid } }),
@@ -65,10 +70,23 @@ export async function buildAthleteReportPayload(
     prisma.f_pro_sup.count({ where: { athlete_uuid: athleteUuid } }),
     prisma.f_proteus.count({ where: { athlete_uuid: athleteUuid } }),
     prisma.f_readiness_screen.count({ where: { athlete_uuid: athleteUuid } }),
+    prisma.f_pitching_trials.count({ where: { athlete_uuid: athleteUuid } }),
     prisma.f_kinematics_pitching.count({ where: { athlete_uuid: athleteUuid } }),
     prisma.f_kinematics_hitting.count({ where: { athlete_uuid: athleteUuid } }),
     prisma.f_curveball_test.count({ where: { athlete_uuid: athleteUuid } }),
+    prisma.f_athletic_screen_cmj.count({ where: { athlete_uuid: athleteUuid } }),
+    prisma.f_athletic_screen_dj.count({ where: { athlete_uuid: athleteUuid } }),
+    prisma.f_athletic_screen_ppu.count({ where: { athlete_uuid: athleteUuid } }),
+    prisma.f_athletic_screen_slv.count({ where: { athlete_uuid: athleteUuid } }),
   ]);
+
+  const kinematicsPitchingCount = pitchingTrials + kinematicsPitching;
+  const athleticScreen =
+    athleticScreenLegacy +
+    athleticScreenCmj +
+    athleticScreenDj +
+    athleticScreenPpu +
+    athleticScreenSlv;
 
   return {
     generatedAt: new Date().toISOString(),
@@ -89,7 +107,7 @@ export async function buildAthleteReportPayload(
       proSup,
       proteus,
       readinessScreen,
-      kinematicsPitching,
+      kinematicsPitching: kinematicsPitchingCount,
       kinematicsHitting,
       curveballTest,
     },

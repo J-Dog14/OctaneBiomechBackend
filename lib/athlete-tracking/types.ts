@@ -13,6 +13,11 @@ export type MetricWithPercentile = {
   percentile: number | null;
   /** Optional max for display (e.g. mobility category "18 / 21"). */
   max?: number | null;
+  /** Mobility-only metadata for grouped table rendering. */
+  mobilityMetricKind?: "GROUP" | "COMPONENT";
+  mobilityGroup?: string;
+  mobilityDisplayLabel?: string;
+  mobilityOutOf?: number | null;
 };
 
 export type DomainId =
